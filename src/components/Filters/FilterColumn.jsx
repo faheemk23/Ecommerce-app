@@ -1,7 +1,7 @@
-import { Categories } from "./Filters/Categories";
-import { Price } from "./Filters/Price";
-import { Ratings } from "./Filters/Ratings";
-import { Sort } from "./Filters/Sort";
+import { Categories } from "./Categories";
+import { Price } from "./Price";
+import { Ratings } from "./Ratings";
+import { Sort } from "./Sort";
 
 export function FilterColumn(){
     return(<>
