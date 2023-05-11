@@ -1,0 +1,25 @@
+.nav{
+    display: flex;
+    background-color: rgba(0,0,0,0.2);
+    justify-content: space-between;
+    
+}
+
+@media screen and (max-width:768px) {
+    .nav{
+        display: block;
+        background-color: rgba(0,0,0,0.2);
+    }
+
+    .search-bar{
+        width: 100%;
+    }
+
+    .nav-right-part{
+        text-align: right;
+    }
+
+    .nav-logo{
+        text-align: center;
+    }
+}
