@@ -5,7 +5,7 @@ import "./App.css"
 function App() {
   return (
     <div>
-      Ecommerce App + test deplpyment
+      Ecommerce App + test deployment
     </div>
   )
 }
