@@ -1,3 +1,8 @@
+import { Navigation } from "../components/Navigation";
+
 export function Login(){
-    return(<>Login</>)
+    return(<>
+    <Navigation/>
+    Login
+    </>)
 }

@@ -1,3 +1,8 @@
+import { Navigation } from "../components/Navigation";
+
 export function ProductListing(){
-    return(<>ProductListing</>)
+    return(<>
+    <Navigation/>
+    ProductListing
+    </>)
 }

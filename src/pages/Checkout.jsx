@@ -1,3 +1,8 @@
+import { Navigation } from "../components/Navigation";
+
 export function Checkout(){
-    return(<>Checkout</>)
+    return(<>
+    <Navigation/>
+    Checkout
+    </>)
 }

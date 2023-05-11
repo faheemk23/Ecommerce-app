@@ -1,3 +1,8 @@
+import { Navigation } from "../components/Navigation";
+
 export function Wishlist(){
-    return(<>Wishlist</>)
+    return(<>
+    <Navigation/>
+    Wishlist
+    </>)
 }

@@ -1,3 +1,8 @@
+import { Navigation } from "../components/Navigation";
+
 export function ProductDetail(){
-    return(<>ProductDetail</>)
+    return(<>
+    <Navigation/>
+    ProductDetail
+    </>)
 }
