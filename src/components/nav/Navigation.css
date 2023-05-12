@@ -2,12 +2,16 @@
   display: flex;
   background-color: rgba(0, 0, 0, 0.2);
   justify-content: space-between;
+  padding: 1rem;
+  grid-area: nav;
 }
 
 @media screen and (max-width: 768px) {
   .nav {
     display: block;
     background-color: rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    grid-area: nav;
   }
 
   .search-bar {
