@@ -1,19 +1,19 @@
-*{
-    box-sizing: border-box;
+* {
+  box-sizing: border-box;
 }
 
-table{
-    width: 100%;
+table {
+  width: 100%;
 }
 
-th{
-    text-align: left;
+th {
+  text-align: left;
 }
 
-td{
-    text-align: right;
+td {
+  text-align: right;
 }
 
-hr{
-    width: 100%;
+hr {
+  width: 100%;
 }
