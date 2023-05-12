@@ -1,4 +1,3 @@
-import { FilterColumn } from "../components/FilterColumn";
 import { Navigation } from "../components/nav/Navigation";
 
 export function Wishlist() {
@@ -6,7 +5,6 @@ export function Wishlist() {
     <>
       <Navigation />
       Wishlist
-      <FilterColumn />
     </>
   );
 }
