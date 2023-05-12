@@ -1,9 +1,9 @@
 export function Categories() {
-  const categories = ["Men", "Women"];
+  const categoriesList = ["Men", "Women"];
 
   return (
     <div>
-      {categories.map((category) => (
+      {categoriesList.map((category) => (
         <div key={category}>
           <input type="checkbox" name="category-filter" id={category} />
           <label htmlFor={category}>{category}</label>

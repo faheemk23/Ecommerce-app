@@ -11,7 +11,7 @@ export function SignUpCard() {
         </div>
         <div>
           <label htmlFor="password">Password</label>
-          <input type="text" id="" password />
+          <input type="text" id="password" />
         </div>
         <div>
           <input type="checkbox" id="accept-tc" />

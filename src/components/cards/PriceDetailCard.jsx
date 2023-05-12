@@ -17,7 +17,6 @@ export function PriceDetailCard() {
             <th>Delivery Charges</th>
             <td>₹499</td>
           </tr>
-          <hr />
           <tr>
             <th>Total Amount</th>
             <td>₹2499</td>

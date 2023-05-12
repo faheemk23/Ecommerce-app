@@ -3,7 +3,7 @@ export function Ratings() {
   return (
     <div>
       {ratings.map((rating) => (
-        <div>
+        <div key={rating}>
           <input type="radio" name="rating" id={rating} />
           <label htmlFor={rating}>{rating} stars & above</label>
         </div>
