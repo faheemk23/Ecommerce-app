@@ -1,8 +1,10 @@
-import { Navigation } from "../components/Navigation";
+import { SignUpCard } from "../components/cards/SignUpCard";
+import { Navigation } from "../components/nav/Navigation";
 
 export function SignUp(){
     return(<>
-    <Navigation/>
+    <Navigation showBtnLogin/>
     SignUp
+    <SignUpCard/>
     </>)
 }

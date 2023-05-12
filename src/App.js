@@ -3,7 +3,7 @@ import {Routes,Route} from "react-router-dom";
 // import axios from "axios"
 
 import "./App.css"
-import { Home,ProductListing,ProductDetail,Cart, Wishlist, SignUp, Login, Checkout } from './pages/Pages';
+import { Home,ProductListing,ProductDetail,Cart, Wishlist, SignUp, Login, Checkout, Error } from './pages/Pages';
 
 
 function App() {
@@ -18,6 +18,7 @@ function App() {
         <Route path='/signup' element={<SignUp/>} />
         <Route path='/login' element={<Login/>} />
         <Route path='/checkout' element={<Checkout/>} />
+        <Route path='*' element={<Error/>}/>
       </Routes>
     </div>
   )
