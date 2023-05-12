@@ -1,3 +1,7 @@
-export function Error(){
-    return (<><h1>Error! Please input correct URL.</h1></>)
+export function Error() {
+  return (
+    <>
+      <h1>Error! Please input correct URL.</h1>
+    </>
+  );
 }

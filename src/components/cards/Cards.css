@@ -1,13 +1,13 @@
-.original-price{
-    color:rgba(0,0,0,0.55);
-    text-decoration: line-through;
+.original-price {
+  color: rgba(0, 0, 0, 0.55);
+  text-decoration: line-through;
 }
 
-.category-name{
-    background-color: white;
-    text-align: center;
-    position: absolute;
-    top:41%;
-    right: 0;
-    left: 0;
+.category-name {
+  background-color: white;
+  text-align: center;
+  position: absolute;
+  top: 41%;
+  right: 0;
+  left: 0;
 }
