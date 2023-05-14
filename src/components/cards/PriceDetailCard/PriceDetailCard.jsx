@@ -1,3 +1,5 @@
+import "./PriceDetailCard.css";
+
 export function PriceDetailCard() {
   return (
     <div style={{ backgroundColor: "rgba(0,0,0,0.2)", maxWidth: "250px" }}>

@@ -1,12 +1,13 @@
-import { Home } from "./Home";
-import { ProductListing } from "./ProductListing";
-import { ProductDetail } from "./ProductDetail";
-import { Cart } from "./Cart";
-import { Wishlist } from "./Wishlist";
-import { SignUp } from "./SignUp";
-import { Login } from "./Login";
-import { Checkout } from "./Checkout";
-import { Error } from "./Error";
+import { Home } from "./Home/Home";
+import { ProductListing } from "./ProductListing/ProductListing";
+import { ProductDetail } from "./ProductDetail/ProductDetail";
+import { Cart } from "./Cart/Cart";
+import { Wishlist } from "./Wishlist/Wishlist";
+import { SignUp } from "./Signup/SignUp";
+import { Login } from "./Login/Login";
+import { Checkout } from "./Checkout/Checkout";
+import { Error } from "./Error/Error";
+import { MockmanTest } from "./MockmanTest";
 
 export {
   Home,
@@ -18,4 +19,5 @@ export {
   Login,
   Checkout,
   Error,
+  MockmanTest,
 };

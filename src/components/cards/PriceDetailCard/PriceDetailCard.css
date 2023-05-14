@@ -1,0 +1,15 @@
+table {
+  width: 100%;
+}
+
+th {
+  text-align: left;
+}
+
+td {
+  text-align: right;
+}
+
+hr {
+  width: 100%;
+}

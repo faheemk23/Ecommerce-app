@@ -10,6 +10,7 @@ export function NavRightPart({ showBtnLogin }) {
           </button>
         </>
       )}
+      <Link to="/mockman">Mockman</Link>
       <Link to="/wishlist">Wishlist</Link>
       <Link to="/cart">Cart</Link>
     </div>

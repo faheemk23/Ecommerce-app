@@ -1,4 +1,6 @@
-export function CategoryCard() {
+import "./CategoryCard.css";
+
+export function CategoryCard({ categoryName }) {
   return (
     <div
       style={{
@@ -8,7 +10,7 @@ export function CategoryCard() {
       }}
     >
       <img src="https://picsum.photos/200/200" alt="category" />
-      <div className="category-name">Men</div>
+      <div className="category-name">{categoryName}</div>
     </div>
   );
 }

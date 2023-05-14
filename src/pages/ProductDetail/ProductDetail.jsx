@@ -1,4 +1,4 @@
-import { Navigation } from "../components/nav/Navigation";
+import { Navigation } from "../../components/nav/Navigation";
 
 export function ProductDetail() {
   return (
