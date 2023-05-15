@@ -5,7 +5,7 @@ export const CartContext = createContext({ cart: [] });
 
 export default function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
-  const encodedToken = localStorage.getItem("token");
+  const encodedToken = localStorage.getItem("userToken");
 
   const getCartItems = async () => {
     try {
