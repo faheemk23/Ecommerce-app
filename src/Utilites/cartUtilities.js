@@ -1,11 +1,11 @@
 import axios from "axios";
 
 export async function handleBtnAddToCart(product, setCart) {
-  const encodedToken = localStorage.getItem("token");
+  const encodedToken = localStorage.getItem("userToken");
   try {
     const res = await axios.post(
       `/api/user/cart`,
-      { product },
+      { product: { ...product, quantity: 1 } },
       {
         headers: {
           authorization: encodedToken,
@@ -20,7 +20,7 @@ export async function handleBtnAddToCart(product, setCart) {
 }
 
 export async function handleBtnRemoveFromCart(productId, setCart) {
-  const encodedToken = localStorage.getItem("token");
+  const encodedToken = localStorage.getItem("userToken");
   try {
     const res = await axios.delete(`/api/user/cart/${productId}`, {
       headers: {

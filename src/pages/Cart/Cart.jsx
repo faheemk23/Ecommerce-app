@@ -8,6 +8,15 @@ import { CartContext } from "../../contexts/CartContext";
 export function Cart() {
   const { cart } = useContext(CartContext);
 
+  if (cart.length === 0) {
+    return (
+      <>
+        <Navigation />
+        <h1>Cart is empty. Please add some items.</h1>
+      </>
+    );
+  }
+
   return (
     <>
       <Navigation />
@@ -18,7 +27,7 @@ export function Cart() {
             <ProductCard key={product.id} product={product} inCart />
           ))}
         </div>
-        <PriceDetailCard />
+        <PriceDetailCard cart={cart} />
       </div>
     </>
   );
