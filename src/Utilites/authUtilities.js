@@ -5,7 +5,7 @@ export async function signupHandler(userData) {
     try {
       const response = await axios.post(`/api/auth/signup`, userData);
       // saving the encodedToken in the localStorage
-      localStorage.setItem("token", response.data.encodedToken);
+      localStorage.setItem("userToken", response.data.encodedToken);
       alert("signed up successfully");
     } catch (error) {
       console.log(error);
@@ -39,7 +39,7 @@ export async function testUserLoginHandler() {
     try {
       const response = await axios.post(`/api/auth/login`, userData);
       // saving the encodedToken in the localStorage
-      localStorage.setItem("token", response.data.encodedToken);
+      localStorage.setItem("userToken", response.data.encodedToken);
       alert("logged in succesfully");
     } catch (error) {
       console.log(error);
