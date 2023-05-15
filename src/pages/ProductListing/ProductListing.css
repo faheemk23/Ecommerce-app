@@ -1,0 +1,35 @@
+.listing {
+  /* padding: 2rem; */
+  display: grid;
+  grid-template-columns: 20% 40% 40%;
+  grid-template-areas:
+    "nav nav nav"
+    "filters products products";
+}
+
+.filters {
+  grid-area: filters;
+}
+
+@media screen and (max-width: 832px) {
+  .filters {
+    display: none;
+  }
+
+  .listing {
+    /* padding: 2rem; */
+    display: grid;
+    grid-template-columns: 25% 75%;
+    grid-template-areas:
+      " nav nav"
+      " products products";
+  }
+}
+
+.products {
+  grid-area: products;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem;
+}
