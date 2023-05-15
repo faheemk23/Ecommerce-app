@@ -4,7 +4,7 @@ import "./Home.css";
 import { CategoryCard } from "../../components/cards/CategoryCard/CategoryCard";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import { ProductsContext } from "../../contexts/ProductsProvider";
+import { ProductsContext } from "../../contexts/ProductsContext";
 
 export function Home() {
   const { categories } = useContext(ProductsContext);
