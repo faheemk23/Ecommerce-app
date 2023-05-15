@@ -38,13 +38,13 @@ export async function handleBtnRemoveFromCart(productId, cartDispatch) {
 export async function handleQuantityChangeInCart(
   quantity,
   type,
-  product,
+  productId,
   cartDispatch
 ) {
-  if (quantity === 1 && type === "decrease-quantity") {
-    const encodedToken = localStorage.getItem("userToken");
+  const encodedToken = localStorage.getItem("userToken");
+  if (quantity === 1 && type === "decrement") {
     try {
-      const res = await axios.delete(`/api/user/cart/${product._id}`, {
+      const res = await axios.delete(`/api/user/cart/${productId}`, {
         headers: {
           authorization: encodedToken,
         },
@@ -55,7 +55,21 @@ export async function handleQuantityChangeInCart(
       console.log(e);
     }
   } else {
-    cartDispatch({ type, payload: product._id });
+    try {
+      const res = await axios.post(
+        `/api/user/cart/${productId}`,
+        { action: { type } },
+        {
+          headers: {
+            authorization: encodedToken,
+          },
+        }
+      );
+      console.log(res.data.cart);
+      cartDispatch({ type: "set-cart", payload: res.data.cart });
+    } catch (e) {
+      console.log(e);
+    }
   }
 }
 

@@ -15,7 +15,7 @@ export function ProductCard({ product, inCart }) {
 
   const navigate = useNavigate();
 
-  const { _id, image, title, original_price, price, quantity } = product;
+  const { _id, image, title, original_price, price, qty } = product;
 
   const { cart } = cartState;
 
@@ -39,25 +39,15 @@ export function ProductCard({ product, inCart }) {
           Quantity:{" "}
           <button
             onClick={() =>
-              handleQuantityChangeInCart(
-                quantity,
-                "decrease-quantity",
-                product,
-                cartDispatch
-              )
+              handleQuantityChangeInCart(qty, "decrement", _id, cartDispatch)
             }
           >
             -
           </button>{" "}
-          {quantity}{" "}
+          {qty}{" "}
           <button
             onClick={() =>
-              handleQuantityChangeInCart(
-                quantity,
-                "increase-quantity",
-                product,
-                cartDispatch
-              )
+              handleQuantityChangeInCart(qty, "increment", _id, cartDispatch)
             }
           >
             +
