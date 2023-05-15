@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const signupHandler = async (userData) => {
+export async function signupHandler(userData) {
   if (userData.email && userData.password) {
     try {
       const response = await axios.post(`/api/auth/signup`, userData);
@@ -13,9 +13,9 @@ const signupHandler = async (userData) => {
   } else {
     alert("Please provide your details");
   }
-};
+}
 
-const loginHandler = async (userData) => {
+export async function loginHandler(userData) {
   if (userData.email && userData.password) {
     try {
       const response = await axios.post(`/api/auth/login`, userData);
@@ -28,9 +28,9 @@ const loginHandler = async (userData) => {
   } else {
     alert("Please provide your details");
   }
-};
+}
 
-const testUserLoginHandler = async () => {
+export async function testUserLoginHandler() {
   const userData = {
     email: "adarshbalika@gmail.com",
     password: "adarshbalika",
@@ -47,6 +47,4 @@ const testUserLoginHandler = async () => {
   } else {
     alert("Please provide your details");
   }
-};
-
-export { signupHandler, loginHandler, testUserLoginHandler };
+}
