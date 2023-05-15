@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { loginHandler } from "../../../Utilites/authUtilities";
+import {
+  loginHandler,
+  testUserLoginHandler,
+} from "../../../Utilites/authUtilities";
 
 export function LoginCard() {
   const [loginData, setloginData] = useState({
@@ -40,6 +43,9 @@ export function LoginCard() {
           onClick={() => loginHandler(loginData)}
           value="Login"
         />
+      </div>
+      <div>
+        <button onClick={testUserLoginHandler}>Login as Test User</button>
       </div>
 
       <Link to="/signup">Create New Account {">"} </Link>
