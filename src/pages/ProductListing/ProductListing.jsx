@@ -12,8 +12,8 @@ export function ProductListing() {
       <Navigation />
       <FilterColumn />
       <div className="products">
-        {products.map((item) => (
-          <ProductCard key={item.id} />
+        {products?.map((product) => (
+          <ProductCard key={product.id} product={product} />
         ))}
       </div>
     </div>

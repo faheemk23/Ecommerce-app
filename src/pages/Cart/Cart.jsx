@@ -2,7 +2,7 @@ import { ProductCard } from "../../components/cards/ProductCard/ProductCard";
 import { Navigation } from "../../components/nav/Navigation";
 import { PriceDetailCard } from "../../components/cards/PriceDetailCard/PriceDetailCard";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export function Cart() {
   const [cart, setCart] = useState([]);
@@ -19,15 +19,19 @@ export function Cart() {
       console.log(e);
     }
   };
-  getCartItems();
+
+  useEffect(() => {
+    getCartItems();
+  }, []);
+
   return (
     <>
       <Navigation />
       Cart
       <div className="cart-body">
         <div className="cart-items">
-          {cart.map((item) => (
-            <ProductCard key={item.id} />
+          {cart.map((product) => (
+            <ProductCard key={product.id} product={product} cart />
           ))}
         </div>
         <PriceDetailCard />
