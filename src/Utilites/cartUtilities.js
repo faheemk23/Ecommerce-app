@@ -12,10 +12,8 @@ export async function handleBtnAddToCart(product, cartDispatch) {
         },
       }
     );
-    console.log(res.data.cart);
     cartDispatch({ type: "set-cart", payload: res.data.cart });
   } catch (e) {
-    console.log("in cart");
     console.log(e);
   }
 }
@@ -30,7 +28,6 @@ export async function handleBtnRemoveFromCart(productId, cartDispatch) {
     });
     cartDispatch({ type: "set-cart", payload: res.data.cart });
   } catch (e) {
-    console.log("in cart");
     console.log(e);
   }
 }
@@ -51,7 +48,6 @@ export async function handleQuantityChangeInCart(
       });
       cartDispatch({ type: "set-cart", payload: res.data.cart });
     } catch (e) {
-      console.log("in cart");
       console.log(e);
     }
   } else {
@@ -65,7 +61,6 @@ export async function handleQuantityChangeInCart(
           },
         }
       );
-      console.log(res.data.cart);
       cartDispatch({ type: "set-cart", payload: res.data.cart });
     } catch (e) {
       console.log(e);

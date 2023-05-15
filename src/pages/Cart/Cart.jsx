@@ -1,8 +1,9 @@
-import { ProductCard } from "../../components/cards/ProductCard/ProductCard";
 import { Navigation } from "../../components/nav/Navigation";
 import { PriceDetailCard } from "../../components/cards/PriceDetailCard/PriceDetailCard";
 import { useContext } from "react";
 import { CartContext } from "../../contexts/CartContext";
+import { CartItemCard } from "../../components/cards/CartItemCard/CartItemCard";
+import "./Cart.css";
 
 export function Cart() {
   const { cartState } = useContext(CartContext);
@@ -17,18 +18,18 @@ export function Cart() {
   }
 
   return (
-    <>
+    <div className="cart-page">
       <Navigation />
-      Cart
-      <h2>Free delivery for orders 3000 and above </h2>
-      <div className="cart-body">
-        <div className="cart-items">
-          {cart.map((product) => (
-            <ProductCard key={product.id} product={product} inCart />
-          ))}
-        </div>
+      {/* Cart
+      <h2>Free delivery for orders 5000 and above </h2> */}
+      <div className="cart-items">
+        {cart.map((product) => (
+          <CartItemCard key={product.id} product={product} inCart />
+        ))}
+      </div>
+      <div className="price-detail">
         <PriceDetailCard cart={cart} />
       </div>
-    </>
+    </div>
   );
 }
