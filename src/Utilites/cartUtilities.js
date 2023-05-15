@@ -12,6 +12,7 @@ export async function handleBtnAddToCart(product, cartDispatch) {
         },
       }
     );
+    console.log(res.data.cart);
     cartDispatch({ type: "set-cart", payload: res.data.cart });
   } catch (e) {
     console.log("in cart");
@@ -31,6 +32,30 @@ export async function handleBtnRemoveFromCart(productId, cartDispatch) {
   } catch (e) {
     console.log("in cart");
     console.log(e);
+  }
+}
+
+export async function handleQuantityChangeInCart(
+  quantity,
+  type,
+  product,
+  cartDispatch
+) {
+  if (quantity === 1 && type === "decrease-quantity") {
+    const encodedToken = localStorage.getItem("userToken");
+    try {
+      const res = await axios.delete(`/api/user/cart/${product._id}`, {
+        headers: {
+          authorization: encodedToken,
+        },
+      });
+      cartDispatch({ type: "set-cart", payload: res.data.cart });
+    } catch (e) {
+      console.log("in cart");
+      console.log(e);
+    }
+  } else {
+    cartDispatch({ type, payload: product._id });
   }
 }
 

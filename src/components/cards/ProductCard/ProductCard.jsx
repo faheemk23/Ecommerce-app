@@ -3,6 +3,7 @@ import {
   handleBtnAddToCart,
   handleBtnGoToCart,
   handleBtnRemoveFromCart,
+  handleQuantityChangeInCart,
   productInCart,
 } from "../../../Utilites/cartUtilities";
 import "./ProductCard.css";
@@ -35,7 +36,32 @@ export function ProductCard({ product, inCart }) {
       <div>{discount}% off</div>
       {inCart && (
         <div>
-          Quantity: <button>-</button> {quantity} <button>+</button>
+          Quantity:{" "}
+          <button
+            onClick={() =>
+              handleQuantityChangeInCart(
+                quantity,
+                "decrease-quantity",
+                product,
+                cartDispatch
+              )
+            }
+          >
+            -
+          </button>{" "}
+          {quantity}{" "}
+          <button
+            onClick={() =>
+              handleQuantityChangeInCart(
+                quantity,
+                "increase-quantity",
+                product,
+                cartDispatch
+              )
+            }
+          >
+            +
+          </button>
         </div>
       )}
       {inCart ? (
