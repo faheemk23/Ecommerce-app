@@ -28,9 +28,11 @@ export function ProductCard({ product, inCart }) {
         <span className="original-price">₹{original_price}</span>
       </div>
       <div>{discount}% off</div>
-      <div>
-        Quantity: <button>-</button> {quantity} <button>+</button>
-      </div>
+      {inCart && (
+        <div>
+          Quantity: <button>-</button> {quantity} <button>+</button>
+        </div>
+      )}
       {inCart ? (
         <button onClick={() => handleBtnRemoveFromCart(_id, setCart)}>
           Remove from cart
