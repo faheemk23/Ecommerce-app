@@ -20,7 +20,7 @@ export function Cart() {
     <>
       <Navigation />
       Cart
-      <h2>Free delivery for orders 3000 and above </h2>
+      <h2>Free delivery for orders 5000 and above </h2>
       <div className="cart-body">
         <div className="cart-items">
           {cart.map((product) => (

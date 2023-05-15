@@ -14,8 +14,6 @@ export function PriceDetailCard({ cart }) {
   const { price, items, discount, delivery_time } = priceDetails;
   const delivery_charges = delivery_time * 15;
 
-  const TotalAmount = price - discount + delivery_charges;
-
   return (
     <div style={{ backgroundColor: "rgba(0,0,0,0.2)", maxWidth: "250px" }}>
       <div>Price Detail</div>
@@ -32,19 +30,23 @@ export function PriceDetailCard({ cart }) {
           </tr>
           <tr>
             <th>Delivery Charges</th>
-            <td>{TotalAmount > 3000 ? "Free" : <>+₹{delivery_charges}</>}</td>
+            <td>{price > 5000 ? "Free" : <>+₹{delivery_charges}</>}</td>
           </tr>
           <tr>
             <th>Total Amount</th>
-            <td>₹{TotalAmount}</td>
+            <td>
+              ₹
+              {price > 5000
+                ? price - discount
+                : price - discount + delivery_charges}
+            </td>
           </tr>
         </tbody>
       </table>
       <hr />
       <div>
-        You will save ₹
-        {TotalAmount > 3000 ? discount + delivery_charges : discount} on this
-        order
+        You will save ₹{price > 5000 ? discount + delivery_charges : discount}{" "}
+        on this order
       </div>
       <button>PLACE ORDER</button>
     </div>
