@@ -3,6 +3,7 @@ import {
   handleBtnAddToCart,
   handleBtnGoToCart,
   handleBtnRemoveFromCart,
+  handleQuantityChangeInCart,
   productInCart,
 } from "../../../Utilites/cartUtilities";
 import "./ProductCard.css";
@@ -14,7 +15,7 @@ export function ProductCard({ product, inCart }) {
 
   const navigate = useNavigate();
 
-  const { _id, image, title, original_price, price, quantity } = product;
+  const { _id, image, title, original_price, price, qty } = product;
 
   const { cart } = cartState;
 
@@ -35,7 +36,22 @@ export function ProductCard({ product, inCart }) {
       <div>{discount}% off</div>
       {inCart && (
         <div>
-          Quantity: <button>-</button> {quantity} <button>+</button>
+          Quantity:{" "}
+          <button
+            onClick={() =>
+              handleQuantityChangeInCart(qty, "decrement", _id, cartDispatch)
+            }
+          >
+            -
+          </button>{" "}
+          {qty}{" "}
+          <button
+            onClick={() =>
+              handleQuantityChangeInCart(qty, "increment", _id, cartDispatch)
+            }
+          >
+            +
+          </button>
         </div>
       )}
       {inCart ? (
