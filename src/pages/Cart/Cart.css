@@ -1,0 +1,15 @@
+div.cart-page {
+  display: grid;
+  padding: 1rem;
+  grid-template-areas:
+    "nav nav nav"
+    "cart-items cart-items price-detail";
+}
+
+.cart-items {
+  grid-area: cart-items;
+}
+
+.price-detail {
+  grid-area: price-detail;
+}
