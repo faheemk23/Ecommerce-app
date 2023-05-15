@@ -1,10 +1,15 @@
 import axios from "axios";
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useReducer, useState } from "react";
+import { cartReducer } from "../reducers/cartReducer";
+
+const intialCartState = {
+  cart: [],
+};
 
 export const CartContext = createContext({ cart: [] });
 
 export default function CartProvider({ children }) {
-  const [cart, setCart] = useState([]);
+  const [cartState, cartDispatch] = useReducer(cartReducer, intialCartState);
   const encodedToken = localStorage.getItem("userToken");
 
   const getCartItems = async () => {
@@ -14,7 +19,7 @@ export default function CartProvider({ children }) {
           authorization: encodedToken,
         },
       });
-      setCart(res.data.cart);
+      cartDispatch({ type: "set-cart", payload: res.data.cart });
     } catch (e) {
       console.log(e);
     }
@@ -26,7 +31,7 @@ export default function CartProvider({ children }) {
 
   return (
     <>
-      <CartContext.Provider value={{ cart, setCart }}>
+      <CartContext.Provider value={{ cartState, cartDispatch }}>
         {children}
       </CartContext.Provider>
     </>

@@ -10,9 +10,14 @@ import { CartContext } from "../../../contexts/CartContext";
 import { useNavigate } from "react-router-dom";
 
 export function ProductCard({ product, inCart }) {
-  const { cart, setCart } = useContext(CartContext);
+  const { cartState, cartDispatch } = useContext(CartContext);
+
   const navigate = useNavigate();
+
   const { _id, image, title, original_price, price, quantity } = product;
+
+  const { cart } = cartState;
+
   const discount = parseInt(
     ((Number(original_price, 0) - Number(price, 0)) /
       Number(original_price, 0)) *
@@ -28,11 +33,13 @@ export function ProductCard({ product, inCart }) {
         <span className="original-price">₹{original_price}</span>
       </div>
       <div>{discount}% off</div>
-      <div>
-        Quantity: <button>-</button> {quantity} <button>+</button>
-      </div>
+      {inCart && (
+        <div>
+          Quantity: <button>-</button> {quantity} <button>+</button>
+        </div>
+      )}
       {inCart ? (
-        <button onClick={() => handleBtnRemoveFromCart(_id, setCart)}>
+        <button onClick={() => handleBtnRemoveFromCart(_id, cartDispatch)}>
           Remove from cart
         </button>
       ) : (
@@ -42,7 +49,7 @@ export function ProductCard({ product, inCart }) {
               Go to Cart
             </button>
           ) : (
-            <button onClick={() => handleBtnAddToCart(product, setCart)}>
+            <button onClick={() => handleBtnAddToCart(product, cartDispatch)}>
               Add to Cart
             </button>
           )}
