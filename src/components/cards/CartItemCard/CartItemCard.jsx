@@ -1,23 +1,17 @@
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
 
 import {
-  handleBtnAddToCart,
-  handleBtnGoToCart,
-  productInCart,
+  handleBtnRemoveFromCart,
+  handleQuantityChangeInCart,
 } from "../../../Utilites/cartUtilities";
 
-import "./ProductCard.css";
 import { CartContext } from "../../../contexts/CartContext";
+import "./CartItemCard.css";
 
-export function ProductCard({ product, inCart }) {
+export function CartItemCard({ product }) {
   const { cartState, cartDispatch } = useContext(CartContext);
 
-  const navigate = useNavigate();
-
-  const { image, title, original_price, price } = product;
-
-  const { cart } = cartState;
+  const { _id, image, title, original_price, price, qty } = product;
 
   const discount = parseInt(
     ((Number(original_price, 0) - Number(price, 0)) /
@@ -34,13 +28,29 @@ export function ProductCard({ product, inCart }) {
         <span className="original-price">₹{original_price}</span>
       </div>
       <div>{discount}% off</div>
-      {productInCart(cart, product) ? (
-        <button onClick={() => handleBtnGoToCart(navigate)}>Go to Cart</button>
-      ) : (
-        <button onClick={() => handleBtnAddToCart(product, cartDispatch)}>
-          Add to Cart
+
+      <div>
+        Quantity:{" "}
+        <button
+          onClick={() =>
+            handleQuantityChangeInCart(qty, "decrement", _id, cartDispatch)
+          }
+        >
+          -
+        </button>{" "}
+        {qty}{" "}
+        <button
+          onClick={() =>
+            handleQuantityChangeInCart(qty, "increment", _id, cartDispatch)
+          }
+        >
+          +
         </button>
-      )}
+      </div>
+
+      <button onClick={() => handleBtnRemoveFromCart(_id, cartDispatch)}>
+        Remove from cart
+      </button>
 
       {true ? (
         <button>Save to Wishlist</button>
