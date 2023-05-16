@@ -7,9 +7,16 @@ import {
 
 import { DataContext } from "../../../contexts/DataContext";
 import "./CartItemCard.css";
+import {
+  handleBtnAddToWishlist,
+  handleBtnRemoveFromWishlist,
+  productInWishlist,
+} from "../../../Utilites/wishlistUtilities";
 
 export function CartItemCard({ product }) {
   const { dataState, dataDispatch } = useContext(DataContext);
+
+  const { wishlist } = dataState;
 
   const { _id, image, title, original_price, price, qty } = product;
 
@@ -52,10 +59,14 @@ export function CartItemCard({ product }) {
         Remove from cart
       </button>
 
-      {true ? (
-        <button>Save to Wishlist</button>
+      {productInWishlist(wishlist, product) ? (
+        <button onClick={() => handleBtnRemoveFromWishlist(_id, dataDispatch)}>
+          Remove from Wishlist
+        </button>
       ) : (
-        <button>Remove from Wishlist</button>
+        <button onClick={() => handleBtnAddToWishlist(product, dataDispatch)}>
+          Save to Wishlist
+        </button>
       )}
     </div>
   );

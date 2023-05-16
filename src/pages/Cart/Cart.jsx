@@ -24,7 +24,7 @@ export function Cart() {
       <h2>Free delivery for orders 5000 and above </h2> */}
       <div className="cart-items">
         {cart.map((product) => (
-          <CartItemCard key={product.id} product={product} inCart />
+          <CartItemCard key={product._id} product={product} inCart />
         ))}
       </div>
       <div className="price-detail">
