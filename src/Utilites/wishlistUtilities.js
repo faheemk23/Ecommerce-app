@@ -1,5 +1,18 @@
 import axios from "axios";
 
+export const getWishlistItems = async (encodedToken, dataDispatch) => {
+  try {
+    const res = await axios.get(`/api/user/wishlist`, {
+      headers: {
+        authorization: encodedToken,
+      },
+    });
+    dataDispatch({ type: "set-wishlist", payload: res.data.wishlist });
+  } catch (e) {
+    console.log(e);
+  }
+};
+
 export async function handleBtnAddToWishlist(product, dataDispatch) {
   const encodedToken = localStorage.getItem("userToken");
   try {

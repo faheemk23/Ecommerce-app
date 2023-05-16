@@ -1,5 +1,18 @@
 import axios from "axios";
 
+export const getCartItems = async (encodedToken, dataDispatch) => {
+  try {
+    const res = await axios.get(`/api/user/cart`, {
+      headers: {
+        authorization: encodedToken,
+      },
+    });
+    dataDispatch({ type: "set-cart", payload: res.data.cart });
+  } catch (e) {
+    console.log(e);
+  }
+};
+
 export async function handleBtnAddToCart(product, dataDispatch) {
   const encodedToken = localStorage.getItem("userToken");
   try {

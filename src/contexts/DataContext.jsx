@@ -1,6 +1,7 @@
-import axios from "axios";
 import { createContext, useEffect, useReducer, useState } from "react";
 import { dataReducer } from "../reducers/dataReducer";
+import { getCartItems } from "../Utilites/cartUtilities";
+import { getWishlistItems } from "../Utilites/wishlistUtilities";
 
 const initialDataState = {
   cart: [],
@@ -13,35 +14,9 @@ export default function DataProvider({ children }) {
   const [dataState, dataDispatch] = useReducer(dataReducer, initialDataState);
   const encodedToken = localStorage.getItem("userToken");
 
-  const getCartItems = async () => {
-    try {
-      const res = await axios.get(`/api/user/cart`, {
-        headers: {
-          authorization: encodedToken,
-        },
-      });
-      dataDispatch({ type: "set-cart", payload: res.data.cart });
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
-  const getWishlistItems = async () => {
-    try {
-      const res = await axios.get(`/api/user/wishlist`, {
-        headers: {
-          authorization: encodedToken,
-        },
-      });
-      dataDispatch({ type: "set-wishlist", payload: res.data.wishlist });
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
   useEffect(() => {
-    getCartItems();
-    getWishlistItems();
+    getCartItems(encodedToken, dataDispatch);
+    getWishlistItems(encodedToken, dataDispatch);
   }, []);
 
   return (
