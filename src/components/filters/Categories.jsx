@@ -1,11 +1,12 @@
 import { useContext } from "react";
-import { ProductsContext } from "../../contexts/ProductsContext";
+import { ProductsListingContext } from "../../contexts/ProductsListingContext";
 
 export function Categories() {
-  const { categories } = useContext(ProductsContext);
+  const { categories, filtersDispatch } = useContext(ProductsListingContext);
 
   return (
     <div>
+      <h2>Categories</h2>
       {categories.map(({ _id, categoryName }) => (
         <div key={_id}>
           <input type="checkbox" name="category-filter" id={categoryName} />

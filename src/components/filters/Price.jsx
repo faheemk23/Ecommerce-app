@@ -1,13 +1,18 @@
 import { useContext } from "react";
-import { ProductsContext } from "../../contexts/ProductsContext";
+import { ProductsListingContext } from "../../contexts/ProductsListingContext";
 
 export function Price() {
-  const { products } = useContext(ProductsContext);
+  const { products, filtersDispatch } = useContext(ProductsListingContext);
 
   const maxPrice = products.reduce(
     (acc, { price }) => (Number(price) > acc ? Number(price) : acc),
     0
   );
+
+  const handlePriceFilterChange = (e, filtersDispatch) => {
+    const priceFilterValue = e.target.value;
+    filtersDispatch({ type: "price", payload: priceFilterValue });
+  };
 
   return (
     <div>
@@ -21,7 +26,7 @@ export function Price() {
         id="price-filter"
         min="0"
         max={maxPrice}
-        onChange={(e) => console.log(e.target.value)}
+        onChange={(e) => handlePriceFilterChange(e, filtersDispatch)}
       />
       {maxPrice}
     </div>
