@@ -4,9 +4,10 @@ import { dataReducer } from "../reducers/dataReducer";
 
 const initialDataState = {
   cart: [],
+  wishlist: [],
 };
 
-export const DataContext = createContext({ cart: [] });
+export const DataContext = createContext({ cart: [], wishlist: [] });
 
 export default function DataProvider({ children }) {
   const [dataState, dataDispatch] = useReducer(dataReducer, initialDataState);
@@ -25,8 +26,22 @@ export default function DataProvider({ children }) {
     }
   };
 
+  const getWishlistItems = async () => {
+    try {
+      const res = await axios.get(`/api/user/wishlist`, {
+        headers: {
+          authorization: encodedToken,
+        },
+      });
+      dataDispatch({ type: "set-wishlist", payload: res.data.wishlist });
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   useEffect(() => {
     getCartItems();
+    getWishlistItems();
   }, []);
 
   return (
