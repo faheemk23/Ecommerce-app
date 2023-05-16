@@ -1,12 +1,15 @@
+import { useContext } from "react";
+import { ProductsContext } from "../../contexts/ProductsContext";
+
 export function Categories() {
-  const categoriesList = ["Men", "Women"];
+  const { categories } = useContext(ProductsContext);
 
   return (
     <div>
-      {categoriesList.map((category) => (
-        <div key={category}>
-          <input type="checkbox" name="category-filter" id={category} />
-          <label htmlFor={category}>{category}</label>
+      {categories.map(({ _id, categoryName }) => (
+        <div key={_id}>
+          <input type="checkbox" name="category-filter" id={categoryName} />
+          <label htmlFor={categoryName}>{categoryName}</label>
         </div>
       ))}
     </div>
