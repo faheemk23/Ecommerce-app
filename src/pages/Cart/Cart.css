@@ -1,6 +1,5 @@
 div.cart-page {
   display: grid;
-  padding: 1rem;
   grid-template-areas:
     "nav nav nav"
     "cart-items cart-items price-detail";
