@@ -9,15 +9,20 @@ import {
 
 import "./ProductCard.css";
 import { DataContext } from "../../../contexts/DataContext";
+import {
+  handleBtnAddToWishlist,
+  handleBtnRemoveFromWishlist,
+  productInWishlist,
+} from "../../../Utilites/wishlistUtilities";
 
 export function ProductCard({ product, inCart }) {
   const { dataState, dataDispatch } = useContext(DataContext);
 
   const navigate = useNavigate();
 
-  const { image, title, original_price, price } = product;
+  const { _id, image, title, original_price, price } = product;
 
-  const { cart } = dataState;
+  const { cart, wishlist } = dataState;
 
   const discount = parseInt(
     ((Number(original_price, 0) - Number(price, 0)) /
@@ -42,10 +47,14 @@ export function ProductCard({ product, inCart }) {
         </button>
       )}
 
-      {true ? (
-        <button>Save to Wishlist</button>
+      {productInWishlist(wishlist, product) ? (
+        <button onClick={() => handleBtnRemoveFromWishlist(_id, dataDispatch)}>
+          Remove from Wishlist
+        </button>
       ) : (
-        <button>Remove from Wishlist</button>
+        <button onClick={() => handleBtnAddToWishlist(product, dataDispatch)}>
+          Save to Wishlist
+        </button>
       )}
     </div>
   );
