@@ -5,7 +5,7 @@ export async function handleBtnAddToCart(product, dataDispatch) {
   try {
     const res = await axios.post(
       `/api/user/cart`,
-      { product: { ...product, quantity: 1 } },
+      { product },
       {
         headers: {
           authorization: encodedToken,
