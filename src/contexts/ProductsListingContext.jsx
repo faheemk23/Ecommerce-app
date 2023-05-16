@@ -1,15 +1,26 @@
 import { createContext, useEffect, useReducer, useState } from "react";
 import { productsReducer } from "../reducers/productsReducer";
 import { fetchCategories, fetchProducts } from "../Utilites/productsUtilities";
+import filtersReducer from "../reducers/filtersReducer";
 
-export const ProductsContext = createContext({ products: [], categories: [] });
+export const ProductsListingContext = createContext({
+  products: [],
+  categories: [],
+});
+
+const initialFiltersState = { price: 0, categories: {}, rating: 0, sortBy: "" };
 
 const initialProductsState = { products: [], categories: [] };
 
-export function ProductsProvider({ children }) {
+export function ProductsListingProvider({ children }) {
   const [productsState, productsDispatch] = useReducer(
     productsReducer,
     initialProductsState
+  );
+
+  const [filtersState, filtersDispatch] = useReducer(
+    filtersReducer,
+    initialFiltersState
   );
 
   useEffect(() => {
@@ -20,8 +31,10 @@ export function ProductsProvider({ children }) {
   const { products, categories } = productsState;
 
   return (
-    <ProductsContext.Provider value={{ products, categories }}>
+    <ProductsListingContext.Provider
+      value={{ products, categories, filtersState, filtersDispatch }}
+    >
       {children}
-    </ProductsContext.Provider>
+    </ProductsListingContext.Provider>
   );
 }
