@@ -1,4 +1,4 @@
-export function cartReducer(state, action) {
+export function dataReducer(state, action) {
   switch (action.type) {
     case "set-cart":
       return { ...state, cart: action.payload };

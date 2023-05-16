@@ -1,13 +1,13 @@
 import { Navigation } from "../../components/nav/Navigation";
 import { PriceDetailCard } from "../../components/cards/PriceDetailCard/PriceDetailCard";
 import { useContext } from "react";
-import { CartContext } from "../../contexts/CartContext";
+import { DataContext } from "../../contexts/DataContext";
 import { CartItemCard } from "../../components/cards/CartItemCard/CartItemCard";
 import "./Cart.css";
 
 export function Cart() {
-  const { cartState } = useContext(CartContext);
-  const { cart } = cartState;
+  const { dataState } = useContext(DataContext);
+  const { cart } = dataState;
   if (cart.length === 0) {
     return (
       <>

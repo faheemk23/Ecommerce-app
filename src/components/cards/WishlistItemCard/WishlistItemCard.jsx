@@ -1,3 +1,5 @@
+import "./WishlistItemCard.css";
+
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -7,23 +9,34 @@ import {
   productInCart,
 } from "../../../Utilites/cartUtilities";
 
-import "./ProductCard.css";
 import { DataContext } from "../../../contexts/DataContext";
 
-export function ProductCard({ product, inCart }) {
+export function WishlistItemCard({
+  product = {
+    _id: "1a11dd3c-a8a8-4d66-acff-9c5015673c2b",
+    title: "KALINI",
+    description: "Women Teal Yoke Design Kurta with Palazzos & With Dupatta",
+    original_price: "3699",
+    price: "887",
+    rating: "3.8",
+    size: "L",
+    trending: true,
+    delivery_time: "3",
+    reviews: "229",
+    in_stock: true,
+    image:
+      "https://assets.myntassets.com/f_webp,dpr_2.0,q_60,w_210,c_limit,fl_progressive/assets/images/15385296/2021/11/16/c736d7bf-9b5d-48e9-be7d-36aecce835151637061559891-W-Women-Beige--Black-Ethnic-Motifs-Keyhole-Neck-Pastel-Kurta-1.jpg",
+    category: "Women",
+  },
+  inCart,
+}) {
   const { dataState, dataDispatch } = useContext(DataContext);
 
   const navigate = useNavigate();
 
-  const { image, title, original_price, price } = product;
+  const { image, title, price } = product;
 
   const { cart } = dataState;
-
-  const discount = parseInt(
-    ((Number(original_price, 0) - Number(price, 0)) /
-      Number(original_price, 0)) *
-      100
-  );
 
   return (
     <div style={{ backgroundColor: "rgba(0,0,0,0.2)", maxWidth: "200px" }}>
@@ -31,9 +44,8 @@ export function ProductCard({ product, inCart }) {
       <div>{title}</div>
       <div>
         <strong>₹{price}</strong>{" "}
-        <span className="original-price">₹{original_price}</span>
       </div>
-      <div>{discount}% off</div>
+
       {productInCart(cart, product) ? (
         <button onClick={() => handleBtnGoToCart(navigate)}>Go to Cart</button>
       ) : (
@@ -41,12 +53,7 @@ export function ProductCard({ product, inCart }) {
           Add to Cart
         </button>
       )}
-
-      {true ? (
-        <button>Save to Wishlist</button>
-      ) : (
-        <button>Remove from Wishlist</button>
-      )}
+      <button>Remove from Wishlist</button>
     </div>
   );
 }
