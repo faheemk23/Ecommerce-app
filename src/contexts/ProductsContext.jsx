@@ -1,26 +1,23 @@
-import axios from "axios";
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useReducer, useState } from "react";
+import { productsReducer } from "../reducers/productsReducer";
+import { fetchCategories, fetchProducts } from "../Utilites/productsUtilities";
 
 export const ProductsContext = createContext();
 
+const initialProductsState = { products: [], categories: [] };
+
 export function ProductsProvider({ children }) {
-  const [products, setProducts] = useState([]);
-  const [categories, setCategories] = useState([]);
-
-  const fetchCategories = async () => {
-    const res = await axios.get("/api/categories");
-    setCategories(res.data.categories);
-  };
-
-  const fetchProducts = async () => {
-    const res = await axios.get("/api/products");
-    setProducts(res.data.products);
-  };
+  const [productsState, productsDispatch] = useReducer(
+    productsReducer,
+    initialProductsState
+  );
 
   useEffect(() => {
-    fetchProducts();
-    fetchCategories();
+    fetchProducts(productsDispatch);
+    fetchCategories(productsDispatch);
   }, []);
+
+  const { products, categories } = productsState;
 
   return (
     <ProductsContext.Provider value={{ products, categories }}>
