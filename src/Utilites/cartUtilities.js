@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export async function handleBtnAddToCart(product, cartDispatch) {
+export async function handleBtnAddToCart(product, dataDispatch) {
   const encodedToken = localStorage.getItem("userToken");
   try {
     const res = await axios.post(
@@ -12,13 +12,13 @@ export async function handleBtnAddToCart(product, cartDispatch) {
         },
       }
     );
-    cartDispatch({ type: "set-cart", payload: res.data.cart });
+    dataDispatch({ type: "set-cart", payload: res.data.cart });
   } catch (e) {
     console.log(e);
   }
 }
 
-export async function handleBtnRemoveFromCart(productId, cartDispatch) {
+export async function handleBtnRemoveFromCart(productId, dataDispatch) {
   const encodedToken = localStorage.getItem("userToken");
   try {
     const res = await axios.delete(`/api/user/cart/${productId}`, {
@@ -26,7 +26,7 @@ export async function handleBtnRemoveFromCart(productId, cartDispatch) {
         authorization: encodedToken,
       },
     });
-    cartDispatch({ type: "set-cart", payload: res.data.cart });
+    dataDispatch({ type: "set-cart", payload: res.data.cart });
   } catch (e) {
     console.log(e);
   }
@@ -36,17 +36,17 @@ export async function handleQuantityChangeInCart(
   quantity,
   type,
   productId,
-  cartDispatch
+  dataDispatch
 ) {
   const encodedToken = localStorage.getItem("userToken");
-  if (quantity === 1 && type === "decrement") {
+  if (quantity <= 1 && type === "decrement") {
     try {
       const res = await axios.delete(`/api/user/cart/${productId}`, {
         headers: {
           authorization: encodedToken,
         },
       });
-      cartDispatch({ type: "set-cart", payload: res.data.cart });
+      dataDispatch({ type: "set-cart", payload: res.data.cart });
     } catch (e) {
       console.log(e);
     }
@@ -61,7 +61,7 @@ export async function handleQuantityChangeInCart(
           },
         }
       );
-      cartDispatch({ type: "set-cart", payload: res.data.cart });
+      dataDispatch({ type: "set-cart", payload: res.data.cart });
     } catch (e) {
       console.log(e);
     }

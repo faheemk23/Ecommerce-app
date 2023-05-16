@@ -5,11 +5,11 @@ import {
   handleQuantityChangeInCart,
 } from "../../../Utilites/cartUtilities";
 
-import { CartContext } from "../../../contexts/CartContext";
+import { DataContext } from "../../../contexts/DataContext";
 import "./CartItemCard.css";
 
 export function CartItemCard({ product }) {
-  const { cartState, cartDispatch } = useContext(CartContext);
+  const { dataState, dataDispatch } = useContext(DataContext);
 
   const { _id, image, title, original_price, price, qty } = product;
 
@@ -33,7 +33,7 @@ export function CartItemCard({ product }) {
         Quantity:{" "}
         <button
           onClick={() =>
-            handleQuantityChangeInCart(qty, "decrement", _id, cartDispatch)
+            handleQuantityChangeInCart(qty, "decrement", _id, dataDispatch)
           }
         >
           -
@@ -41,14 +41,14 @@ export function CartItemCard({ product }) {
         {qty}{" "}
         <button
           onClick={() =>
-            handleQuantityChangeInCart(qty, "increment", _id, cartDispatch)
+            handleQuantityChangeInCart(qty, "increment", _id, dataDispatch)
           }
         >
           +
         </button>
       </div>
 
-      <button onClick={() => handleBtnRemoveFromCart(_id, cartDispatch)}>
+      <button onClick={() => handleBtnRemoveFromCart(_id, dataDispatch)}>
         Remove from cart
       </button>
 

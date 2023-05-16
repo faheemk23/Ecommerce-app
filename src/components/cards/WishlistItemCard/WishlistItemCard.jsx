@@ -9,7 +9,7 @@ import {
   productInCart,
 } from "../../../Utilites/cartUtilities";
 
-import { CartContext } from "../../../contexts/CartContext";
+import { DataContext } from "../../../contexts/DataContext";
 
 export function WishlistItemCard({
   product = {
@@ -30,13 +30,13 @@ export function WishlistItemCard({
   },
   inCart,
 }) {
-  const { cartState, cartDispatch } = useContext(CartContext);
+  const { dataState, dataDispatch } = useContext(DataContext);
 
   const navigate = useNavigate();
 
   const { image, title, price } = product;
 
-  const { cart } = cartState;
+  const { cart } = dataState;
 
   return (
     <div style={{ backgroundColor: "rgba(0,0,0,0.2)", maxWidth: "200px" }}>
@@ -49,7 +49,7 @@ export function WishlistItemCard({
       {productInCart(cart, product) ? (
         <button onClick={() => handleBtnGoToCart(navigate)}>Go to Cart</button>
       ) : (
-        <button onClick={() => handleBtnAddToCart(product, cartDispatch)}>
+        <button onClick={() => handleBtnAddToCart(product, dataDispatch)}>
           Add to Cart
         </button>
       )}

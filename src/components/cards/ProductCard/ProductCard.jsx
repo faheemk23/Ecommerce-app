@@ -8,16 +8,16 @@ import {
 } from "../../../Utilites/cartUtilities";
 
 import "./ProductCard.css";
-import { CartContext } from "../../../contexts/CartContext";
+import { DataContext } from "../../../contexts/DataContext";
 
 export function ProductCard({ product, inCart }) {
-  const { cartState, cartDispatch } = useContext(CartContext);
+  const { dataState, dataDispatch } = useContext(DataContext);
 
   const navigate = useNavigate();
 
   const { image, title, original_price, price } = product;
 
-  const { cart } = cartState;
+  const { cart } = dataState;
 
   const discount = parseInt(
     ((Number(original_price, 0) - Number(price, 0)) /
@@ -37,7 +37,7 @@ export function ProductCard({ product, inCart }) {
       {productInCart(cart, product) ? (
         <button onClick={() => handleBtnGoToCart(navigate)}>Go to Cart</button>
       ) : (
-        <button onClick={() => handleBtnAddToCart(product, cartDispatch)}>
+        <button onClick={() => handleBtnAddToCart(product, dataDispatch)}>
           Add to Cart
         </button>
       )}
