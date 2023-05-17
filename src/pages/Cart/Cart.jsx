@@ -19,7 +19,7 @@ export function Cart() {
 
   return (
     <div className="cart-page">
-      <Navigation />
+      <Navigation showBtnLogin />
       {/* Cart
       <h2>Free delivery for orders 5000 and above </h2> */}
       <div className="cart-items">

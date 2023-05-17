@@ -19,7 +19,7 @@ export function Wishlist() {
 
   return (
     <div className="wishlist-page">
-      <Navigation />
+      <Navigation showBtnLogin />
       <div className="wishlist-items">
         {wishlist.map((product) => (
           <WishlistItemCard key={product._id} product={product} inCart />
