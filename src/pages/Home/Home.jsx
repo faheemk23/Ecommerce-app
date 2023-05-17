@@ -25,7 +25,7 @@ export function Home() {
           </div>
           <div className="home-popular-products">
             <h2>Popular Products</h2>
-            <Link className="btn-see-all btn btn-primary" to="/prodcutlisting">
+            <Link className="btn-see-all btn btn-primary" to="/productlisting">
               See All
             </Link>
           </div>
