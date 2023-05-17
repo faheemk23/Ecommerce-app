@@ -1,5 +1,5 @@
 .hero {
-  background-color: #e0f9d2;
+  background-color: var(--secondary-color);
   display: flex;
   height: 42vh;
   align-items: center;
@@ -10,13 +10,8 @@
 }
 
 .hero-link {
-  padding: 0.5rem 1rem;
-  border-radius: 1rem;
-  border: none;
-  color: white;
-  background-color: #6e9144;
-  text-decoration: none;
-  font-size: 0.9rem;
+  padding: 0.4rem 0.7rem;
+  margin: 0;
 }
 
 .hero-img {
