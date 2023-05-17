@@ -4,10 +4,10 @@ import "./Home.css";
 import { CategoryCard } from "../../components/cards/CategoryCard/CategoryCard";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import { ProductsContext } from "../../contexts/ProductsContext";
+import { ProductsListingContext } from "../../contexts/ProductsListingContext";
 
 export function Home() {
-  const { categories } = useContext(ProductsContext);
+  const { categories } = useContext(ProductsListingContext);
 
   return (
     <div className="home">

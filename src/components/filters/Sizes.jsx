@@ -1,28 +1,28 @@
 import { useContext } from "react";
 import { ProductsListingContext } from "../../contexts/ProductsListingContext";
 
-export function Categories() {
-  const { categories, filtersDispatch } = useContext(ProductsListingContext);
-
+export function Sizes() {
+  const { filtersDispatch } = useContext(ProductsListingContext);
+  const sizes = ["S", "M", "L"];
   return (
     <div>
-      <h2>Categories</h2>
-      {categories.map(({ _id, categoryName }) => (
-        <div key={_id}>
+      <h2>Sizes</h2>
+      {sizes.map((size) => (
+        <div key={size}>
           <input
             type="checkbox"
-            name="category-filter"
-            value={categoryName}
-            id={categoryName}
+            name="size-filter"
+            value={size}
+            id={size}
             onChange={(e) =>
               filtersDispatch({
-                type: "categories",
+                type: "sizes",
                 checked: e.target.checked,
                 payload: e.target.value,
               })
             }
           />
-          <label htmlFor={categoryName}>{categoryName}</label>
+          <label htmlFor={size}>{size}</label>
         </div>
       ))}
     </div>

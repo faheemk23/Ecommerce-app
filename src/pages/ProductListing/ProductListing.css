@@ -11,20 +11,19 @@
   grid-area: filters;
 }
 
-@media screen and (max-width: 832px) {
+/* @media screen and (max-width: 832px) {
   .filters {
     display: none;
   }
 
   .listing {
-    /* padding: 2rem; */
     display: grid;
     grid-template-columns: 25% 75%;
     grid-template-areas:
       " nav nav"
       " products products";
   }
-}
+} */
 
 .products {
   grid-area: products;
