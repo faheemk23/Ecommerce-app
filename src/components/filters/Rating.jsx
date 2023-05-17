@@ -1,4 +1,12 @@
+import { useContext } from "react";
+import { ProductsListingContext } from "../../contexts/ProductsListingContext";
+
 export function Rating() {
+  const { filtersDispatch } = useContext(ProductsListingContext);
+  const handleRatingFilterChange = (e, filtersDispatch) => {
+    const priceFilterValue = e.target.value;
+    filtersDispatch({ type: "rating", payload: priceFilterValue });
+  };
   return (
     <div>
       <label htmlFor="rating-filter">
@@ -12,7 +20,7 @@ export function Rating() {
         min="0"
         max="5"
         step="1"
-        onChange={(e) => console.log(e.target.value)}
+        onChange={(e) => handleRatingFilterChange(e, filtersDispatch)}
       />
       5
     </div>

@@ -8,7 +8,13 @@ export const ProductsListingContext = createContext({
   categories: [],
 });
 
-const initialFiltersState = { price: 0, categories: {}, rating: 0, sortBy: "" };
+const initialFiltersState = {
+  price: 0,
+  categories: [],
+  sizes: [],
+  rating: 0,
+  sort: "",
+};
 
 const initialProductsState = { products: [], categories: [] };
 
