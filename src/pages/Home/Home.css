@@ -3,3 +3,32 @@
   flex-wrap: wrap;
   gap: 1rem;
 }
+
+.home-info {
+  padding: 1vw 10vw;
+}
+
+.home-popular-products {
+  /* border: solid; */
+  position: relative;
+}
+
+.btn-see-all {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+@media screen and (max-width: 940px) {
+  .home-info {
+    /* padding: 1vw 10vw; */
+    padding: 0.5rem 2rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .home-info {
+    /* padding: 1vw 10vw; */
+    padding: 1rem;
+  }
+}
