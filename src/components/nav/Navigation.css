@@ -12,6 +12,13 @@
   color: black;
 }
 
+.search-bar {
+  padding: 0.5rem;
+  width: 25vw;
+  border-radius: 1rem;
+  border: 2px solid #6e9144;
+}
+
 @media screen and (max-width: 768px) {
   .nav {
     display: block;
@@ -22,6 +29,7 @@
 
   .search-bar {
     width: 100%;
+    padding: 0.3rem;
   }
 
   .nav-right-part {
