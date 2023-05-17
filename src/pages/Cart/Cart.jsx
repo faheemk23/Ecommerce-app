@@ -11,7 +11,7 @@ export function Cart() {
   if (cart.length === 0) {
     return (
       <>
-        <Navigation />
+        <Navigation showBtnLogin />
         <h1>Cart is empty. Please add some items.</h1>
       </>
     );
@@ -19,7 +19,7 @@ export function Cart() {
 
   return (
     <div className="cart-page">
-      <Navigation showBtnLogin />
+      <Navigation />
       {/* Cart
       <h2>Free delivery for orders 5000 and above </h2> */}
       <div className="cart-items">

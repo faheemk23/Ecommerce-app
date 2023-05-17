@@ -11,7 +11,7 @@ export function Wishlist() {
   if (wishlist.length === 0) {
     return (
       <>
-        <Navigation />
+        <Navigation showBtnLogin />
         <h1>wishlist is empty. Please add some items.</h1>
       </>
     );
@@ -19,7 +19,7 @@ export function Wishlist() {
 
   return (
     <div className="wishlist-page">
-      <Navigation showBtnLogin />
+      <Navigation />
       <div className="wishlist-items">
         {wishlist.map((product) => (
           <WishlistItemCard key={product._id} product={product} inCart />

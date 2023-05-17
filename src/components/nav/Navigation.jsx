@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import "./Navigation.css";
 import { SearchBar } from "./SearchBar";
 import { NavRightPart } from "./NavRightPart";
