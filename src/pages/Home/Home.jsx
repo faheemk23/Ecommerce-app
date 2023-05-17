@@ -2,9 +2,11 @@ import { Navigation } from "../../components/nav/Navigation";
 
 import "./Home.css";
 import { CategoryCard } from "../../components/cards/CategoryCard/CategoryCard";
-import { Link } from "react-router-dom";
+
 import { useContext } from "react";
 import { ProductsListingContext } from "../../contexts/ProductsListingContext";
+import { Hero } from "../../components/Hero/Hero";
+import { Link } from "react-router-dom";
 
 export function Home() {
   const { categories } = useContext(ProductsListingContext);
@@ -12,13 +14,23 @@ export function Home() {
   return (
     <div className="home">
       <Navigation showBtnLogin />
-      <div className="categories-list">
-        {categories.map(({ id, categoryName }) => (
-          <CategoryCard key={id} categoryName={categoryName} />
-        ))}
+      <Hero />
+      <div className="home-info">
+        <div className="home-categories-list">
+          <h2>Categories</h2>
+          <div className="categories-list">
+            {categories.map(({ id, categoryName, icon }) => (
+              <CategoryCard key={id} categoryName={categoryName} icon={icon} />
+            ))}
+          </div>
+          <div className="home-popular-products">
+            <h2>Popular Products</h2>
+            <Link className="btn-see-all btn btn-primary" to="/productlisting">
+              See All
+            </Link>
+          </div>
+        </div>
       </div>
-
-      <Link to="/productlisting">Products</Link>
     </div>
   );
 }

@@ -1,16 +1,14 @@
-import "./CategoryCard.css";
+import { v4 as uuid } from "uuid";
 
-export function CategoryCard({ categoryName }) {
+import "./CategoryCard.css";
+import { useNavigate } from "react-router-dom";
+
+export function CategoryCard({ categoryName, icon }) {
+  const navigate = useNavigate();
   return (
-    <div
-      style={{
-        backgroundColor: "rgba(0,0,0,0.2)",
-        maxWidth: "200px",
-        position: "relative",
-      }}
-    >
-      <img src="https://picsum.photos/200/200" alt="category" />
-      <div className="category-name">{categoryName}</div>
+    <div className="category-card" onClick={() => navigate("/productlisting")}>
+      <img src={icon} alt={categoryName} />
+      <div className="category-card-description">{categoryName}</div>
     </div>
   );
 }

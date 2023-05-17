@@ -10,7 +10,7 @@ export function ProductListing() {
   // console.log(filtersState);
   return (
     <div className="listing">
-      <Navigation />
+      <Navigation showBtnLogin />
       <FilterColumn />
       <div className="products">
         {products?.map((product) => (

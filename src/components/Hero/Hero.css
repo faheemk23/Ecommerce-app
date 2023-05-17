@@ -1,0 +1,26 @@
+.hero {
+  background-color: var(--secondary-color);
+  display: flex;
+  height: 42vh;
+  align-items: center;
+}
+
+.hero-heading {
+  margin-left: 2rem;
+}
+
+.hero-link {
+  padding: 0.4rem 0.7rem;
+  margin: 0;
+}
+
+.hero-img {
+  object-fit: cover;
+  height: 42vh;
+  width: 60vw;
+  margin-left: auto;
+}
+
+.white {
+  color: white;
+}

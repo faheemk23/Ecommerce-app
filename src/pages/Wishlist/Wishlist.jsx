@@ -11,7 +11,7 @@ export function Wishlist() {
   if (wishlist.length === 0) {
     return (
       <>
-        <Navigation />
+        <Navigation showBtnLogin />
         <h1>wishlist is empty. Please add some items.</h1>
       </>
     );
