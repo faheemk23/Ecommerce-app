@@ -1,11 +1,11 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./Navigation.css";
 
 export function NavRightPart({ showBtnLogin }) {
   const handleActiveLink = ({ isActive }) =>
     isActive
       ? {
-          color: "#6e9144",
+          color: "var(--primary-color)",
           fontWeight: "bold",
         }
       : {};
@@ -29,24 +29,22 @@ export function NavRightPart({ showBtnLogin }) {
       <NavLink style={handleActiveLink} className="nav-link" to="/cart">
         Cart
       </NavLink>
-      {showBtnLogin && (
-        <>
-          <button>
-            <NavLink className="nav-link" to="/login">
+      <div className="nav-auth">
+        {showBtnLogin && (
+          <>
+            <Link className="btn btn-secondary" to="/login">
               Login
-            </NavLink>
-          </button>
-        </>
-      )}
-      {showBtnLogin && (
-        <>
-          <button>
-            <NavLink className="nav-link" to="/login">
+            </Link>
+          </>
+        )}
+        {showBtnLogin && (
+          <>
+            <Link className="btn btn-primary" to="/signup">
               Sign Up
-            </NavLink>
-          </button>
-        </>
-      )}
+            </Link>
+          </>
+        )}
+      </div>
     </div>
   );
 }
