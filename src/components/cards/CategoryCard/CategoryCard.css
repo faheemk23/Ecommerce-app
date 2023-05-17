@@ -1,8 +1,13 @@
-.category-name {
-  background-color: white;
+.category-card {
+  margin: 1rem;
+  padding: 0.6rem;
+  height: 100px;
+  width: 120px;
+  background-color: #f1f1f1;
+  border-radius: 0.8rem;
+}
+
+.category-card-description {
+  color: #5f5e5e;
   text-align: center;
-  position: absolute;
-  top: 41%;
-  right: 0;
-  left: 0;
 }
