@@ -1,4 +1,4 @@
-import { getCheckboxFilterArr } from "../Utilites/filtersUtilities";
+import { getCheckboxFilterArr } from "../utilites/filtersUtilities";
 import { initialFiltersState } from "../contexts/ProductsListingContext";
 
 export default function filtersReducer(state, action) {

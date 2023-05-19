@@ -7,7 +7,7 @@ import { useContext } from "react";
 import { ProductsListingContext } from "../../contexts/ProductsListingContext";
 import { Hero } from "../../components/Hero/Hero";
 import { Link } from "react-router-dom";
-import { Footer } from "../../components/footer/Footer";
+import { Footer } from "../../components/Footer/Footer";
 import { Test } from "../../components/cards/Test";
 
 export function Home() {

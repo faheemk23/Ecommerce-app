@@ -1,7 +1,7 @@
 import { createContext, useEffect, useReducer, useState } from "react";
 import { dataReducer } from "../reducers/dataReducer";
-import { getCartItems } from "../Utilites/cartUtilities";
-import { getWishlistItems } from "../Utilites/wishlistUtilities";
+import { getCartItems } from "../utilites/cartUtilities";
+import { getWishlistItems } from "../utilites/wishlistUtilities";
 
 const initialDataState = {
   cart: [],

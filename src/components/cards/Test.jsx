@@ -5,7 +5,7 @@ import {
   handleBtnAddToCart,
   handleBtnGoToCart,
   productInCart,
-} from "../../Utilites/cartUtilities";
+} from "../../utilites/cartUtilities";
 
 import "./Test.css";
 import "../../App.css";
@@ -14,7 +14,7 @@ import {
   handleBtnAddToWishlist,
   handleBtnRemoveFromWishlist,
   productInWishlist,
-} from "../../Utilites/wishlistUtilities";
+} from "../../utilites/wishlistUtilities";
 
 export function Test({
   product = {

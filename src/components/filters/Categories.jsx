@@ -3,7 +3,7 @@ import { ProductsListingContext } from "../../contexts/ProductsListingContext";
 import {
   isCheckedCategory,
   removeAllWhitespace,
-} from "../../Utilites/filtersUtilities";
+} from "../../utilites/filtersUtilities";
 
 export function Categories() {
   const { categories, filtersDispatch, filtersState } = useContext(

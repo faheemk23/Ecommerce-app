@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { ProductsListingContext } from "../../contexts/ProductsListingContext";
-import { handleRatingFilterChange } from "../../Utilites/filtersUtilities";
+import { handleRatingFilterChange } from "../../utilites/filtersUtilities";
 
 export function Rating() {
   const { filtersDispatch, filtersState } = useContext(ProductsListingContext);

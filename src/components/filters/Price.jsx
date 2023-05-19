@@ -5,7 +5,7 @@ import "./Filters.css";
 import {
   handlePriceFilterChange,
   maxPrice,
-} from "../../Utilites/filtersUtilities";
+} from "../../utilites/filtersUtilities";
 
 export function Price() {
   const { products, filtersDispatch, filtersState } = useContext(
