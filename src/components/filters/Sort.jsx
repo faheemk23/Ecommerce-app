@@ -1,17 +1,21 @@
 import { useContext } from "react";
 import { ProductsListingContext } from "../../contexts/ProductsListingContext";
+import {
+  handleSortFilterChange,
+  isCheckedSort,
+} from "../../Utilites/filtersUtilities";
 
 export function Sort() {
-  const { filtersDispatch } = useContext(ProductsListingContext);
-  const handleSortFilterChange = (e, filtersDispatch) => {
-    const sortType = e.target.value;
-    filtersDispatch({ type: "sort", payload: sortType });
-  };
+  const { filtersDispatch, filtersState } = useContext(ProductsListingContext);
+
+  const { sort } = filtersState;
+
   return (
     <div>
       <h2>Sort by</h2>
       <div>
         <input
+          checked={isCheckedSort(sort)}
           className="accent-color-green"
           type="radio"
           name="sort"
@@ -23,6 +27,7 @@ export function Sort() {
       </div>
       <div>
         <input
+          checked={isCheckedSort(sort)}
           className="accent-color-green"
           type="radio"
           name="sort"

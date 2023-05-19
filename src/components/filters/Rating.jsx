@@ -1,29 +1,31 @@
 import { useContext } from "react";
 import { ProductsListingContext } from "../../contexts/ProductsListingContext";
+import { handleRatingFilterChange } from "../../Utilites/filtersUtilities";
 
 export function Rating() {
-  const { filtersDispatch } = useContext(ProductsListingContext);
-  const handleRatingFilterChange = (e, filtersDispatch) => {
-    const priceFilterValue = e.target.value;
-    filtersDispatch({ type: "rating", payload: priceFilterValue });
-  };
+  const { filtersDispatch, filtersState } = useContext(ProductsListingContext);
+
+  const { rating } = filtersState;
+
   return (
     <div>
       <label htmlFor="rating-filter">
         <h2>Rating</h2>
+        <div>{rating}★ & above</div>
       </label>
-      0
+      2.5
       <input
         className="accent-color-green"
+        value={rating}
         type="range"
         name="rating-range"
         id="rating-filter"
-        min="0"
-        max="5"
-        step="1"
+        min="2.5"
+        max="4.5"
+        step=".5"
         onChange={(e) => handleRatingFilterChange(e, filtersDispatch)}
       />
-      5
+      4.5
     </div>
   );
 }

@@ -1,9 +1,15 @@
 import { useContext } from "react";
 import { ProductsListingContext } from "../../contexts/ProductsListingContext";
-import { removeAllWhitespace } from "../../Utilites/filtersUtilities";
+import {
+  isCheckedCategory,
+  removeAllWhitespace,
+} from "../../Utilites/filtersUtilities";
 
 export function Categories() {
-  const { categories, filtersDispatch } = useContext(ProductsListingContext);
+  const { categories, filtersDispatch, filtersState } = useContext(
+    ProductsListingContext
+  );
+  const { categories: categoriesChecked } = filtersState;
 
   return (
     <div>
@@ -11,6 +17,7 @@ export function Categories() {
       {categories.map(({ _id, categoryName }) => (
         <div key={_id}>
           <input
+            checked={isCheckedCategory(categoryName, categoriesChecked)}
             type="checkbox"
             name="category-filter"
             value={removeAllWhitespace(categoryName)}
