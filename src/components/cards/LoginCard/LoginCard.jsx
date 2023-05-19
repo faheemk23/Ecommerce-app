@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import {
   loginHandler,
   testUserLoginHandler,
-} from "../../../Utilites/authUtilities";
+} from "../../../utilites/authUtilities";
 
 export function LoginCard() {
   const [loginData, setloginData] = useState({

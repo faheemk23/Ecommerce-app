@@ -3,7 +3,7 @@ import { ProductsListingContext } from "../../contexts/ProductsListingContext";
 import {
   handleSortFilterChange,
   isCheckedSort,
-} from "../../Utilites/filtersUtilities";
+} from "../../utilites/filtersUtilities";
 
 export function Sort() {
   const { filtersDispatch, filtersState } = useContext(ProductsListingContext);

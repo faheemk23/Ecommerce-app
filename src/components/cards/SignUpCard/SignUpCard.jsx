@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { signupHandler } from "../../../Utilites/authUtilities";
+import { signupHandler } from "../../../utilites/authUtilities";
 
 export function SignUpCard() {
   const [signupData, setSignupData] = useState({

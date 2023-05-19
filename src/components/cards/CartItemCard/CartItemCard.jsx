@@ -3,7 +3,7 @@ import { useContext } from "react";
 import {
   handleBtnRemoveFromCart,
   handleQuantityChangeInCart,
-} from "../../../Utilites/cartUtilities";
+} from "../../../utilites/cartUtilities";
 
 import { DataContext } from "../../../contexts/DataContext";
 import "./CartItemCard.css";
@@ -11,7 +11,7 @@ import {
   handleBtnAddToWishlist,
   handleBtnRemoveFromWishlist,
   productInWishlist,
-} from "../../../Utilites/wishlistUtilities";
+} from "../../../utilites/wishlistUtilities";
 
 export function CartItemCard({ product }) {
   const { dataState, dataDispatch } = useContext(DataContext);

@@ -1,6 +1,6 @@
 import { createContext, useEffect, useReducer, useState } from "react";
 import { productsReducer } from "../reducers/productsReducer";
-import { fetchCategories, fetchProducts } from "../Utilites/productsUtilities";
+import { fetchCategories, fetchProducts } from "../utilites/productsUtilities";
 import filtersReducer from "../reducers/filtersReducer";
 
 export const ProductsListingContext = createContext({

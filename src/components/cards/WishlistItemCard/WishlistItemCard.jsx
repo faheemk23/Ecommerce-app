@@ -7,10 +7,10 @@ import {
   handleBtnAddToCart,
   handleBtnGoToCart,
   productInCart,
-} from "../../../Utilites/cartUtilities";
+} from "../../../utilites/cartUtilities";
 
 import { DataContext } from "../../../contexts/DataContext";
-import { handleBtnRemoveFromWishlist } from "../../../Utilites/wishlistUtilities";
+import { handleBtnRemoveFromWishlist } from "../../../utilites/wishlistUtilities";
 
 export function WishlistItemCard({ product }) {
   const { dataState, dataDispatch } = useContext(DataContext);

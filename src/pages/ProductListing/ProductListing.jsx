@@ -5,7 +5,7 @@ import { ProductCard } from "../../components/cards/ProductCard/ProductCard";
 import "./ProductListing.css";
 import { FilterColumn } from "../../components/filters/FilterColumn";
 import { Test } from "../../components/cards/Test";
-import { filterProducts } from "../../Utilites/productsUtilities";
+import { filterProducts } from "../../utilites/productsUtilities";
 
 export function ProductListing() {
   const { products, filtersState } = useContext(ProductsListingContext);
