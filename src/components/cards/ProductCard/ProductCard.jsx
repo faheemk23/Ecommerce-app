@@ -50,17 +50,17 @@ export function ProductCard({ product }) {
       </div>
       {productInCart(cart, product) ? (
         <button
-          className="btn btn-secondary product-btn-cart"
+          className="btn btn-secondary product-btn-cart go"
           onClick={() => handleBtnGoToCart(navigate)}
         >
           GO <i className="fa-solid fa-cart-shopping "></i>
         </button>
       ) : (
         <button
-          className="btn btn-primary product-btn-cart"
+          className="btn btn-primary product-btn-cart add "
           onClick={() => handleBtnAddToCart(product, dataDispatch)}
         >
-          ADD <i className="fa-solid fa-cart-plus"></i>
+          ADD <i className="fa-solid fa-cart-plus "></i>
         </button>
       )}
       {productInWishlist(wishlist, product) ? (
