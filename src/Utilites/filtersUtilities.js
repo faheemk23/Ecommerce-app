@@ -14,3 +14,7 @@ export const getCheckboxFilterArr = (state, filter, action) => {
     };
   }
 };
+
+export const removeAllWhitespace = (str) => {
+  return str.replaceAll(" ", "");
+};

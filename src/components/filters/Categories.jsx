@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { ProductsListingContext } from "../../contexts/ProductsListingContext";
+import { removeAllWhitespace } from "../../Utilites/filtersUtilities";
 
 export function Categories() {
   const { categories, filtersDispatch } = useContext(ProductsListingContext);
@@ -12,7 +13,7 @@ export function Categories() {
           <input
             type="checkbox"
             name="category-filter"
-            value={categoryName}
+            value={removeAllWhitespace(categoryName)}
             id={categoryName}
             onChange={(e) =>
               filtersDispatch({
