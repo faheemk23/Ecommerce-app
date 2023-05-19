@@ -12,6 +12,7 @@ export function Sort() {
       <h2>Sort by</h2>
       <div>
         <input
+          className="accent-color-green"
           type="radio"
           name="sort"
           value="lth"
@@ -22,6 +23,7 @@ export function Sort() {
       </div>
       <div>
         <input
+          className="accent-color-green"
           type="radio"
           name="sort"
           value="htl"

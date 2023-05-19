@@ -3,7 +3,7 @@
   text-decoration: line-through;
 }
 
-.product-card {
+.test-card {
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 1rem;
   width: 180px;
@@ -12,7 +12,7 @@
   position: relative;
 }
 
-.product-discount {
+.test-discount {
   background-color: #538cee;
   position: absolute;
   top: 0;
@@ -26,7 +26,7 @@
   color: red;
 }
 
-.product-price {
+.test-price {
   color: #ff9407;
 }
 .wishlist-icon {
@@ -35,11 +35,11 @@
   top: 1rem;
   right: 1.2rem;
 }
-/* .product-discount {
+/* .test-discount {
   
 } */
 
-.product-btn-cart {
+.test-btn-cart {
   margin: 0;
   margin-top: 1rem;
   border: 1px solid var(--primary-color);

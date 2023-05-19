@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import { ProductsListingContext } from "../../contexts/ProductsListingContext";
 
+import "./Filters.css";
+
 export function Price() {
   const { products, filtersDispatch } = useContext(ProductsListingContext);
 
@@ -21,6 +23,7 @@ export function Price() {
       </label>
       0
       <input
+        className="accent-color-green"
         type="range"
         name="price-range"
         id="price-filter"
