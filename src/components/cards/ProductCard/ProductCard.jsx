@@ -8,6 +8,7 @@ import {
 } from "../../../Utilites/cartUtilities";
 
 import "./ProductCard.css";
+import "../../../App.css";
 import { DataContext } from "../../../contexts/DataContext";
 import {
   handleBtnAddToWishlist,
@@ -15,12 +16,12 @@ import {
   productInWishlist,
 } from "../../../Utilites/wishlistUtilities";
 
-export function ProductCard({ product, inCart }) {
+export function ProductCard({ product }) {
   const { dataState, dataDispatch } = useContext(DataContext);
 
   const navigate = useNavigate();
 
-  const { _id, image, title, original_price, price } = product;
+  const { _id, image, title, original_price, price, unit } = product;
 
   const { cart, wishlist } = dataState;
 
@@ -31,30 +32,43 @@ export function ProductCard({ product, inCart }) {
   );
 
   return (
-    <div style={{ backgroundColor: "rgba(0,0,0,0.2)", maxWidth: "200px" }}>
-      <img src={image} alt="product" height="200px" width="200px" />
-      <div>{title}</div>
+    <div className="product-card ">
+      <img src={image} alt="product" height="130px" width="130px" />
+      <div className="product-title">{title}</div>
+      <div className="product-quan">{unit}</div>
       <div>
-        <strong>₹{price}</strong>{" "}
+        <strong className="product-price"> ₹{price}</strong>{" "}
         <span className="original-price">₹{original_price}</span>
       </div>
-      <div>{discount}% off</div>
+      <div className="product-discount">
+        {discount}% <br />
+        OFF
+      </div>
       {productInCart(cart, product) ? (
-        <button onClick={() => handleBtnGoToCart(navigate)}>Go to Cart</button>
+        <button
+          className="btn btn-secondary product-btn-cart"
+          onClick={() => handleBtnGoToCart(navigate)}
+        >
+          GO <i class="fa-solid fa-cart-shopping "></i>
+        </button>
       ) : (
-        <button onClick={() => handleBtnAddToCart(product, dataDispatch)}>
-          Add to Cart
+        <button
+          className="btn btn-primary product-btn-cart"
+          onClick={() => handleBtnAddToCart(product, dataDispatch)}
+        >
+          ADD <i class="fa-solid fa-cart-plus"></i>
         </button>
       )}
-
       {productInWishlist(wishlist, product) ? (
-        <button onClick={() => handleBtnRemoveFromWishlist(_id, dataDispatch)}>
-          Remove from Wishlist
-        </button>
+        <i
+          className="fa-solid fa-heart red wishlist-icon"
+          onClick={() => handleBtnRemoveFromWishlist(_id, dataDispatch)}
+        ></i>
       ) : (
-        <button onClick={() => handleBtnAddToWishlist(product, dataDispatch)}>
-          Save to Wishlist
-        </button>
+        <i
+          className="fa-regular fa-heart wishlist-icon"
+          onClick={() => handleBtnAddToWishlist(product, dataDispatch)}
+        ></i>
       )}
     </div>
   );
