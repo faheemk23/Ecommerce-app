@@ -7,6 +7,8 @@ import { useContext } from "react";
 import { ProductsListingContext } from "../../contexts/ProductsListingContext";
 import { Hero } from "../../components/Hero/Hero";
 import { Link } from "react-router-dom";
+import { Footer } from "../../components/Footer/Footer";
+import { Test } from "../../components/cards/Test";
 
 export function Home() {
   const { categories } = useContext(ProductsListingContext);
@@ -14,6 +16,7 @@ export function Home() {
   return (
     <div className="home">
       <Navigation showBtnLogin />
+
       <Hero />
       <div className="home-info">
         <div className="home-categories-list">
@@ -29,8 +32,13 @@ export function Home() {
               See All
             </Link>
           </div>
+          <div className="home-bestselling-products">
+            <h2>Best Selling Products</h2>
+          </div>
         </div>
       </div>
+      <Footer />
+      <Test />
     </div>
   );
 }
