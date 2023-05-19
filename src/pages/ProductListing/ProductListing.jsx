@@ -5,17 +5,19 @@ import { ProductCard } from "../../components/cards/ProductCard/ProductCard";
 import "./ProductListing.css";
 import { FilterColumn } from "../../components/filters/FilterColumn";
 import { Test } from "../../components/cards/Test";
+import { filterProducts } from "../../Utilites/productsUtilities";
 
 export function ProductListing() {
   const { products, filtersState } = useContext(ProductsListingContext);
-  // console.log(filtersState);
+
+  const filteredProducts = filterProducts(products, filtersState);
   return (
     <div className="listing">
       <Navigation showBtnLogin />
       <FilterColumn />
       <div className="products">
-        {products?.map((product) => (
-          <ProductCard key={product.id} product={product} />
+        {filteredProducts.map((product) => (
+          <ProductCard key={product._id} product={product} />
         ))}
       </div>
     </div>

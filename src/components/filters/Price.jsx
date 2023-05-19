@@ -2,36 +2,36 @@ import { useContext } from "react";
 import { ProductsListingContext } from "../../contexts/ProductsListingContext";
 
 import "./Filters.css";
+import {
+  handlePriceFilterChange,
+  maxPrice,
+} from "../../Utilites/filtersUtilities";
 
 export function Price() {
-  const { products, filtersDispatch } = useContext(ProductsListingContext);
-
-  const maxPrice = products.reduce(
-    (acc, { price }) => (Number(price) > acc ? Number(price) : acc),
-    0
+  const { products, filtersDispatch, filtersState } = useContext(
+    ProductsListingContext
   );
 
-  const handlePriceFilterChange = (e, filtersDispatch) => {
-    const priceFilterValue = e.target.value;
-    filtersDispatch({ type: "price", payload: priceFilterValue });
-  };
+  const { price } = filtersState;
 
   return (
     <div>
       <label htmlFor="price-filter">
         <h2>Price</h2>
       </label>
+      <div>₹{price} & below</div>
       0
       <input
         className="accent-color-green"
+        value={price}
         type="range"
         name="price-range"
         id="price-filter"
         min="0"
-        max={maxPrice}
+        max={maxPrice(products)}
         onChange={(e) => handlePriceFilterChange(e, filtersDispatch)}
       />
-      {maxPrice}
+      {maxPrice(products)}
     </div>
   );
 }

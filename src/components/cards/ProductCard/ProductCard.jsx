@@ -21,7 +21,8 @@ export function ProductCard({ product }) {
 
   const navigate = useNavigate();
 
-  const { _id, image, title, original_price, price, unit } = product;
+  const { _id, image, title, original_price, price, unit, rating, reviews } =
+    product;
 
   const { cart, wishlist } = dataState;
 
@@ -35,6 +36,9 @@ export function ProductCard({ product }) {
     <div className="product-card ">
       <img src={image} alt="product" height="130px" width="130px" />
       <div className="product-title">{title}</div>
+      <div>
+        {rating}★ ({reviews}k reviews)
+      </div>
       <div className="product-quan">{unit}</div>
       <div>
         <strong className="product-price"> ₹{price}</strong>{" "}
@@ -49,14 +53,14 @@ export function ProductCard({ product }) {
           className="btn btn-secondary product-btn-cart"
           onClick={() => handleBtnGoToCart(navigate)}
         >
-          GO <i class="fa-solid fa-cart-shopping "></i>
+          GO <i className="fa-solid fa-cart-shopping "></i>
         </button>
       ) : (
         <button
           className="btn btn-primary product-btn-cart"
           onClick={() => handleBtnAddToCart(product, dataDispatch)}
         >
-          ADD <i class="fa-solid fa-cart-plus"></i>
+          ADD <i className="fa-solid fa-cart-plus"></i>
         </button>
       )}
       {productInWishlist(wishlist, product) ? (
