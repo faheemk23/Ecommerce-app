@@ -49,14 +49,14 @@ export function ProductCard({ product }) {
           className="btn btn-secondary product-btn-cart"
           onClick={() => handleBtnGoToCart(navigate)}
         >
-          GO <i class="fa-solid fa-cart-shopping "></i>
+          GO <i className="fa-solid fa-cart-shopping "></i>
         </button>
       ) : (
         <button
           className="btn btn-primary product-btn-cart"
           onClick={() => handleBtnAddToCart(product, dataDispatch)}
         >
-          ADD <i class="fa-solid fa-cart-plus"></i>
+          ADD <i className="fa-solid fa-cart-plus"></i>
         </button>
       )}
       {productInWishlist(wishlist, product) ? (

@@ -70,14 +70,14 @@ export function Test({
           className="btn btn-secondary test-btn-cart"
           onClick={() => handleBtnGoToCart(navigate)}
         >
-          GO <i class="fa-solid fa-cart-shopping "></i>
+          GO <i className="fa-solid fa-cart-shopping "></i>
         </button>
       ) : (
         <button
           className="btn btn-primary test-btn-cart"
           onClick={() => handleBtnAddToCart(product, dataDispatch)}
         >
-          ADD <i class="fa-solid fa-cart-plus"></i>
+          ADD <i className="fa-solid fa-cart-plus"></i>
         </button>
       )}
       {productInWishlist(wishlist, product) ? (
