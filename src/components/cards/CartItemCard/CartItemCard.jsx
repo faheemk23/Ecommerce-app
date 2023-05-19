@@ -28,46 +28,54 @@ export function CartItemCard({ product }) {
 
   return (
     <div style={{ backgroundColor: "rgba(0,0,0,0.2)", maxWidth: "200px" }}>
-      <img src={image} alt="product" height="200px" width="200px" />
-      <div>{title}</div>
-      <div>
-        <strong>₹{price}</strong>{" "}
-        <span className="original-price">₹{original_price}</span>
-      </div>
-      <div>{discount}% off</div>
-
-      <div>
-        Quantity:{" "}
-        <button
-          onClick={() =>
-            handleQuantityChangeInCart(qty, "decrement", _id, dataDispatch)
-          }
-        >
-          -
-        </button>{" "}
-        {qty}{" "}
-        <button
-          onClick={() =>
-            handleQuantityChangeInCart(qty, "increment", _id, dataDispatch)
-          }
-        >
-          +
-        </button>
+      <div className="image">
+        {" "}
+        <img src={image} alt="product" height="200px" width="200px" />
       </div>
 
-      <button onClick={() => handleBtnRemoveFromCart(_id, dataDispatch)}>
-        Remove from cart
-      </button>
+      <div className="info">
+        <div>{title}</div>
+        <div>
+          <strong>₹{price}</strong>{" "}
+          <span className="original-price">₹{original_price}</span>
+        </div>
+        <div>{discount}% off</div>
 
-      {productInWishlist(wishlist, product) ? (
-        <button onClick={() => handleBtnRemoveFromWishlist(_id, dataDispatch)}>
-          Remove from Wishlist
+        <div>
+          Quantity:{" "}
+          <button
+            onClick={() =>
+              handleQuantityChangeInCart(qty, "decrement", _id, dataDispatch)
+            }
+          >
+            -
+          </button>{" "}
+          {qty}{" "}
+          <button
+            onClick={() =>
+              handleQuantityChangeInCart(qty, "increment", _id, dataDispatch)
+            }
+          >
+            +
+          </button>
+        </div>
+
+        <button onClick={() => handleBtnRemoveFromCart(_id, dataDispatch)}>
+          Remove from cart
         </button>
-      ) : (
-        <button onClick={() => handleBtnAddToWishlist(product, dataDispatch)}>
-          Save to Wishlist
-        </button>
-      )}
+
+        {productInWishlist(wishlist, product) ? (
+          <button
+            onClick={() => handleBtnRemoveFromWishlist(_id, dataDispatch)}
+          >
+            Remove from Wishlist
+          </button>
+        ) : (
+          <button onClick={() => handleBtnAddToWishlist(product, dataDispatch)}>
+            Save to Wishlist
+          </button>
+        )}
+      </div>
     </div>
   );
 }
