@@ -16,7 +16,28 @@ import {
   productInWishlist,
 } from "../../Utilites/wishlistUtilities";
 
-export function Test({ product, inCart, inWishlist }) {
+export function Test({
+  product = {
+    _id: "eb98a70f-6c81-4922-b0df-16897dde0beb",
+    image:
+      "https://ik.imagekit.io/faheem/Ecommerce-Grocery/Products_Images/iceCreams/butterScotch?updatedAt=1684441132025",
+    rating: "4.5",
+    category: "IceCream",
+    title: "Butterscotch Bliss Ice Cream Tub",
+    trending: true,
+    original_price: "225",
+    price: "215",
+    delivery_time: "3",
+    reviews: "1.5k",
+    in_stock: true,
+    is_popular: false,
+    is_best_selling: false,
+    is_organic: false,
+    unit: "1 L",
+  },
+  inCart,
+  inWishlist,
+}) {
   const { dataState, dataDispatch } = useContext(DataContext);
 
   const navigate = useNavigate();
