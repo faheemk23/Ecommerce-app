@@ -9,13 +9,21 @@
 }
 
 .home-popular-products {
-  /* border: solid; */
+  border: solid;
   position: relative;
+  height: 500px;
+}
+
+.home-bestselling-products {
+  margin-top: 2rem;
+  border: solid;
+  position: relative;
+  height: 250px;
 }
 
 .btn-see-all {
   position: absolute;
-  top: 0;
+  top: 1.5rem;
   right: 0;
 }
 
