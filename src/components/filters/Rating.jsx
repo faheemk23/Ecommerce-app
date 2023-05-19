@@ -14,6 +14,7 @@ export function Rating() {
       </label>
       0
       <input
+        className="accent-color-green"
         type="range"
         name="rating-range"
         id="rating-filter"
