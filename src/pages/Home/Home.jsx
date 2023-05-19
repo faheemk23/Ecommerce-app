@@ -38,7 +38,7 @@ export function Home() {
         </div>
       </div>
       <Footer />
-      <Test />
+      {/* <Test /> */}
     </div>
   );
 }
