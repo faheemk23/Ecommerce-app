@@ -8,7 +8,7 @@ import { Test } from "../../components/cards/Test";
 
 export function ProductListing() {
   const { products, filtersState } = useContext(ProductsListingContext);
-  // console.log(filtersState);
+  console.log(filtersState);
   return (
     <div className="listing">
       <Navigation showBtnLogin />

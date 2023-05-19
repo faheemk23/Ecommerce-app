@@ -11,7 +11,6 @@ export const ProductsListingContext = createContext({
 const initialFiltersState = {
   price: 0,
   categories: [],
-  sizes: [],
   rating: 0,
   sort: "",
 };
