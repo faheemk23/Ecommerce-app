@@ -21,7 +21,8 @@ export function ProductCard({ product }) {
 
   const navigate = useNavigate();
 
-  const { _id, image, title, original_price, price, unit } = product;
+  const { _id, image, title, original_price, price, unit, rating, reviews } =
+    product;
 
   const { cart, wishlist } = dataState;
 
@@ -35,6 +36,9 @@ export function ProductCard({ product }) {
     <div className="product-card ">
       <img src={image} alt="product" height="130px" width="130px" />
       <div className="product-title">{title}</div>
+      <div>
+        {rating}★ ({reviews}k reviews)
+      </div>
       <div className="product-quan">{unit}</div>
       <div>
         <strong className="product-price"> ₹{price}</strong>{" "}
