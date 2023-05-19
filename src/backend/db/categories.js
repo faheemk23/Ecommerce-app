@@ -26,14 +26,8 @@ export const categories = [
   },
   {
     _id: "4d22ec75-6bee-44d4-bd01-106cffd6909f",
-    categoryName: "Beans",
+    categoryName: "Pulses",
     icon: "https://ik.imagekit.io/faheem/Ecommerce-Grocery/categoriesIcons/beans.jpg?updatedAt=1684331683511",
-    description: "",
-  },
-  {
-    _id: "5b838f41-73db-4939-a610-e90aadca2121",
-    categoryName: "Gardening",
-    icon: "https://ik.imagekit.io/faheem/Ecommerce-Grocery/categoriesIcons/gardening.jpg?updatedAt=1684331683487",
     description: "",
   },
   {
