@@ -10,14 +10,17 @@ const initialDataState = {
 
 export const DataContext = createContext({ cart: [], wishlist: [] });
 
-export default function DataProvider({ children }) {
+export function DataProvider({ children }) {
   const [dataState, dataDispatch] = useReducer(dataReducer, initialDataState);
+
+  // console.log(userInfo);
+
   const encodedToken = localStorage.getItem("userToken");
 
-  useEffect(() => {
-    getCartItems(encodedToken, dataDispatch);
-    getWishlistItems(encodedToken, dataDispatch);
-  }, []);
+  // useEffect(() => {
+  //   getCartItems(encodedToken, dataDispatch);
+  //   getWishlistItems(encodedToken, dataDispatch);
+  // }, []);
 
   return (
     <>
