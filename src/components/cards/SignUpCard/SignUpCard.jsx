@@ -1,56 +1,70 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { signupHandler } from "../../../utilites/authUtilities";
 
 export function SignUpCard() {
   const [signupData, setSignupData] = useState({
+    firstName: "",
+    lastName: "",
     email: "",
     password: "",
+    confirmPassword: "",
   });
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const [showPassword, setShowPassword] = useState(true);
+  const navigate = useNavigate();
+
+  const [showPassword, setShowPassword] = useState(false);
+  const [userAcceptsConditions, setUserAcceptsConditions] = useState(false);
 
   const toggleShowPassword = () => {
     setShowPassword((prev) => !prev);
   };
 
-  const handleSignupEmailField = (e) => {
-    const userEmail = e.target.value;
-    setSignupData((prev) => ({ ...prev, email: userEmail }));
+  const handleSignupFields = (e) => {
+    const field = e.target.id;
+    const fieldValue = e.target.value;
+    setSignupData((prev) => ({ ...prev, [field]: fieldValue }));
   };
 
-  const handleSignupPasswordField = (e) => {
-    const userPassword = e.target.value;
-    setSignupData((prev) => ({ ...prev, password: userPassword }));
-  };
+  const handlePasswordVisiblityToggle = () =>
+    showPassword ? "text" : "password";
+
   return (
     <div style={{ backgroundColor: "rgba(0,0,0,0.2)", maxWidth: "350px" }}>
       <h2>Sigup</h2>
 
+      {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
+
       <div>
-        <label htmlFor="first-name">First name: </label>
-        <input type="text" id="first-name" required />
+        <label htmlFor="firstName">First name: </label>
+        <input
+          type="text"
+          id="firstName"
+          onChange={handleSignupFields}
+          required
+        />
       </div>
       <div>
-        <label htmlFor="last-name">Last name: </label>
-        <input type="text" id="last-name" required />
+        <label htmlFor="lastName">Last name: </label>
+        <input
+          type="text"
+          id="lastName"
+          onChange={handleSignupFields}
+          required
+        />
       </div>
       <div>
         <label htmlFor="email">Email address: </label>
-        <input
-          type="text"
-          id="email"
-          onChange={handleSignupEmailField}
-          required
-        />
+        <input type="text" id="email" onChange={handleSignupFields} required />
       </div>
       <div>
         <label htmlFor="password">Password: </label>
 
         <input
-          type="password"
+          type={handlePasswordVisiblityToggle()}
           id="password"
-          onChange={handleSignupPasswordField}
+          onChange={handleSignupFields}
           required
         />
         {showPassword ? (
@@ -63,11 +77,21 @@ export function SignUpCard() {
         )}
       </div>
       <div>
-        <label htmlFor="confirm-password">Confirm password: </label>
-        <input type="password" id="confirm-password" required />
+        <label htmlFor="confirmPassword">Confirm password: </label>
+        <input
+          type="password"
+          id="confirmPassword"
+          onChange={handleSignupFields}
+          required
+        />
       </div>
       <div>
-        <input type="checkbox" id="accept-tc" required />
+        <input
+          type="checkbox"
+          id="accept-tc"
+          onClick={(e) => setUserAcceptsConditions(e.target.checked)}
+          required
+        />
         <label htmlFor="accept-tc">I accept all Terms & Conditions</label>{" "}
       </div>
       <div>
@@ -75,7 +99,8 @@ export function SignUpCard() {
           type="submit"
           id="signup-submit"
           value="Sign Up"
-          onClick={() => signupHandler(signupData)}
+          disabled={!userAcceptsConditions}
+          onClick={() => signupHandler(signupData, navigate, setErrorMessage)}
         />
       </div>
 
