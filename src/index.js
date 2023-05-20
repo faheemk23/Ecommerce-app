@@ -6,7 +6,8 @@ import "./index.css";
 import { ProductsListingProvider } from "./contexts/ProductsListingContext";
 import App from "./App";
 import { makeServer } from "./server";
-import DataProvider from "./contexts/DataContext";
+import { DataProvider } from "./contexts/DataContext";
+import { AuthProvider } from "./contexts/AuthContext";
 
 // Call make Server
 makeServer();
@@ -14,11 +15,13 @@ makeServer();
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <ProductsListingProvider>
-        <DataProvider>
-          <App />
-        </DataProvider>
-      </ProductsListingProvider>
+      <AuthProvider>
+        <ProductsListingProvider>
+          <DataProvider>
+            <App />
+          </DataProvider>
+        </ProductsListingProvider>
+      </AuthProvider>
     </Router>
   </React.StrictMode>,
   document.getElementById("root")
