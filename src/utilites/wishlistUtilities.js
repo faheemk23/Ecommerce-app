@@ -19,27 +19,39 @@ export const getWishlistItems = async (encodedToken, dataDispatch) => {
   }
 };
 
-export async function handleBtnAddToWishlist(product, dataDispatch) {
-  const encodedToken = localStorage.getItem("userToken");
-  try {
-    const res = await axios.post(
-      `/api/user/wishlist`,
-      { product },
-      {
-        headers: {
-          authorization: encodedToken,
-        },
+export async function handleBtnAddToWishlist(
+  product,
+  dataDispatch,
+  loggedIn,
+  navigate
+) {
+  console.log(loggedIn);
+  if (!loggedIn) {
+    alert("Please Log in to add items to wishlist.");
+    navigate("/login");
+    return;
+  } else {
+    const encodedToken = localStorage.getItem("userToken");
+    try {
+      const res = await axios.post(
+        `/api/user/wishlist`,
+        { product },
+        {
+          headers: {
+            authorization: encodedToken,
+          },
+        }
+      );
+      if (res.status === 201) {
+        dataDispatch({ type: "set-wishlist", payload: res.data.wishlist });
       }
-    );
-    if (res.status === 201) {
-      dataDispatch({ type: "set-wishlist", payload: res.data.wishlist });
+    } catch (e) {
+      console.error({
+        message: e.message,
+        code: e.code,
+        where: "addToWishlistHandler",
+      });
     }
-  } catch (e) {
-    console.error({
-      message: e.message,
-      code: e.code,
-      where: "addToWishlistHandler",
-    });
   }
 }
 
