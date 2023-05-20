@@ -11,9 +11,11 @@ import {
 
 import { DataContext } from "../../../contexts/DataContext";
 import { handleBtnRemoveFromWishlist } from "../../../utilites/wishlistUtilities";
+import { AuthContext } from "../../../contexts/AuthContext";
 
 export function WishlistItemCard({ product }) {
   const { dataState, dataDispatch } = useContext(DataContext);
+  const { loggedIn } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -32,7 +34,11 @@ export function WishlistItemCard({ product }) {
       {productInCart(cart, product) ? (
         <button onClick={() => handleBtnGoToCart(navigate)}>Go to Cart</button>
       ) : (
-        <button onClick={() => handleBtnAddToCart(product, dataDispatch)}>
+        <button
+          onClick={() =>
+            handleBtnAddToCart(product, dataDispatch, loggedIn, navigate)
+          }
+        >
           Add to Cart
         </button>
       )}

@@ -7,27 +7,51 @@ export const getWishlistItems = async (encodedToken, dataDispatch) => {
         authorization: encodedToken,
       },
     });
-    dataDispatch({ type: "set-wishlist", payload: res.data.wishlist });
+    if (res.status === 200) {
+      dataDispatch({ type: "set-wishlist", payload: res.data.wishlist });
+    }
   } catch (e) {
-    console.log(e);
+    console.error({
+      message: e.message,
+      code: e.code,
+      where: "getWishlistItemsHandler",
+    });
   }
 };
 
-export async function handleBtnAddToWishlist(product, dataDispatch) {
-  const encodedToken = localStorage.getItem("userToken");
-  try {
-    const res = await axios.post(
-      `/api/user/wishlist`,
-      { product },
-      {
-        headers: {
-          authorization: encodedToken,
-        },
+export async function handleBtnAddToWishlist(
+  product,
+  dataDispatch,
+  loggedIn,
+  navigate
+) {
+  console.log(loggedIn);
+  if (!loggedIn) {
+    alert("Please Log in to add items to wishlist.");
+    navigate("/login");
+    return;
+  } else {
+    const encodedToken = localStorage.getItem("userToken");
+    try {
+      const res = await axios.post(
+        `/api/user/wishlist`,
+        { product },
+        {
+          headers: {
+            authorization: encodedToken,
+          },
+        }
+      );
+      if (res.status === 201) {
+        dataDispatch({ type: "set-wishlist", payload: res.data.wishlist });
       }
-    );
-    dataDispatch({ type: "set-wishlist", payload: res.data.wishlist });
-  } catch (e) {
-    console.log(e);
+    } catch (e) {
+      console.error({
+        message: e.message,
+        code: e.code,
+        where: "addToWishlistHandler",
+      });
+    }
   }
 }
 
@@ -39,9 +63,15 @@ export async function handleBtnRemoveFromWishlist(productId, dataDispatch) {
         authorization: encodedToken,
       },
     });
-    dataDispatch({ type: "set-wishlist", payload: res.data.wishlist });
+    if (res.status === 200) {
+      dataDispatch({ type: "set-wishlist", payload: res.data.wishlist });
+    }
   } catch (e) {
-    console.log(e);
+    console.error({
+      message: e.message,
+      code: e.code,
+      where: "removeFromWishlistHandler",
+    });
   }
 }
 

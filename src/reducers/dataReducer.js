@@ -4,6 +4,8 @@ export function dataReducer(state, action) {
       return { ...state, cart: action.payload };
     case "set-wishlist":
       return { ...state, wishlist: action.payload };
+    case "clear-all":
+      return { cart: [], wishlist: [] };
     default:
       return state;
   }

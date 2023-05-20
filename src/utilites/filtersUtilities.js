@@ -47,4 +47,5 @@ export const isCheckedCategory = (categoryName, categoriesChecked) =>
     (category) => category === removeAllWhitespace(categoryName).toLowerCase()
   );
 
-export const isCheckedSort = (sort) => (sort === "" ? false : null);
+export const isCheckedSort = (sort, type) =>
+  sort === "" ? false : sort === type ? true : false;

@@ -48,13 +48,3 @@
   bottom: 10px;
   right: 10px; */
 }
-
-.add:hover {
-  background-color: white;
-  color: var(--primary-color);
-}
-
-.go:hover {
-  background-color: var(--primary-color);
-  color: white;
-}

@@ -7,27 +7,50 @@ export const getCartItems = async (encodedToken, dataDispatch) => {
         authorization: encodedToken,
       },
     });
-    dataDispatch({ type: "set-cart", payload: res.data.cart });
+    if (res.status === 200) {
+      dataDispatch({ type: "set-cart", payload: res.data.cart });
+    }
   } catch (e) {
-    console.log(e);
+    console.error({
+      message: e.message,
+      code: e.code,
+      where: "getCartItemsHandler",
+    });
   }
 };
 
-export async function handleBtnAddToCart(product, dataDispatch) {
-  const encodedToken = localStorage.getItem("userToken");
-  try {
-    const res = await axios.post(
-      `/api/user/cart`,
-      { product },
-      {
-        headers: {
-          authorization: encodedToken,
-        },
+export async function handleBtnAddToCart(
+  product,
+  dataDispatch,
+  loggedIn,
+  navigate
+) {
+  if (!loggedIn) {
+    alert("Please Log in to add items to cart.");
+    navigate("/login");
+    return;
+  } else {
+    const encodedToken = localStorage.getItem("userToken");
+    try {
+      const res = await axios.post(
+        `/api/user/cart`,
+        { product },
+        {
+          headers: {
+            authorization: encodedToken,
+          },
+        }
+      );
+      if (res.status === 201) {
+        dataDispatch({ type: "set-cart", payload: res.data.cart });
       }
-    );
-    dataDispatch({ type: "set-cart", payload: res.data.cart });
-  } catch (e) {
-    console.log(e);
+    } catch (e) {
+      console.error({
+        message: e.message,
+        code: e.code,
+        where: "AddToCartHandler",
+      });
+    }
   }
 }
 
@@ -39,9 +62,15 @@ export async function handleBtnRemoveFromCart(productId, dataDispatch) {
         authorization: encodedToken,
       },
     });
-    dataDispatch({ type: "set-cart", payload: res.data.cart });
+    if (res.status === 200) {
+      dataDispatch({ type: "set-cart", payload: res.data.cart });
+    }
   } catch (e) {
-    console.log(e);
+    console.error({
+      message: e.message,
+      code: e.code,
+      where: "RemoveFromCartHandler",
+    });
   }
 }
 
@@ -59,9 +88,15 @@ export async function handleQuantityChangeInCart(
           authorization: encodedToken,
         },
       });
-      dataDispatch({ type: "set-cart", payload: res.data.cart });
+      if (res.status === 200) {
+        dataDispatch({ type: "set-cart", payload: res.data.cart });
+      }
     } catch (e) {
-      console.log(e);
+      console.error({
+        message: e.message,
+        code: e.code,
+        where: "QuantityChangeInCartHandler",
+      });
     }
   } else {
     try {
@@ -74,9 +109,15 @@ export async function handleQuantityChangeInCart(
           },
         }
       );
-      dataDispatch({ type: "set-cart", payload: res.data.cart });
+      if (res.status === 200) {
+        dataDispatch({ type: "set-cart", payload: res.data.cart });
+      }
     } catch (e) {
-      console.log(e);
+      console.error({
+        message: e.message,
+        code: e.code,
+        where: "QuantityChangeInCartHandler",
+      });
     }
   }
 }

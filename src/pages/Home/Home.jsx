@@ -16,7 +16,6 @@ export function Home() {
   return (
     <div className="home">
       <Navigation showBtnLogin />
-
       <Hero />
       <div className="home-info">
         <div className="home-categories-list">
