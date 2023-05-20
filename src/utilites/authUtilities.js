@@ -1,6 +1,11 @@
 import axios, { all } from "axios";
 
-export async function signupHandler(userData, navigate, setErrorMessage) {
+export async function signupHandler(
+  userData,
+  navigate,
+  setErrorMessage,
+  setLoggedIn
+) {
   const { firstName, lastName, email, password, confirmPassword } = userData;
   // validating data
   if (!(firstName && lastName && email && password && confirmPassword)) {
@@ -16,6 +21,7 @@ export async function signupHandler(userData, navigate, setErrorMessage) {
       if (res.status === 201) {
         localStorage.setItem("userToken", res.data.encodedToken);
         localStorage.setItem("user", JSON.stringify(res.data.createdUser));
+        setLoggedIn(true);
         alert("Logged in");
         navigate("/");
       }

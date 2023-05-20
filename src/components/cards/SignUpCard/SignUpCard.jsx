@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { signupHandler } from "../../../utilites/authUtilities";
+import { AuthContext } from "../../../contexts/AuthContext";
 
 export function SignUpCard() {
   const [signupData, setSignupData] = useState({
@@ -11,6 +12,7 @@ export function SignUpCard() {
     confirmPassword: "",
   });
   const [errorMessage, setErrorMessage] = useState("");
+  const { setLoggedIn } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -100,7 +102,9 @@ export function SignUpCard() {
           id="signup-submit"
           value="Sign Up"
           disabled={!userAcceptsConditions}
-          onClick={() => signupHandler(signupData, navigate, setErrorMessage)}
+          onClick={() =>
+            signupHandler(signupData, navigate, setErrorMessage, setLoggedIn)
+          }
         />
       </div>
 
