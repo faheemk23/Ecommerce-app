@@ -1,4 +1,6 @@
 import axios, { all } from "axios";
+import { getCartItems } from "./cartUtilities";
+import { getWishlistItems } from "./wishlistUtilities";
 
 export async function signupHandler(
   userData,
@@ -33,7 +35,12 @@ export async function signupHandler(
   }
 }
 
-export async function loginHandler(userData, navigate, setLoggedIn) {
+export async function loginHandler(
+  userData,
+  navigate,
+  setLoggedIn,
+  dataDispatch
+) {
   if (userData.email && userData.password) {
     try {
       const res = await axios.post(`/api/auth/login`, userData);
@@ -45,6 +52,9 @@ export async function loginHandler(userData, navigate, setLoggedIn) {
         setLoggedIn(true);
         alert("Logged in");
         navigate("/");
+
+        getCartItems(res.data.encodedToken, dataDispatch);
+        getWishlistItems(res.data.encodedToken, dataDispatch);
       }
     } catch (e) {
       if (e.code === "ERR_BAD_REQUEST") {

@@ -2,13 +2,14 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { loginHandler } from "../../../utilites/authUtilities";
 import { AuthContext } from "../../../contexts/AuthContext";
+import { DataContext } from "../../../contexts/DataContext";
 
 export function LoginCard() {
   const [loginData, setloginData] = useState({
     email: "",
     password: "",
   });
-
+  const { dataDispatch } = useContext(DataContext);
   const { setLoggedIn, loggedIn } = useContext(AuthContext);
   // console.log({ setLoggedIn, loggedIn });
 
@@ -45,13 +46,17 @@ export function LoginCard() {
         <input
           type="submit"
           id="login-submit"
-          onClick={() => loginHandler(loginData, navigate, setLoggedIn)}
+          onClick={() =>
+            loginHandler(loginData, navigate, setLoggedIn, dataDispatch)
+          }
           value="Login"
         />
       </div>
       <div>
         <button
-          onClick={() => loginHandler(testUserData, navigate, setLoggedIn)}
+          onClick={() =>
+            loginHandler(testUserData, navigate, setLoggedIn, dataDispatch)
+          }
         >
           Login as Test User
         </button>
