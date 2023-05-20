@@ -15,9 +15,11 @@ import {
   handleBtnRemoveFromWishlist,
   productInWishlist,
 } from "../../../utilites/wishlistUtilities";
+import { AuthContext } from "../../../contexts/AuthContext";
 
 export function ProductCard({ product }) {
   const { dataState, dataDispatch } = useContext(DataContext);
+  const { loggedIn } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -58,7 +60,9 @@ export function ProductCard({ product }) {
       ) : (
         <button
           className="btn btn-primary product-btn-cart add "
-          onClick={() => handleBtnAddToCart(product, dataDispatch)}
+          onClick={() =>
+            handleBtnAddToCart(product, dataDispatch, loggedIn, navigate)
+          }
         >
           ADD <i className="fa-solid fa-cart-plus "></i>
         </button>
@@ -71,7 +75,9 @@ export function ProductCard({ product }) {
       ) : (
         <i
           className="fa-regular fa-heart wishlist-icon"
-          onClick={() => handleBtnAddToWishlist(product, dataDispatch)}
+          onClick={() =>
+            handleBtnAddToWishlist(product, dataDispatch, loggedIn, navigate)
+          }
         ></i>
       )}
     </div>
