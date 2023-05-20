@@ -1,13 +1,36 @@
 import axios from "axios";
 
 export const fetchCategories = async (productsDispatch) => {
-  const res = await axios.get("/api/categories");
-  productsDispatch({ type: "set-categories", payload: res.data.categories });
+  try {
+    const res = await axios.get("/api/categories");
+    if (res.status === 200) {
+      productsDispatch({
+        type: "set-categories",
+        payload: res.data.categories,
+      });
+    }
+  } catch (e) {
+    console.error({
+      message: e.message,
+      code: e.code,
+      where: "fetchCategoriesHandler",
+    });
+  }
 };
 
 export const fetchProducts = async (productsDispatch) => {
-  const res = await axios.get("/api/products");
-  productsDispatch({ type: "set-products", payload: res.data.products });
+  try {
+    const res = await axios.get("/api/products");
+    if (res.status === 200) {
+      productsDispatch({ type: "set-products", payload: res.data.products });
+    }
+  } catch (e) {
+    console.error({
+      message: e.message,
+      code: e.code,
+      where: "fetchProductsHandler",
+    });
+  }
 };
 
 const getPriceFiltered = (products, priceRangeValue) =>

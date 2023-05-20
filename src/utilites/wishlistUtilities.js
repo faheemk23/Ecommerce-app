@@ -7,9 +7,15 @@ export const getWishlistItems = async (encodedToken, dataDispatch) => {
         authorization: encodedToken,
       },
     });
-    dataDispatch({ type: "set-wishlist", payload: res.data.wishlist });
+    if (res.status === 200) {
+      dataDispatch({ type: "set-wishlist", payload: res.data.wishlist });
+    }
   } catch (e) {
-    console.log(e);
+    console.error({
+      message: e.message,
+      code: e.code,
+      where: "getWishlistItemsHandler",
+    });
   }
 };
 
@@ -25,9 +31,15 @@ export async function handleBtnAddToWishlist(product, dataDispatch) {
         },
       }
     );
-    dataDispatch({ type: "set-wishlist", payload: res.data.wishlist });
+    if (res.status === 201) {
+      dataDispatch({ type: "set-wishlist", payload: res.data.wishlist });
+    }
   } catch (e) {
-    console.log(e);
+    console.error({
+      message: e.message,
+      code: e.code,
+      where: "addToWishlistHandler",
+    });
   }
 }
 
@@ -39,9 +51,15 @@ export async function handleBtnRemoveFromWishlist(productId, dataDispatch) {
         authorization: encodedToken,
       },
     });
-    dataDispatch({ type: "set-wishlist", payload: res.data.wishlist });
+    if (res.status === 200) {
+      dataDispatch({ type: "set-wishlist", payload: res.data.wishlist });
+    }
   } catch (e) {
-    console.log(e);
+    console.error({
+      message: e.message,
+      code: e.code,
+      where: "removeFromWishlistHandler",
+    });
   }
 }
 
