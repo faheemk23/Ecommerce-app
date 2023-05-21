@@ -25,7 +25,7 @@ export async function signupHandler(
         localStorage.setItem("user", JSON.stringify(res.data.createdUser));
         setLoggedIn(true);
         alert("Logged in");
-        navigate(-2);
+        navigate("/productlisting");
       }
     } catch (e) {
       alert("Email is already registered. Please log in.");
@@ -39,7 +39,8 @@ export async function loginHandler(
   userData,
   navigate,
   setLoggedIn,
-  dataDispatch
+  dataDispatch,
+  from
 ) {
   if (userData.email && userData.password) {
     try {
@@ -51,7 +52,11 @@ export async function loginHandler(
         localStorage.setItem("user", JSON.stringify(res.data.foundUser));
         setLoggedIn(true);
         alert("Logged in");
-        navigate(-1);
+        if (from) {
+          navigate(from);
+        } else {
+          navigate("/productlisting");
+        }
         getCartItems(res.data.encodedToken, dataDispatch);
         getWishlistItems(res.data.encodedToken, dataDispatch);
       }

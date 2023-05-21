@@ -36,8 +36,6 @@ export function SearchContainer() {
     filteredProducts = handleSearchFiltering(searchInput, products);
   }
 
-  console.log(searchInput);
-
   return (
     <div className="search-container">
       <div>

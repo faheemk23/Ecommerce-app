@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { loginHandler } from "../../../utilites/authUtilities";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { DataContext } from "../../../contexts/DataContext";
@@ -13,6 +13,10 @@ export function LoginCard() {
   const { setLoggedIn } = useContext(AuthContext);
 
   const navigate = useNavigate();
+
+  const location = useLocation();
+
+  const from = location.state?.from;
 
   const testUserData = {
     email: "adarshbalika@gmail.com",
@@ -46,7 +50,7 @@ export function LoginCard() {
           type="submit"
           id="login-submit"
           onClick={() =>
-            loginHandler(loginData, navigate, setLoggedIn, dataDispatch)
+            loginHandler(loginData, navigate, setLoggedIn, dataDispatch, from)
           }
           value="Login"
         />
@@ -54,7 +58,13 @@ export function LoginCard() {
       <div>
         <button
           onClick={() =>
-            loginHandler(testUserData, navigate, setLoggedIn, dataDispatch)
+            loginHandler(
+              testUserData,
+              navigate,
+              setLoggedIn,
+              dataDispatch,
+              from
+            )
           }
         >
           Login as Test User
