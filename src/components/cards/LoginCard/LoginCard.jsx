@@ -10,8 +10,7 @@ export function LoginCard() {
     password: "",
   });
   const { dataDispatch } = useContext(DataContext);
-  const { setLoggedIn, loggedIn } = useContext(AuthContext);
-  // console.log({ setLoggedIn, loggedIn });
+  const { setLoggedIn } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
