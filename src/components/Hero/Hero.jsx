@@ -12,7 +12,7 @@ export function Hero() {
           Daily Groceries
         </h2>
 
-        <h3 className="white">#Free delivery</h3>
+        <h3 className="orange">#Free delivery</h3>
         <Link to="/productlisting" className="hero-link btn btn-primary">
           Show Products
         </Link>
