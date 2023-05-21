@@ -1,6 +1,8 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-// import axios from "axios"
+import { ToastContainer, toast } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
 
 import "./App.css";
 import {
@@ -64,6 +66,7 @@ function App() {
         <Route path="/mockman" element={<MockmanTest />} />
         <Route path="*" element={<Error />} />
       </Routes>
+      <ToastContainer />
     </div>
   );
 }
