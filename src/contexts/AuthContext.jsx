@@ -3,14 +3,14 @@ import { createContext, useEffect, useState } from "react";
 export const AuthContext = createContext({ loggedIn: false });
 
 export function AuthProvider({ children }) {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(true);
 
   const userInfo = JSON.parse(localStorage.getItem("user"));
   const { email } = userInfo ?? { email: "" };
 
   useEffect(() => {
-    if (email === "adarshbalika@gmail.com") {
-      setLoggedIn(() => true);
+    if (email !== "adarshbalika@gmail.com") {
+      setLoggedIn(false);
     }
   }, []);
   return (
