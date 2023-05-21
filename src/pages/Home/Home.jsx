@@ -1,17 +1,35 @@
-import { Navigation } from "../../components/nav/Navigation";
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { ColorRing } from "react-loader-spinner";
 
+import { Navigation } from "../../components/nav/Navigation";
 import "./Home.css";
 import { CategoryCard } from "../../components/cards/CategoryCard/CategoryCard";
-
-import { useContext } from "react";
 import { ProductsListingContext } from "../../contexts/ProductsListingContext";
 import { Hero } from "../../components/Hero/Hero";
-import { Link } from "react-router-dom";
 import { Footer } from "../../components/Footer/Footer";
 import { Test } from "../../components/cards/Test";
 
 export function Home() {
-  const { categories } = useContext(ProductsListingContext);
+  const { categories, loading } = useContext(ProductsListingContext);
+
+  const { productsLoading, categoriesLoading } = loading;
+
+  if (productsLoading || categoriesLoading) {
+    return (
+      <div className="center-of-page">
+        <ColorRing
+          visible={true}
+          height="100"
+          width="100"
+          ariaLabel="blocks-loading"
+          wrapperStyle={{}}
+          wrapperClass="blocks-wrapper"
+          colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
+        />
+      </div>
+    );
+  }
 
   return (
     <div className="home">

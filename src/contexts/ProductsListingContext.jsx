@@ -18,6 +18,10 @@ export const initialFiltersState = {
 const initialProductsState = { products: [], categories: [] };
 
 export function ProductsListingProvider({ children }) {
+  const [loading, setLoading] = useState({
+    productsLoading: true,
+    categoriesLoading: true,
+  });
   const [productsState, productsDispatch] = useReducer(
     productsReducer,
     initialProductsState
@@ -29,15 +33,15 @@ export function ProductsListingProvider({ children }) {
   );
 
   useEffect(() => {
-    fetchProducts(productsDispatch);
-    fetchCategories(productsDispatch);
+    fetchProducts(productsDispatch, setLoading);
+    fetchCategories(productsDispatch, setLoading);
   }, []);
 
   const { products, categories } = productsState;
 
   return (
     <ProductsListingContext.Provider
-      value={{ products, categories, filtersState, filtersDispatch }}
+      value={{ products, categories, filtersState, filtersDispatch, loading }}
     >
       {children}
     </ProductsListingContext.Provider>

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const fetchCategories = async (productsDispatch) => {
+export const fetchCategories = async (productsDispatch, setLoading) => {
   try {
     const res = await axios.get("/api/categories");
     if (res.status === 200) {
@@ -8,6 +8,7 @@ export const fetchCategories = async (productsDispatch) => {
         type: "set-categories",
         payload: res.data.categories,
       });
+      setLoading((prev) => ({ ...prev, categoriesLoading: false }));
     }
   } catch (e) {
     console.error({
@@ -18,11 +19,12 @@ export const fetchCategories = async (productsDispatch) => {
   }
 };
 
-export const fetchProducts = async (productsDispatch) => {
+export const fetchProducts = async (productsDispatch, setLoading) => {
   try {
     const res = await axios.get("/api/products");
     if (res.status === 200) {
       productsDispatch({ type: "set-products", payload: res.data.products });
+      setLoading((prev) => ({ ...prev, productsLoading: false }));
     }
   } catch (e) {
     console.error({
