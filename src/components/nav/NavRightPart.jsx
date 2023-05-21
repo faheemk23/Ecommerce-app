@@ -3,18 +3,14 @@ import "./Navigation.css";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 import { DataContext } from "../../contexts/DataContext";
-import { ProductsListingContext } from "../../contexts/ProductsListingContext";
 
 export function NavRightPart({ showBtnLogin }) {
-  const { loggedIn, setLoggedIn } = useContext(AuthContext);
-  const { dataDispatch } = useContext(DataContext);
-  const { filtersDispatch } = useContext(ProductsListingContext);
+  const { loggedIn } = useContext(AuthContext);
+  const { dataState } = useContext(DataContext);
 
   const userInfo = JSON.parse(localStorage.getItem("user"));
 
   const { firstName } = userInfo ?? { firstName: "" };
-
-  // console.log({ loggedIn });
 
   const handleActiveLink = ({ isActive }) =>
     isActive
@@ -24,18 +20,14 @@ export function NavRightPart({ showBtnLogin }) {
         }
       : {};
 
-  const handleBtnLogout = () => {
-    localStorage.clear();
-    setLoggedIn(false);
-    dataDispatch({ type: "clear-all" });
-    filtersDispatch({ type: "clear-all" });
-  };
+  const { cart, wishlist } = dataState;
 
   return (
     <div className="nav-right-part">
       <NavLink style={handleActiveLink} className="nav-link" to="/">
         Home
       </NavLink>
+
       <NavLink
         style={handleActiveLink}
         className="nav-link"
@@ -43,20 +35,26 @@ export function NavRightPart({ showBtnLogin }) {
       >
         Products
       </NavLink>
+
       {/* <NavLink to="/mockman">Mockman</NavLink> */}
+
       <NavLink style={handleActiveLink} className="nav-link" to="/wishlist">
-        Wishlist
+        Wishlist <i className="fa-sharp fa-solid fa-heart"></i>{" "}
+        <span className="superscript">({wishlist.length})</span>
       </NavLink>
+
       <NavLink style={handleActiveLink} className="nav-link" to="/cart">
-        Cart
+        Cart <i className="fa-solid fa-cart-shopping"></i>{" "}
+        <span className="superscript">({cart.length})</span>
       </NavLink>
+
       <div className="nav-auth">
         {showBtnLogin && (
           <>
             {loggedIn ? (
-              <button className="btn btn-primary" onClick={handleBtnLogout}>
-                Logout
-              </button>
+              <Link className="btn btn-primary bg-orange" to="/profile">
+                Hi, {firstName}! <i className="fa-sharp fa-solid fa-user"></i>
+              </Link>
             ) : (
               <Link className="btn btn-secondary" to="/login">
                 Login
@@ -64,14 +62,6 @@ export function NavRightPart({ showBtnLogin }) {
             )}
           </>
         )}
-        {firstName && <div>Hi, {firstName}</div>}
-        {/* {showBtnLogin && (
-          <>
-            <Link className="btn btn-primary" to="/signup">
-              Sign Up
-            </Link>
-          </>
-        )} */}
       </div>
     </div>
   );

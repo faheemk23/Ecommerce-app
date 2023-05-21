@@ -17,7 +17,7 @@ import {
 } from "../../../utilites/wishlistUtilities";
 import { AuthContext } from "../../../contexts/AuthContext";
 
-export function ProductCard({ product }) {
+export function ProductCard({ product = {} }) {
   const { dataState, dataDispatch } = useContext(DataContext);
   const { loggedIn } = useContext(AuthContext);
 
@@ -36,26 +36,32 @@ export function ProductCard({ product }) {
 
   return (
     <div className="product-card ">
-      <img src={image} alt="product" height="130px" width="130px" />
-      <div className="product-title">{title}</div>
-      <div>
-        {rating}★ ({reviews}k reviews)
+      <div
+        className="product-card-info"
+        onClick={() => navigate(`/productDetail/${_id}`)}
+      >
+        <img src={image} alt="product" height="130px" width="130px" />
+        <div className="product-title">{title}</div>
+        <div>
+          {rating}★ ({reviews}k reviews)
+        </div>
+        <div className="product-quan">{unit}</div>
+        <div>
+          <strong className="orange"> ₹{price}</strong>{" "}
+          <span className="original-price">₹{original_price}</span>
+        </div>
+        <div className="product-discount">
+          {discount}% <br />
+          OFF
+        </div>
       </div>
-      <div className="product-quan">{unit}</div>
-      <div>
-        <strong className="product-price"> ₹{price}</strong>{" "}
-        <span className="original-price">₹{original_price}</span>
-      </div>
-      <div className="product-discount">
-        {discount}% <br />
-        OFF
-      </div>
+
       {productInCart(cart, product) ? (
         <button
           className="btn btn-secondary product-btn-cart go"
           onClick={() => handleBtnGoToCart(navigate)}
         >
-          GO <i className="fa-solid fa-cart-shopping "></i>
+          Go to Cart <i className="fa-solid fa-cart-shopping "></i>
         </button>
       ) : (
         <button
@@ -64,7 +70,7 @@ export function ProductCard({ product }) {
             handleBtnAddToCart(product, dataDispatch, loggedIn, navigate)
           }
         >
-          ADD <i className="fa-solid fa-cart-plus "></i>
+          Add to Cart <i className="fa-solid fa-cart-plus "></i>
         </button>
       )}
       {productInWishlist(wishlist, product) ? (

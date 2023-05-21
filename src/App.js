@@ -14,7 +14,9 @@ import {
   Checkout,
   Error,
   MockmanTest,
+  Profile,
 } from "./pages/Pages";
+import { RequiresAuth } from "./components/RequiresAuth";
 
 // import { MockmanTest } from "./pages/MockmanTest";
 
@@ -24,12 +26,41 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/productlisting" element={<ProductListing />} />
-        <Route path="/productdetail" element={<ProductDetail />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/wishlist" element={<Wishlist />} />
+        <Route path="/productdetail/:productId" element={<ProductDetail />} />
+        <Route
+          path="/cart"
+          element={
+            <RequiresAuth>
+              <Cart />
+            </RequiresAuth>
+          }
+        />
+        <Route
+          path="/wishlist"
+          element={
+            <RequiresAuth>
+              <Wishlist />
+            </RequiresAuth>
+          }
+        />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/checkout" element={<Checkout />} />
+        <Route
+          path="/checkout"
+          element={
+            <RequiresAuth>
+              <Checkout />
+            </RequiresAuth>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <RequiresAuth>
+              <Profile />
+            </RequiresAuth>
+          }
+        />
         <Route path="/mockman" element={<MockmanTest />} />
         <Route path="*" element={<Error />} />
       </Routes>

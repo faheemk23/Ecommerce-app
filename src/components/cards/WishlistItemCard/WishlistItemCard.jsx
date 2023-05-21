@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 import {
   handleBtnAddToCart,
-  handleBtnGoToCart,
+  handleQuantityChangeInCart,
   productInCart,
 } from "../../../utilites/cartUtilities";
 
@@ -19,9 +19,15 @@ export function WishlistItemCard({ product }) {
 
   const navigate = useNavigate();
 
-  const { _id, image, title, price } = product;
+  const { _id, image, title, price, quantity } = product;
 
   const { cart } = dataState;
+
+  const handleBtnAddToCartWishlist = () => {
+    productInCart(cart, product)
+      ? handleQuantityChangeInCart(quantity, "increment", _id, dataDispatch)
+      : handleBtnAddToCart(product, dataDispatch, loggedIn, navigate);
+  };
 
   return (
     <div style={{ backgroundColor: "rgba(0,0,0,0.2)", maxWidth: "200px" }}>
@@ -31,17 +37,14 @@ export function WishlistItemCard({ product }) {
         <strong>₹{price}</strong>{" "}
       </div>
 
-      {productInCart(cart, product) ? (
-        <button onClick={() => handleBtnGoToCart(navigate)}>Go to Cart</button>
-      ) : (
-        <button
-          onClick={() =>
-            handleBtnAddToCart(product, dataDispatch, loggedIn, navigate)
-          }
-        >
-          Add to Cart
-        </button>
-      )}
+      <button
+        onClick={() =>
+          handleBtnAddToCartWishlist(product, dataDispatch, loggedIn, navigate)
+        }
+      >
+        Add to Cart
+      </button>
+
       <button onClick={() => handleBtnRemoveFromWishlist(_id, dataDispatch)}>
         Remove from Wishlist
       </button>

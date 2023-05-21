@@ -12,9 +12,14 @@ import {
   handleBtnRemoveFromWishlist,
   productInWishlist,
 } from "../../../utilites/wishlistUtilities";
+import { AuthContext } from "../../../contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 export function CartItemCard({ product }) {
   const { dataState, dataDispatch } = useContext(DataContext);
+  const { loggedIn } = useContext(AuthContext);
+
+  const navigate = useNavigate();
 
   const { wishlist } = dataState;
 
@@ -71,7 +76,11 @@ export function CartItemCard({ product }) {
             Remove from Wishlist
           </button>
         ) : (
-          <button onClick={() => handleBtnAddToWishlist(product, dataDispatch)}>
+          <button
+            onClick={() =>
+              handleBtnAddToWishlist(product, dataDispatch, loggedIn, navigate)
+            }
+          >
             Save to Wishlist
           </button>
         )}
