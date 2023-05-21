@@ -1,6 +1,7 @@
 import axios from "axios";
 import { getCartItems } from "./cartUtilities";
 import { getWishlistItems } from "./wishlistUtilities";
+import { toast } from "react-toastify";
 
 export async function signupHandler(
   userData,
@@ -11,7 +12,7 @@ export async function signupHandler(
   const { firstName, lastName, email, password, confirmPassword } = userData;
   // validating data
   if (!(firstName && lastName && email && password && confirmPassword)) {
-    setErrorMessage(() => "Please all provide your details");
+    setErrorMessage(() => "Please provide all  your details");
   } else if (password.length < 6) {
     setErrorMessage(() => "Password should atleast be 6 characters long.");
   } else if (password !== confirmPassword) {
@@ -24,11 +25,31 @@ export async function signupHandler(
         localStorage.setItem("userToken", res.data.encodedToken);
         localStorage.setItem("user", JSON.stringify(res.data.createdUser));
         setLoggedIn(true);
-        alert("Logged in");
+        toast("Logged In Successfully!", {
+          position: "bottom-right",
+          type: "success",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
         navigate("/productlisting");
       }
     } catch (e) {
-      alert("Email is already registered. Please log in.");
+      toast("Email is already registered. Please log in.", {
+        position: "bottom-right",
+        type: "error",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
       navigate("/login");
       console.log({ message: e.message, code: e.code });
     }
@@ -51,7 +72,17 @@ export async function loginHandler(
         localStorage.setItem("userToken", res.data.encodedToken);
         localStorage.setItem("user", JSON.stringify(res.data.foundUser));
         setLoggedIn(true);
-        alert("Logged in");
+        toast("Logged In Successfully!", {
+          position: "bottom-right",
+          type: "success",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
         if (from) {
           navigate(from);
         } else {
@@ -62,12 +93,32 @@ export async function loginHandler(
       }
     } catch (e) {
       if (e.code === "ERR_BAD_REQUEST") {
-        alert("Email is not registered. Please sign up");
+        toast("Email is not registered. Please sign up", {
+          position: "bottom-right",
+          type: "error",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
         navigate("/signup");
       }
       console.log({ message: e.message, code: e.code });
     }
   } else {
-    alert("Please provide your details");
+    toast("Please provide your details", {
+      position: "bottom-right",
+      type: "error",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
   }
 }

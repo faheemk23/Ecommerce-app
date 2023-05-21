@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 
 export const getCartItems = async (encodedToken, dataDispatch) => {
   try {
@@ -26,7 +27,17 @@ export async function handleBtnAddToCart(
   navigate
 ) {
   if (!loggedIn) {
-    alert("Please Log in to add items to cart.");
+    toast("Please Log in to add items to cart.", {
+      position: "bottom-right",
+      type: "error",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
     navigate("/login");
     return;
   } else {
@@ -42,6 +53,17 @@ export async function handleBtnAddToCart(
         }
       );
       if (res.status === 201) {
+        toast("Added to cart!", {
+          position: "bottom-right",
+          type: "success",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
         dataDispatch({ type: "set-cart", payload: res.data.cart });
       }
     } catch (e) {
@@ -78,7 +100,8 @@ export async function handleQuantityChangeInCart(
   quantity,
   type,
   productId,
-  dataDispatch
+  dataDispatch,
+  fromWishlist
 ) {
   const encodedToken = localStorage.getItem("userToken");
   if (quantity <= 1 && type === "decrement") {
@@ -110,6 +133,24 @@ export async function handleQuantityChangeInCart(
         }
       );
       if (res.status === 200) {
+        if (fromWishlist) {
+          const product = res.data.cart.find(({ _id }) => _id === productId);
+          toast(
+            `Increased "${product.title}" quantity to ${product.qty} in cart!`,
+            {
+              position: "bottom-right",
+              type: "success",
+              autoClose: 3000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "colored",
+            }
+          );
+        }
+
         dataDispatch({ type: "set-cart", payload: res.data.cart });
       }
     } catch (e) {

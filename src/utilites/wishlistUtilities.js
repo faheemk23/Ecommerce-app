@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 
 export const getWishlistItems = async (encodedToken, dataDispatch) => {
   try {
@@ -25,9 +26,18 @@ export async function handleBtnAddToWishlist(
   loggedIn,
   navigate
 ) {
-  console.log(loggedIn);
   if (!loggedIn) {
-    alert("Please Log in to add items to wishlist.");
+    toast("Please Log in to add items to wishlist.", {
+      position: "bottom-right",
+      type: "error",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
     navigate("/login");
     return;
   } else {
@@ -43,6 +53,17 @@ export async function handleBtnAddToWishlist(
         }
       );
       if (res.status === 201) {
+        toast("Added to wishlist!", {
+          position: "bottom-right",
+          type: "success",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
         dataDispatch({ type: "set-wishlist", payload: res.data.wishlist });
       }
     } catch (e) {
@@ -64,6 +85,17 @@ export async function handleBtnRemoveFromWishlist(productId, dataDispatch) {
       },
     });
     if (res.status === 200) {
+      toast("Removed from wishlist!", {
+        position: "bottom-right",
+        type: "success",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
       dataDispatch({ type: "set-wishlist", payload: res.data.wishlist });
     }
   } catch (e) {

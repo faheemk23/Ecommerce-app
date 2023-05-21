@@ -25,7 +25,13 @@ export function WishlistItemCard({ product }) {
 
   const handleBtnAddToCartWishlist = () => {
     productInCart(cart, product)
-      ? handleQuantityChangeInCart(quantity, "increment", _id, dataDispatch)
+      ? handleQuantityChangeInCart(
+          quantity,
+          "increment",
+          _id,
+          dataDispatch,
+          true // fromWishlist
+        )
       : handleBtnAddToCart(product, dataDispatch, loggedIn, navigate);
   };
 
