@@ -7,6 +7,8 @@ export default function filtersReducer(state, action) {
       return { ...state, price: Number(action.payload) };
     case "categories":
       return getCheckboxFilterArr(state, "categories", action);
+    case "clear-all-categories":
+      return { ...state, categories: [] };
     case "rating":
       return { ...state, rating: Number(action.payload) };
     case "sort":
