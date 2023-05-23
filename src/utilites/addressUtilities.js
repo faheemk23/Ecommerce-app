@@ -28,3 +28,11 @@ export const handleBtnAddressTestValues = (setInputAddress) => {
 export const handleBtnAddressDelete = (_id, dataDispatch) => {
   dataDispatch({ type: "delete-address", payload: _id });
 };
+
+export function addressAlreadyPresent(addresses, { _id, ...inputAddress }) {
+  const isPresent = addresses.some(
+    ({ _id, ...address }) =>
+      JSON.stringify(address) === JSON.stringify(inputAddress)
+  );
+  return isPresent;
+}

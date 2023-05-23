@@ -1,3 +1,4 @@
+import { addressAlreadyPresent } from "../utilites/addressUtilities";
 import { giveToast } from "../utilites/miscUtilities";
 
 export function dataReducer(state, action) {
@@ -11,20 +12,7 @@ export function dataReducer(state, action) {
     case "clear-all":
       return { ...state, cart: [], wishlist: [] };
     case "add-address":
-      if (
-        state.addresses.some(
-          ({ name, number, addressLineOne, city, postalCode }) => {
-            const inputAddress = action.payload;
-            return (
-              name === inputAddress.name &&
-              number === inputAddress.number &&
-              addressLineOne === inputAddress.addressLineOne &&
-              city === inputAddress.city &&
-              postalCode === inputAddress.postalCode
-            );
-          }
-        )
-      ) {
+      if (addressAlreadyPresent(state.addresses, action.payload)) {
         giveToast("Address is already present", "warning");
         return state;
       } else {
@@ -32,14 +20,21 @@ export function dataReducer(state, action) {
       }
 
     case "update-address":
-      return {
-        ...state,
-        addresses: state.addresses.map((address) =>
-          address._id === action.payload.addressId
-            ? action.payload.updatedAddress
-            : address
-        ),
-      };
+      if (
+        addressAlreadyPresent(state.addresses, action.payload.updatedAddress)
+      ) {
+        giveToast("Address is already present", "warning");
+        return state;
+      } else {
+        return {
+          ...state,
+          addresses: state.addresses.map((address) =>
+            address._id === action.payload.addressId
+              ? action.payload.updatedAddress
+              : address
+          ),
+        };
+      }
 
     case "delete-address":
       return {
