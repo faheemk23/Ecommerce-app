@@ -1,4 +1,6 @@
 import axios from "axios";
+import { toast } from "react-toastify";
+import { giveToast } from "./miscUtilities";
 
 export const getWishlistItems = async (encodedToken, dataDispatch) => {
   try {
@@ -25,9 +27,8 @@ export async function handleBtnAddToWishlist(
   loggedIn,
   navigate
 ) {
-  console.log(loggedIn);
   if (!loggedIn) {
-    alert("Please Log in to add items to wishlist.");
+    giveToast("Please Log in to add items to wishlist.", "error");
     navigate("/login");
     return;
   } else {
@@ -43,6 +44,7 @@ export async function handleBtnAddToWishlist(
         }
       );
       if (res.status === 201) {
+        giveToast("Added to wishlist!", "success");
         dataDispatch({ type: "set-wishlist", payload: res.data.wishlist });
       }
     } catch (e) {
@@ -64,6 +66,7 @@ export async function handleBtnRemoveFromWishlist(productId, dataDispatch) {
       },
     });
     if (res.status === 200) {
+      giveToast("Removed from wishlist!", "error");
       dataDispatch({ type: "set-wishlist", payload: res.data.wishlist });
     }
   } catch (e) {

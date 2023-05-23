@@ -19,6 +19,7 @@ export function CategoryCard({ categoryName, icon }) {
     });
     navigate("/productlisting");
   };
+
   return (
     <div
       className="category-card"

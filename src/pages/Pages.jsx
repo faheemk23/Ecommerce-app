@@ -5,10 +5,11 @@ import { Cart } from "./Cart/Cart";
 import { Wishlist } from "./Wishlist/Wishlist";
 import { SignUp } from "./Signup/SignUp";
 import { Login } from "./Login/Login";
-import { Profile } from "./Profile/Profile";
 import { Checkout } from "./Checkout/Checkout";
 import { Error } from "./Error/Error";
 import { MockmanTest } from "./MockmanTest";
+import { Account } from "./Account/Account";
+import { OrderSummary } from "../components/OrderSummary/OrderSummary";
 
 export {
   Home,
@@ -21,5 +22,6 @@ export {
   Checkout,
   Error,
   MockmanTest,
-  Profile,
+  Account,
+  OrderSummary,
 };

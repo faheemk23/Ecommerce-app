@@ -1,4 +1,5 @@
 import axios from "axios";
+import { giveToast } from "./miscUtilities";
 
 export const getCartItems = async (encodedToken, dataDispatch) => {
   try {
@@ -26,7 +27,7 @@ export async function handleBtnAddToCart(
   navigate
 ) {
   if (!loggedIn) {
-    alert("Please Log in to add items to cart.");
+    giveToast("Please Log in to add items to cart.", "error");
     navigate("/login");
     return;
   } else {
@@ -42,6 +43,7 @@ export async function handleBtnAddToCart(
         }
       );
       if (res.status === 201) {
+        giveToast("Added to cart!", "success");
         dataDispatch({ type: "set-cart", payload: res.data.cart });
       }
     } catch (e) {
@@ -78,7 +80,8 @@ export async function handleQuantityChangeInCart(
   quantity,
   type,
   productId,
-  dataDispatch
+  dataDispatch,
+  fromWishlist
 ) {
   const encodedToken = localStorage.getItem("userToken");
   if (quantity <= 1 && type === "decrement") {
@@ -110,6 +113,14 @@ export async function handleQuantityChangeInCart(
         }
       );
       if (res.status === 200) {
+        if (fromWishlist) {
+          const product = res.data.cart.find(({ _id }) => _id === productId);
+          giveToast(
+            `Increased "${product.title}" quantity to ${product.qty} in cart!`,
+            "success"
+          );
+        }
+
         dataDispatch({ type: "set-cart", payload: res.data.cart });
       }
     } catch (e) {

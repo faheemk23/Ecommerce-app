@@ -12,7 +12,13 @@ export function SearchContainer() {
     const wordsInTitle = title.split(" ");
     let flag = false;
     for (let i = 0; i < wordsInTitle.length; i++) {
-      if (wordsInTitle[i].toLowerCase().startsWith(searchInput.toLowerCase())) {
+      if (
+        wordsInTitle[i]
+          .toLowerCase()
+          .replaceAll("(", "")
+          .replaceAll(")", "")
+          .startsWith(searchInput.toLowerCase())
+      ) {
         flag = true;
       }
     }

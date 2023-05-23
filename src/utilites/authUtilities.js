@@ -1,6 +1,8 @@
 import axios from "axios";
 import { getCartItems } from "./cartUtilities";
 import { getWishlistItems } from "./wishlistUtilities";
+import { toast } from "react-toastify";
+import { giveToast } from "./miscUtilities";
 
 export async function signupHandler(
   userData,
@@ -11,7 +13,7 @@ export async function signupHandler(
   const { firstName, lastName, email, password, confirmPassword } = userData;
   // validating data
   if (!(firstName && lastName && email && password && confirmPassword)) {
-    setErrorMessage(() => "Please all provide your details");
+    setErrorMessage(() => "Please provide all  your details");
   } else if (password.length < 6) {
     setErrorMessage(() => "Password should atleast be 6 characters long.");
   } else if (password !== confirmPassword) {
@@ -24,11 +26,11 @@ export async function signupHandler(
         localStorage.setItem("userToken", res.data.encodedToken);
         localStorage.setItem("user", JSON.stringify(res.data.createdUser));
         setLoggedIn(true);
-        alert("Logged in");
+        giveToast("Logged In Successfully!", "success");
         navigate("/productlisting");
       }
     } catch (e) {
-      alert("Email is already registered. Please log in.");
+      giveToast("Email is already registered. Please log in.", "error");
       navigate("/login");
       console.log({ message: e.message, code: e.code });
     }
@@ -46,12 +48,11 @@ export async function loginHandler(
     try {
       const res = await axios.post(`/api/auth/login`, userData);
       // saving the encodedToken in the localStorage
-      // console.log(res.data);
       if (res.status === 200) {
         localStorage.setItem("userToken", res.data.encodedToken);
         localStorage.setItem("user", JSON.stringify(res.data.foundUser));
         setLoggedIn(true);
-        alert("Logged in");
+        giveToast("Logged In Successfully!", "success");
         if (from) {
           navigate(from);
         } else {
@@ -62,12 +63,12 @@ export async function loginHandler(
       }
     } catch (e) {
       if (e.code === "ERR_BAD_REQUEST") {
-        alert("Email is not registered. Please sign up");
+        giveToast("Email is not registered. Please sign up", "error");
         navigate("/signup");
       }
       console.log({ message: e.message, code: e.code });
     }
   } else {
-    alert("Please provide your details");
+    giveToast("Please provide your details", "error");
   }
 }
