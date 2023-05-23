@@ -20,8 +20,8 @@ export function LoginCard() {
   const from = location.state?.from;
 
   const testUserData = {
-    email: "adarshbalika@gmail.com",
-    password: "adarshbalika",
+    email: "jordanwalke@gmail.com",
+    password: "jordanwalke",
   };
 
   const handleLoginFields = (e) => {
