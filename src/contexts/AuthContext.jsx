@@ -9,7 +9,7 @@ export function AuthProvider({ children }) {
   const { email } = userInfo ?? { email: "" };
 
   useEffect(() => {
-    if (email !== "adarshbalika@gmail.com") {
+    if (email !== "jordanwalke@gmail.com") {
       setLoggedIn(false);
     }
   }, []);
