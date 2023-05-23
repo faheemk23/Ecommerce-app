@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
 
@@ -16,15 +16,17 @@ import {
   Checkout,
   Error,
   MockmanTest,
-  Profile,
+  Account,
 } from "./pages/Pages";
 import { RequiresAuth } from "./components/RequiresAuth";
+import { Navigation } from "./components/nav/Navigation";
 
 // import { MockmanTest } from "./pages/MockmanTest";
 
 function App() {
   return (
     <div>
+      <Navigation showBtnLogin />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/productlisting" element={<ProductListing />} />
@@ -56,10 +58,10 @@ function App() {
           }
         />
         <Route
-          path="/profile"
+          path="/account"
           element={
             <RequiresAuth>
-              <Profile />
+              <Account />
             </RequiresAuth>
           }
         />
