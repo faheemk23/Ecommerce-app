@@ -12,16 +12,18 @@ export function dataReducer(state, action) {
       return { ...state, cart: [], wishlist: [] };
     case "add-address":
       if (
-        state.addresses.some(({ name, number, address, city, postalCode }) => {
-          const inputAddress = action.payload;
-          return (
-            name === inputAddress.name &&
-            number === inputAddress.number &&
-            address === inputAddress.address &&
-            city === inputAddress.city &&
-            postalCode === inputAddress.postalCode
-          );
-        })
+        state.addresses.some(
+          ({ name, number, addressLineOne, city, postalCode }) => {
+            const inputAddress = action.payload;
+            return (
+              name === inputAddress.name &&
+              number === inputAddress.number &&
+              addressLineOne === inputAddress.addressLineOne &&
+              city === inputAddress.city &&
+              postalCode === inputAddress.postalCode
+            );
+          }
+        )
       ) {
         giveToast("Address is already present", "warning");
         return state;

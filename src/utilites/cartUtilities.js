@@ -65,7 +65,6 @@ export async function handleBtnRemoveFromCart(productId, dataDispatch) {
       },
     });
     if (res.status === 200) {
-      giveToast("Item removed from cart.", "error");
       dataDispatch({ type: "set-cart", payload: res.data.cart });
     }
   } catch (e) {
