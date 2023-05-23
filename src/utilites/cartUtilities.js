@@ -1,5 +1,5 @@
 import axios from "axios";
-import { toast } from "react-toastify";
+import { giveToast } from "./miscUtilities";
 
 export const getCartItems = async (encodedToken, dataDispatch) => {
   try {
@@ -27,17 +27,7 @@ export async function handleBtnAddToCart(
   navigate
 ) {
   if (!loggedIn) {
-    toast("Please Log in to add items to cart.", {
-      position: "bottom-right",
-      type: "error",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "colored",
-    });
+    giveToast("Please Log in to add items to cart.", "error");
     navigate("/login");
     return;
   } else {
@@ -53,17 +43,7 @@ export async function handleBtnAddToCart(
         }
       );
       if (res.status === 201) {
-        toast("Added to cart!", {
-          position: "bottom-right",
-          type: "success",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-        });
+        giveToast("Added to cart!", "success");
         dataDispatch({ type: "set-cart", payload: res.data.cart });
       }
     } catch (e) {
@@ -85,6 +65,7 @@ export async function handleBtnRemoveFromCart(productId, dataDispatch) {
       },
     });
     if (res.status === 200) {
+      giveToast("Item removed from cart.", "error");
       dataDispatch({ type: "set-cart", payload: res.data.cart });
     }
   } catch (e) {
@@ -135,19 +116,9 @@ export async function handleQuantityChangeInCart(
       if (res.status === 200) {
         if (fromWishlist) {
           const product = res.data.cart.find(({ _id }) => _id === productId);
-          toast(
+          giveToast(
             `Increased "${product.title}" quantity to ${product.qty} in cart!`,
-            {
-              position: "bottom-right",
-              type: "success",
-              autoClose: 3000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "colored",
-            }
+            "success"
           );
         }
 
