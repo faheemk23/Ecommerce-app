@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from "react";
-import { Navigation } from "../../components/nav/Navigation";
 import { ProductsListingContext } from "../../contexts/ProductsListingContext";
 import { ProductCard } from "../../components/cards/ProductCard/ProductCard";
 import "./ProductListing.css";
@@ -33,7 +32,6 @@ export function ProductListing() {
   }
   return (
     <div className="listing">
-      <Navigation showBtnLogin />
       <FilterColumn />
       <div className="products">
         {filteredProducts.map((product) => (

@@ -1,5 +1,4 @@
 import { useParams } from "react-router-dom";
-import { Navigation } from "../../components/nav/Navigation";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { ProductCard } from "../../components/cards/ProductCard/ProductCard";
@@ -31,7 +30,6 @@ export function ProductDetail() {
 
   return (
     <>
-      <Navigation />
       {loading && <p>Loading...</p>}
       {!loading && <ProductCard product={product} />}
     </>

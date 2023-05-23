@@ -1,4 +1,3 @@
-import { Navigation } from "../../components/nav/Navigation";
 import { PriceDetailCard } from "../../components/cards/PriceDetailCard/PriceDetailCard";
 import { useContext } from "react";
 import { DataContext } from "../../contexts/DataContext";
@@ -11,7 +10,6 @@ export function Cart() {
   if (cart.length === 0) {
     return (
       <>
-        <Navigation />
         <h1>Cart is empty. Please add some items.</h1>
       </>
     );
@@ -19,9 +17,6 @@ export function Cart() {
 
   return (
     <div className="cart-page">
-      <Navigation />
-      {/* Cart
-      <h2>Free delivery for orders 5000 and above </h2> */}
       <div className="cart-items">
         {cart.map((product) => (
           <CartItemCard key={product._id} product={product} inCart />

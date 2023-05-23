@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { ColorRing } from "react-loader-spinner";
 
-import { Navigation } from "../../components/nav/Navigation";
 import "./Home.css";
 import { CategoryCard } from "../../components/cards/CategoryCard/CategoryCard";
 import { ProductsListingContext } from "../../contexts/ProductsListingContext";
@@ -33,7 +32,6 @@ export function Home() {
 
   return (
     <div className="home">
-      <Navigation showBtnLogin />
       <Hero />
       <div className="home-info">
         <div className="home-categories-list">
@@ -54,8 +52,8 @@ export function Home() {
           </div>
         </div>
       </div>
-      <Footer />
       {/* <Test /> */}
+      <Footer />
     </div>
   );
 }
