@@ -52,7 +52,7 @@ export function NavRightPart({ showBtnLogin }) {
         {showBtnLogin && (
           <>
             {loggedIn ? (
-              <Link className="btn btn-primary bg-orange" to="/profile">
+              <Link className="btn btn-primary bg-orange" to="/account">
                 Hi, {firstName}! <i className="fa-sharp fa-solid fa-user"></i>
               </Link>
             ) : (
