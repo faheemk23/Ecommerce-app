@@ -22,7 +22,7 @@ export function CategoryCard({ categoryName, icon }) {
 
   return (
     <div
-      className="category-card"
+      className="category-card scale"
       onClick={() => handleCategoryClick(categoryName)}
     >
       <img src={icon} alt={categoryName} />

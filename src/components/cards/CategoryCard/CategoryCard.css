@@ -4,7 +4,9 @@
   height: 100px;
   width: 120px;
   background-color: #f1f1f1;
+  border: 2px solid var(--primary-color);
   border-radius: 0.8rem;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
 }
 
 .category-card-description {
