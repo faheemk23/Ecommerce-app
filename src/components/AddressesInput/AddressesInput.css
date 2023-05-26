@@ -1,0 +1,52 @@
+.checkout-address {
+  display: flex;
+  border: 1px solid;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  font-size: larger;
+}
+
+.address-input {
+  padding: 0.6rem;
+  margin: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--primary-color);
+}
+
+.white {
+  color: white;
+}
+
+.address-field {
+  /* width: 100%; */
+  padding: 0.6rem;
+  margin: 0.5rem;
+  width: 96%;
+  height: 70px;
+  border-radius: 0.5rem;
+  border: 1px solid var(--primary-color);
+}
+
+.addresses-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.address-input-container {
+  padding: 1rem;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  margin: 0.5rem;
+}
+
+.address-input-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* .btn-test-value {
+  /* display: inline-block; */
+/* margin-top: 0.5rem; */
+/* } */

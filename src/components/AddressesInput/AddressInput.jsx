@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { v4 as uuid } from "uuid";
 
 import { countries } from "../../extraData/countries";
-import "./Addresses.css";
+import "./AddressesInput.css";
 import { DataContext } from "../../contexts/DataContext";
 import {
   addressValidation,
@@ -29,10 +29,23 @@ export function AddressInput({
 
   const { dataDispatch } = useContext(DataContext);
 
+  const statesOfCountry = (givenCountry) =>
+    countries.find(
+      ({ country }) => givenCountry.toLowerCase() === country.toLowerCase()
+    ).states;
+
   const handleAddressFields = (e) => {
     const field = e.target.id;
     const fieldValue = e.target.value;
-    setInputAddress((prev) => ({ ...prev, [field]: fieldValue }));
+    if (field === "country") {
+      setInputAddress((prev) => ({
+        ...prev,
+        [field]: fieldValue,
+        state: statesOfCountry(fieldValue)[0],
+      }));
+    } else {
+      setInputAddress((prev) => ({ ...prev, [field]: fieldValue }));
+    }
   };
 
   const handleBtnAddressAdd = () => {
@@ -55,13 +68,8 @@ export function AddressInput({
     }
   };
 
-  const statesOfCurrentCountry = countries.find(
-    ({ country }) => country === inputAddress.country
-  ).states;
-
   useEffect(() => {
     if (previousAddress) {
-      console.log("yes");
       setInputAddress(previousAddress);
     }
   }, []);
@@ -78,9 +86,10 @@ export function AddressInput({
   } = inputAddress;
 
   return (
-    <div>
+    <div className="address-input-container">
       {errorMessage && <p className="red">{errorMessage}</p>}
       <input
+        className="address-input"
         type="text"
         id="name"
         value={name}
@@ -88,6 +97,7 @@ export function AddressInput({
         onChange={handleAddressFields}
       />
       <input
+        className="address-input zero-right-margin"
         type="text"
         id="number"
         value={number}
@@ -95,7 +105,8 @@ export function AddressInput({
         onChange={handleAddressFields}
       />
       <div>
-        <input
+        <textarea
+          className="address-field"
           type="text"
           id="addressLineOne"
           value={addressLineOne}
@@ -105,6 +116,7 @@ export function AddressInput({
       </div>
 
       <input
+        className="address-input"
         type="text"
         id="city"
         value={city}
@@ -112,6 +124,7 @@ export function AddressInput({
         onChange={handleAddressFields}
       />
       <input
+        className="address-input "
         type="text"
         id="postalCode"
         value={postalCode}
@@ -121,12 +134,13 @@ export function AddressInput({
       <div>
         State:{" "}
         <select
+          className="address-input bg-orange white"
           id="state"
-          value={state.toLowerCase()}
+          value={state}
           onChange={handleAddressFields}
         >
-          {statesOfCurrentCountry.map((state) => (
-            <option key={state} value={state.toLowerCase()}>
+          {statesOfCountry(inputAddress.country).map((state) => (
+            <option key={state} value={state}>
               {state}
             </option>
           ))}
@@ -135,38 +149,60 @@ export function AddressInput({
       <div>
         Country:{" "}
         <select
+          className="address-input bg-orange white"
           id="country"
-          value={country.toLowerCase()}
+          value={country}
           onChange={handleAddressFields}
         >
           {countries.map(({ country }) => (
-            <option value={country.toLowerCase()} key={country}>
+            <option value={country} key={country}>
               {country}
             </option>
           ))}
         </select>
       </div>
-
-      <div>
-        {edit ? (
-          <>
-            <button onClick={() => handleBtnAddressSave(_id, inputAddress)}>
-              Save
-            </button>{" "}
-            <button onClick={() => setEditAddress(false)}>Cancel</button>
-          </>
-        ) : (
-          <>
-            <button onClick={handleBtnAddressAdd}>Add</button>{" "}
-            <button onClick={() => setShowAddressInput(false)}>Cancel</button>
-          </>
-        )}
-      </div>
-      <button onClick={() => handleBtnAddressTestValues(setInputAddress)}>
-        Test values
-      </button>
-
       <hr />
+      <div className="address-input-buttons">
+        <div>
+          {edit ? (
+            <>
+              <button
+                className="btn btn-secondary"
+                onClick={() => handleBtnAddressSave(_id, inputAddress)}
+              >
+                Save
+              </button>{" "}
+              <button
+                className="btn btn-secondary"
+                onClick={() => setEditAddress(false)}
+              >
+                Cancel
+              </button>
+            </>
+          ) : (
+            <>
+              <button
+                className="btn btn-secondary"
+                onClick={handleBtnAddressAdd}
+              >
+                Add
+              </button>{" "}
+              <button
+                className="btn btn-secondary"
+                onClick={() => setShowAddressInput(false)}
+              >
+                Cancel
+              </button>
+            </>
+          )}
+        </div>
+        <button
+          className="btn btn-primary btn-test-value"
+          onClick={() => handleBtnAddressTestValues(setInputAddress)}
+        >
+          Test values
+        </button>
+      </div>
     </div>
   );
 }
