@@ -22,6 +22,11 @@ export const products = [
     is_best_selling: false,
     is_organic: false,
     unit: "1 Kg",
+    description:
+      "Onion is a staple in India and are commonly chopped and used as an ingredient in various hearty warm dishes. They are versatile and can be baked, boiled, braised, grilled, fried, roasted, sautéed, or eaten raw in salads.",
+    benefits:
+      "Contains Folic acid, Vitamin C and Amino acid .Vitamin C acts as a powerful antioxidant and also helps formation of collagen that is responsible for skin and hair health.",
+    storageTips: "Store in wire-basket or mesh bags.",
   },
   {
     _id: "7116b8e1-5b68-4b8f-a616-425762e9238zsd",
@@ -40,6 +45,12 @@ export const products = [
     is_best_selling: false,
     is_organic: false,
     unit: "1 Kg",
+    description:
+      "New Potatoes: If you are looking for soft, slightly sweet but creamy-textured potatoes. These are a special variant early harvest of potatoes (not to be confused with our regular Potato) and are easily distinguishable with their thin/ tender skin which makes them easy-to-peel off even it can be used without peeling",
+    benefits:
+      "Contains Vitamin C, Potassium, starch,.Potato helps in reducing inflammation, promote digestion and are good for skin.",
+    storageTips:
+      "Store in open basket. To avoid scuffing, ensure they are not stockpiled. They can be stored at room temperature.",
   },
   {
     _id: "4b56b4ef-c361-4c72-b39e-97dee6711bb9",
@@ -54,10 +65,16 @@ export const products = [
     delivery_time: "3",
     reviews: 1.4,
     in_stock: true,
-    is_popular: false,
+    is_popular: true,
     is_best_selling: false,
     is_organic: false,
     unit: "500 g",
+    description:
+      "Tomatoes are a significant source of umami flavor.The tomato is consumed in diverse ways, raw or cooked, in many dishes, sauces, salads, and drinks. While tomatoes are fruits—botanically classified as berries—they are commonly used culinarily as a vegetable ingredient or side dish.",
+    benefits:
+      "Contains Folic acid, Vitamin C and Amino acid .Vitamin C acts as a powerful antioxidant and also helps formation of collagen that is responsible for skin and hair health.s",
+    storageTips:
+      "Store in a cool, dry and well-ventilated space or can be stored in the refrigerator.",
   },
   {
     _id: "1f302642-447a-4694-bb27-9703d6524aa4",
@@ -73,9 +90,14 @@ export const products = [
     reviews: 1.8,
     in_stock: true,
     is_popular: false,
-    is_best_selling: false,
+    is_best_selling: true,
     is_organic: false,
     unit: "200 g",
+    description:
+      "Garlic is a herb, best known for flavouring and seasoning of food and is widely used in various cuisines ranging from desi cuisines like Tadka Dal to dishes such as Garlic Bread. Garlic seems to be used in virtually all cuisines as a strong flavoring agent.",
+    benefits:
+      "Contains, Fibre, Vitamin B1,Vitamin B2, Vitamin B6, Folic acid,Potassium. Garlic acts as a natural antibiotic, clears the skin and is good for Digestive system.",
+    storageTips: "Store in a dry, well-ventilated area.",
   },
   {
     _id: "556603b0-2c56-4462-848e-448dfc69bc3d",
@@ -90,10 +112,16 @@ export const products = [
     delivery_time: "3",
     reviews: 2.5,
     in_stock: true,
-    is_popular: false,
+    is_popular: true,
     is_best_selling: false,
     is_organic: false,
     unit: "250 g",
+    description:
+      "Ginger is loaded with antioxidants, compounds that prevent stress and damage to your body's DNA. They may help your body fight off chronic diseases like high blood pressure, heart disease, and diseases of the lungs, plus promote healthy aging.",
+    benefits:
+      "Contains Folic acid, Vitamin C and Amino acid .Vitamin C acts as a powerful antioxidant and also helps formation of collagen that is responsible for skin and hair health.",
+    storageTips:
+      "Store in a cool, dry and well-ventilated space or can be stored in the refrigerator.",
   },
   {
     _id: "7116b8e1-5b68-4b8f-a616-42asa110762e91121zad",
@@ -112,6 +140,12 @@ export const products = [
     is_best_selling: false,
     is_organic: false,
     unit: "500g",
+    description:
+      "Beetroot pulp has a sweet taste and it is usually of a dark crimson red colour with purple tinges. The rich flesh of this vegetable is naturally sweet and nutritious, and adds its own touch to dishes ranging from Salads to Soups.",
+    benefits:
+      "Contains Fibre, Folic acid, Potassium.Beetroot helps with improved blood flow, improve digestive health and fight inflammation.",
+    storageTips:
+      "Store in a cool, dry and well-ventilated space or can be stored in the refrigerator.",
   },
   {
     _id: "ff06eaed-9a9c-4f42-a525-e233baaaa294",
@@ -119,7 +153,7 @@ export const products = [
       "https://ik.imagekit.io/faheem/Ecommerce-Grocery/Products_Images/vegetables/organic/organic_lemon?updatedAt=1684419344668",
     rating: 4.3,
     category: "Vegetables",
-    title: "Lemon - Organically grown (Nimbu)",
+    title: "Lemon - Organic",
     trending: true,
     original_price: "80",
     price: "65",
@@ -130,6 +164,11 @@ export const products = [
     is_best_selling: false,
     is_organic: true,
     unit: "250 g",
+    description:
+      "Lemons are an excellent source of vitamin C and flavonoids, which are antioxidants. Antioxidants help remove free radicals that can damage cells from the body. These nutrients can help prevent diseases and boost health and wellbeing. Here some of the possible benefits of consuming lemons.",
+    benefits: " High amounts of Vitamin C and antioxidants",
+    storageTips:
+      "Store in a cool, dry and well-ventilated space or can be stored in the refrigerator.",
   },
   {
     _id: "7ef09383-3ef3-4eeb-ba05-23b2aa4d0553",
@@ -137,7 +176,7 @@ export const products = [
       "https://ik.imagekit.io/faheem/Ecommerce-Grocery/Products_Images/vegetables/organic/organic_chilli?updatedAt=1684419362934",
     rating: 4.5,
     category: "Vegetables",
-    title: "Chilli - Organically grown (Mirch)",
+    title: "Chilli (Mirch) - Organic ",
     trending: true,
     original_price: "22",
     price: "18",
@@ -148,6 +187,11 @@ export const products = [
     is_best_selling: false,
     is_organic: false,
     unit: "100 g",
+    description:
+      "Boasting high amounts of vitamin C and antioxidants, chillies have been found to help prevent lifestyle diseases including some cancers and stomach ulcers. Meanwhile, their ability to create heat within the body has also linked the peppers to weight loss as well as lowering the risk of type II diabetes.",
+    benefits: " High amounts of Vitamin C and antioxidants",
+    storageTips:
+      "Store in a cool, dry and well-ventilated space or can be stored in the refrigerator.",
   },
   {
     _id: "7116b8e1-5b68-4b8f-a616-431232fjf762e97d7d",
@@ -162,10 +206,16 @@ export const products = [
     delivery_time: "3",
     reviews: 2.8,
     in_stock: true,
-    is_popular: false,
+    is_popular: true,
     is_best_selling: false,
     is_organic: false,
-    unit: "4 pieces(700 g)",
+    unit: "700 g",
+    description:
+      "A Small, Yellowish-Orange Mango With A Rich, Creamy Texture And A Sweet, Fragrant Taste.",
+    benefits:
+      "Contains Folic acid, Vitamin C and Amino acid .Vitamin C acts as a powerful antioxidant and also helps formation of collagen that is responsible for skin and hair health.",
+    storageTips:
+      "Store in a cool, dry and well-ventilated space or can be stored in the refrigerator.",
   },
   {
     _id: "75e79f27-b6fa-4f10-8829-b4d003e77b43",
@@ -180,10 +230,16 @@ export const products = [
     delivery_time: "3",
     reviews: 1.9,
     in_stock: true,
-    is_popular: false,
+    is_popular: true,
     is_best_selling: false,
     is_organic: false,
-    unit: "4 pieces (500 g)",
+    unit: "500 g",
+    description:
+      "Apples contain small amounts of many vitamins and minerals and are well known for their vitamin C and potassium contents. One medium-sized apple provides more than 3% of the Daily Value (DV) for both. ",
+    benefits:
+      "This fruit boasts of vitamin K, vitamin B6, manganese, and copper.",
+    storageTips:
+      "Store in a cool, dry and well-ventilated space or can be stored in the refrigerator.",
   },
   {
     _id: "1bb27d9f-1720-449e-ada1-7fad574344d7",
@@ -201,7 +257,13 @@ export const products = [
     is_popular: false,
     is_best_selling: false,
     is_organic: false,
-    unit: "4 pieces (800 g)",
+    unit: "800 g",
+    description:
+      "Pomegranate, the red rich fruit is known to be one of the healthiest fruits. The inside of the fruit contains hundreds of red, juicy and edible seeds. Pomegranate seeds can either be eaten as is or be processed into pomegranate juice.",
+    benefits:
+      "Contains Vitamin C, Folic acid, Vitamin D, Vitamin K, Amnio acid.Pomegranate has anti-oxidant, anti-viral and anti-tumor properties.",
+    storageTips:
+      "Store in a cool, dry and well-ventilated space or can be stored in the refrigerator.",
   },
   {
     _id: "4694797c-e044-4464-97f0-102c18a48142",
@@ -220,6 +282,11 @@ export const products = [
     is_best_selling: false,
     is_organic: false,
     unit: "125 g",
+    description: "Shelf Life : 2 days, Sourced from : Uttarakhand",
+    benefits:
+      "Contains Folic acid, Vitamin C and Amino acid .Vitamin C acts as a powerful antioxidant and also helps formation of collagen that is responsible for skin and hair health.",
+    storageTips:
+      "Store in a cool, dry and well-ventilated space or can be stored in the refrigerator.",
   },
   {
     _id: "f17f6d0b-3bf0-4dbd-ad8b-24801572c7a0",
@@ -237,7 +304,12 @@ export const products = [
     is_popular: false,
     is_best_selling: false,
     is_organic: false,
-    unit: "1 piece (800 g)",
+    unit: "800 g",
+    description:
+      "Healthy and nutritious, Pineapple is a sweet and juicy fruit that makes for a delicious addition to salads. It is perfect for garnishing cocktails and other drinks and can be used for stir-fry cooking.",
+    benefits: "Packed with nutrition, Pineapple is high in antioxidants.",
+    storageTips:
+      "Store in a cool, dry and well-ventilated space or can be stored in the refrigerator.",
   },
   {
     _id: "c1dd7db4-0830-4e01-a968-bdbccasa12d4de",
@@ -256,6 +328,12 @@ export const products = [
     is_best_selling: false,
     is_organic: false,
     unit: "3 pieces",
+    description:
+      "Bananas are one of the most popular fruits in the world. They're full important nutrients, but eating too many could end up doing more harm than good.  One to two bananas per day is considered a moderate intake for most healthy people.",
+    benefits:
+      "Bananas are a rich source of Vitamin B6 and are high in fibre content. They are known for lowering blood pressure and improving the condition of the cardiovascular system.",
+    storageTips:
+      "Store uncovered at room temperature, or in the refrigerator for several days. The peel may turn brown but the fruit will be fine.",
   },
   {
     _id: "1a11dd3c-a8a8-4d66-acff-9c5015673c2b",
@@ -271,9 +349,15 @@ export const products = [
     reviews: 1.3,
     in_stock: true,
     is_popular: false,
-    is_best_selling: false,
+    is_best_selling: true,
     is_organic: false,
     unit: "3 pieces",
+    description:
+      "Kiwi is sweet and slightly tangy in taste with green flesh on the inside that lends a unique flavor and tropical zing. Kiwis are packed with a lot of flavor and are an excellent source of nutrition.",
+    benefits:
+      "Rich source of Vitamin C, Contains Fibre Vitamin K, Amino acid.1. Vitamin C acts as a powerful antioxidant and also helps formation of collagen that is responsible for skin and hair health. Vitamin C helps in boosting immunity, keeping ailments at the bay.",
+    storageTips:
+      "Kiwi will continue to ripen after picking. If your Kiwi is under ripe, leave it on the kitchen counter for a few days. Ripe kiwi's can be kept in the refrigerator for several weeks.",
   },
   {
     _id: "8e7d52e2-75e7-489c-9e43-74875ebbc187",
@@ -281,7 +365,7 @@ export const products = [
       "https://ik.imagekit.io/faheem/Ecommerce-Grocery/Products_Images/fruits/organic/organic_muskmelon?updatedAt=1684428150547",
     rating: 3.4,
     category: "Fruits",
-    title: "Muskmelon - Organically Grown",
+    title: "Muskmelon - Organic",
     trending: true,
     original_price: "71",
     price: "57",
@@ -291,7 +375,12 @@ export const products = [
     is_popular: false,
     is_best_selling: false,
     is_organic: true,
-    unit: "1 piece (600 g)",
+    unit: "600 g",
+    description: "Shelf Life: 3 days",
+    benefits:
+      "Contains Folic acid, Vitamin C and Amino acid .Vitamin C acts as a powerful antioxidant and also helps formation of collagen that is responsible for skin and hair health.",
+    storageTips:
+      "Store in a cool, dry and well-ventilated space or can be stored in the refrigerator.",
   },
   {
     _id: "7116b8e1-5b68-4b8f-a616-4257dfdjfo997d7d",
@@ -299,7 +388,7 @@ export const products = [
       "https://ik.imagekit.io/faheem/Ecommerce-Grocery/Products_Images/fruits/organic/organic_watermelon?updatedAt=1684428998352",
     rating: 4.2,
     category: "Fruits",
-    title: "Watermelon - Organically Grown",
+    title: "Watermelon - Organic",
     trending: true,
     original_price: "141",
     price: "113",
@@ -309,7 +398,13 @@ export const products = [
     is_popular: false,
     is_best_selling: false,
     is_organic: true,
-    unit: "1 piece (500 g)",
+    unit: "500 g",
+    description:
+      "Rich in electrolytes and water content, watermelons are nature's gift to beat summer thirst and Keeps you hydrated.Excellent anytime snack as they are low in calories and carry minimal fats.",
+    benefits:
+      "Excellent source of Vitamin-A, which is a powerful natural anti-oxidant.Excellent source of carotenoid pigment, lycopene known to protect skin against harmful UV rays. ",
+    storageTips:
+      "Store in a cool, dry and well-ventilated space or can be stored in the refrigerator.",
   },
   {
     _id: "d2fc9ea9-a7ad-4b5d-94ea-69a806aa734e",
@@ -317,7 +412,7 @@ export const products = [
       "https://ik.imagekit.io/faheem/Ecommerce-Grocery/Products_Images/fruits/organic/organic_pomegranate?updatedAt=1684429245632",
     rating: 4.5,
     category: "Fruits",
-    title: "Pomegranate - Organically Grown",
+    title: "Pomegranate - Organic",
     trending: true,
     original_price: "175",
     price: "138",
@@ -327,7 +422,13 @@ export const products = [
     is_popular: false,
     is_best_selling: false,
     is_organic: true,
-    unit: "2 units (150 g)",
+    unit: "150 g",
+    description:
+      "Pomegranate, the red rich fruit is known to be one of the healthiest fruits. The inside of the fruit contains hundreds of red, juicy and edible seeds. Pomegranate seeds can either be eaten as is or be processed into pomegranate juice.",
+    benefits:
+      "Contains Vitamin C, Folic acid, Vitamin D, Vitamin K, Amnio acid.Pomegranate has anti-oxidant, anti-viral and anti-tumor properties.",
+    storageTips:
+      "Store in a cool, dry and well-ventilated space or can be stored in the refrigerator.",
   },
   {
     _id: "c1dd7db4-0830-4e01-a968-bdbcsdfsd35657d4de",
@@ -342,10 +443,14 @@ export const products = [
     delivery_time: "3",
     reviews: 1.1,
     in_stock: true,
-    is_popular: false,
+    is_popular: true,
     is_best_selling: false,
     is_organic: false,
     unit: "500 g",
+    description:
+      "Fish is among the healthiest foods on the planet. It's loaded with important nutrients, such as protein and vitamin D. Fish is also a great source of omega-3 fatty acids, which are incredibly important for your body and brain.",
+    benefits: " Protein ,vitamin D and omega-3 fatty acids.",
+    storageTips: "Store in the freezer.",
   },
   {
     _id: "a26b3142-af90-4b65-a4dc-2a145b921d3e",
@@ -364,6 +469,10 @@ export const products = [
     is_best_selling: false,
     is_organic: false,
     unit: "500 g",
+    description:
+      "A food rich in protein, chicken can help with weight management and reduce the risk of heart disease. Chicken contains the amino acid tryptophan, which has been linked to higher levels of serotonin (the “feel good” hormone) in our brains.Chicken is highly nutritious and a good source of protein.",
+    benefits: "Protein ,vitamin D.",
+    storageTips: "Store in the freezer.",
   },
   {
     _id: "5391f145-f5b5-4ec3-93d3-e15ee2e3e115",
@@ -382,6 +491,10 @@ export const products = [
     is_best_selling: false,
     is_organic: false,
     unit: "500 g",
+    description:
+      "A food rich in protein, chicken can help with weight management and reduce the risk of heart disease. Chicken contains the amino acid tryptophan, which has been linked to higher levels of serotonin (the “feel good” hormone) in our brains.Chicken is highly nutritious and a good source of protein.",
+    benefits: "Protein ,vitamin D.",
+    storageTips: "Store in the freezer.",
   },
   {
     _id: "7116b8e1-5213sf-4458f-a616-4257dfdjf2397d7d",
@@ -396,10 +509,14 @@ export const products = [
     delivery_time: "3",
     reviews: 1.7,
     in_stock: true,
-    is_popular: false,
+    is_popular: true,
     is_best_selling: false,
     is_organic: false,
     unit: "500 g",
+    description:
+      "A food rich in protein, chicken can help with weight management and reduce the risk of heart disease. Chicken contains the amino acid tryptophan, which has been linked to higher levels of serotonin (the “feel good” hormone) in our brains.Chicken is highly nutritious and a good source of protein.",
+    benefits: "Protein ,vitamin D.",
+    storageTips: "Store in the freezer.",
   },
   {
     _id: "76a8c6ea-9bcb-463b-93b8-e5cc65e6c668",
@@ -418,6 +535,10 @@ export const products = [
     is_best_selling: false,
     is_organic: false,
     unit: "500 g",
+    description:
+      "Fish is among the healthiest foods on the planet. It's loaded with important nutrients, such as protein and vitamin D. Fish is also a great source of omega-3 fatty acids, which are incredibly important for your body and brain.",
+    benefits: "Protein ,vitamin D and omega-3 fatty acids.",
+    storageTips: "Store in the freezer.",
   },
   {
     _id: "c1dd7db4-0830-4e01-232a58a-bdbcsdfsd35657d4de",
@@ -436,6 +557,10 @@ export const products = [
     is_best_selling: false,
     is_organic: false,
     unit: "500 g",
+    description:
+      "A food rich in protein, chicken can help with weight management and reduce the risk of heart disease. Chicken contains the amino acid tryptophan, which has been linked to higher levels of serotonin (the “feel good” hormone) in our brains.Chicken is highly nutritious and a good source of protein.",
+    benefits: "Protein ,vitamin D.",
+    storageTips: "Store in the freezer.",
   },
   {
     _id: "81d1fb3a-8052-4e6b-b4c6-4070302f04bd",
@@ -454,6 +579,11 @@ export const products = [
     is_best_selling: false,
     is_organic: false,
     unit: "500 g",
+    description:
+      "For most Indians, comfort food is always linked to easy-to-cook homemade meals and what can be the most convenient and quick to prepare dal. A staple in the Indian diet, Dal is rich in protein and can be enjoyed well with rotis or rice.",
+    benefits:
+      "Rich in protein and high in dietary fibre.Unpolished: Does not undergo any artificial polishing with water, oil or leather thereby retaining its goodness and wholesomeness",
+    storageTips: "Store in an  dry, air-tight container",
   },
   {
     _id: "a014a62a-ffb2-4507-a6a4-5a6848729b53",
@@ -461,7 +591,7 @@ export const products = [
       "https://ik.imagekit.io/faheem/Ecommerce-Grocery/Products_Images/beans/organic_masoor?updatedAt=1684439761646",
     rating: 3.7,
     category: "Pulses",
-    title: "Unpolished Organic Masoor Dal",
+    title: "Masoor Dal - Organic",
     trending: true,
     original_price: "105",
     price: "97",
@@ -470,8 +600,13 @@ export const products = [
     in_stock: true,
     is_popular: false,
     is_best_selling: false,
-    is_organic: false,
+    is_organic: true,
     unit: "500 g",
+    description:
+      "For most Indians, comfort food is always linked to easy-to-cook homemade meals and what can be the most convenient and quick to prepare dal. A staple in the Indian diet, Dal is rich in protein and can be enjoyed well with rotis or rice.",
+    benefits:
+      "Rich in protein and high in dietary fibre.Unpolished: Does not undergo any artificial polishing with water, oil or leather thereby retaining its goodness and wholesomeness",
+    storageTips: "Store in an  dry, air-tight container",
   },
   {
     _id: "7116b8e1-5b68-4b8f-a616-425762e97d7d",
@@ -487,9 +622,13 @@ export const products = [
     reviews: 2.6,
     in_stock: true,
     is_popular: false,
-    is_best_selling: false,
+    is_best_selling: true,
     is_organic: false,
     unit: "500 g",
+    description:
+      "For most Indians, comfort food is always linked to easy-to-cook homemade meals and what can be the most convenient and quick to prepare dal. A staple in the Indian diet, Dal is rich in protein and can be enjoyed well with rotis or rice.",
+    benefits: "Rich in protein and high in dietary fibre.",
+    storageTips: "Store in an  dry, air-tight container",
   },
   {
     _id: "2cc7f69b-f49b-4008-bb7b-8be37e160657",
@@ -508,6 +647,10 @@ export const products = [
     is_best_selling: false,
     is_organic: true,
     unit: "1 Kg",
+    description:
+      "For most Indians, comfort food is always linked to easy-to-cook homemade meals and what can be the most convenient and quick to prepare dal. A staple in the Indian diet, Dal is rich in protein and can be enjoyed well with rotis or rice.",
+    benefits: "Rich in protein and high in dietary fibre.",
+    storageTips: "Store in an  dry, air-tight container",
   },
   {
     _id: "9d220b30-eaed-4828-a5cd-0b5b72896508",
@@ -526,6 +669,10 @@ export const products = [
     is_best_selling: false,
     is_organic: true,
     unit: "500 g",
+    description:
+      "For most Indians, comfort food is always linked to easy-to-cook homemade meals and what can be the most convenient and quick to prepare dal. A staple in the Indian diet, Dal is rich in protein and can be enjoyed well with rotis or rice.",
+    benefits: "Rich in protein and high in dietary fibre.",
+    storageTips: "Store in an  dry, air-tight container",
   },
   {
     _id: "677fc131-fcb8-4b9e-b164-77a2b467efa9",
@@ -544,6 +691,10 @@ export const products = [
     is_best_selling: false,
     is_organic: false,
     unit: "500 g",
+    description:
+      "For most Indians, comfort food is always linked to easy-to-cook homemade meals and what can be the most convenient and quick to prepare dal. A staple in the Indian diet, Dal is rich in protein and can be enjoyed well with rotis or rice.",
+    benefits: "Rich in protein and high in dietary fibre.",
+    storageTips: "Store in an  dry, air-tight container",
   },
   {
     _id: "0a6ca780-1a3f-46b8-a2e7-a779f1969eea",
@@ -551,17 +702,22 @@ export const products = [
       "https://ik.imagekit.io/faheem/Ecommerce-Grocery/Products_Images/iceCreams/baskinAlphonso?updatedAt=1684440179125",
     rating: 3.1,
     category: "IceCream",
-    title: "Baskin Robbins Alphonso Mango Ice Cream",
+    title: "Alphonso Ice Cream",
     trending: true,
     original_price: "80",
     price: "76",
     delivery_time: "3",
     reviews: 2.1,
     in_stock: true,
-    is_popular: false,
+    is_popular: true,
     is_best_selling: false,
     is_organic: false,
     unit: "100 ml",
+    description:
+      "Delicious Alphonso mango based ice cream made with juicy real mango pulp.Just go for this amazing mango ice cream.",
+    benefits:
+      "Energy value-209.2 kcal, Protien 4.4g, Carbohydrates - 20g, Sugar (as sucrose) -14.5g , fat - 12.4g",
+    storageTips: "Store in the freezer.",
   },
   {
     _id: "534b9f51-64d7-4998-9492-3aeb848d3d91",
@@ -569,7 +725,7 @@ export const products = [
       "https://ik.imagekit.io/faheem/Ecommerce-Grocery/Products_Images/iceCreams/pistachio?updatedAt=1684440536779",
     rating: 4.3,
     category: "IceCream",
-    title: " Pistachio Almond Fudge Ice Cream",
+    title: " Almond Fudge Ice Cream",
     trending: true,
     original_price: "98",
     price: "93",
@@ -577,9 +733,14 @@ export const products = [
     reviews: 2.8,
     in_stock: true,
     is_popular: false,
-    is_best_selling: false,
+    is_best_selling: true,
     is_organic: false,
     unit: "120 ml",
+    description:
+      "One heavenly scoop after another, a journey in the indulgence that never ends. Get your hands on the creamy richness of Vadilal’s Gourmet Pistachio Almond Fudge Ice Cream. This ice cream is so good that Silky smooth chocolate ice cream so good that it makes your heart melt.",
+    benefits:
+      "Energy value-209.2 kcal, Protien 4.4g, Carbohydrates - 20g, Sugar (as sucrose) -14.5g , fat - 12.4g",
+    storageTips: "Store in the freezer.",
   },
   {
     _id: "1c539746-dcce-4d9f-ad8f-59d782b52520",
@@ -598,6 +759,10 @@ export const products = [
     is_best_selling: false,
     is_organic: false,
     unit: "700 ml",
+    description: "Rich Creamy Vanilla Dessert",
+    benefits:
+      "Energy value-209.2 kcal, Protien 4.4g, Carbohydrates - 20g, Sugar (as sucrose) -14.5g , fat - 12.4g",
+    storageTips: "Store in the freezer.",
   },
   {
     _id: "60eb6390-3452-4b6c-928d-733add70640c",
@@ -605,7 +770,7 @@ export const products = [
       "https://ik.imagekit.io/faheem/Ecommerce-Grocery/Products_Images/iceCreams/mangoStick?updatedAt=1684440978962",
     rating: 3.8,
     category: "IceCream",
-    title: "Mango Badabite Ice Cream Stick",
+    title: "Mango Badabite Stick",
     trending: true,
     original_price: "55",
     price: "50",
@@ -616,6 +781,10 @@ export const products = [
     is_best_selling: false,
     is_organic: false,
     unit: "80 ml",
+    description: "No Added Sugar.High In Protein.Gluten Free.",
+    benefits:
+      "Energy value-209.2 kcal, Protien 4.4g, Carbohydrates - 20g, Sugar (as sucrose) -14.5g , fat - 12.4g",
+    storageTips: "Store in the freezer.",
   },
   {
     _id: "5156a933-d0ec-4d57-8c28-3a14518a4ed9",
@@ -623,7 +792,7 @@ export const products = [
       "https://ik.imagekit.io/faheem/Ecommerce-Grocery/Products_Images/iceCreams/chocolateCone?updatedAt=1684441008183",
     rating: 4.5,
     category: "IceCream",
-    title: "Cornetto Double Chocolate Cone",
+    title: "Chocolate Cone",
     trending: true,
     original_price: "45",
     price: "40",
@@ -634,6 +803,11 @@ export const products = [
     is_best_selling: false,
     is_organic: false,
     unit: "105 ml",
+    description:
+      "Duo of milk and dark chocolate topped with chocolate sauce and chips",
+    benefits:
+      "Energy value-209.2 kcal, Protien 4.4g, Carbohydrates - 20g, Sugar (as sucrose) -14.5g , fat - 12.4g",
+    storageTips: "Store in the freezer.",
   },
   {
     _id: "8c5fb82a-0477-45ac-977f-db63b8ba30be",
@@ -641,7 +815,7 @@ export const products = [
       "https://ik.imagekit.io/faheem/Ecommerce-Grocery/Products_Images/iceCreams/mixedBerry?updatedAt=1684441113366",
     rating: 3.9,
     category: "IceCream",
-    title: "Mixed Berries Ice Cream Cup",
+    title: "Mixed Berries Cup",
     trending: true,
     original_price: "95",
     price: "91",
@@ -652,6 +826,11 @@ export const products = [
     is_best_selling: false,
     is_organic: false,
     unit: "100 ml",
+    description:
+      "Indulge in the rich taste.Sweet and savoury frozen treat.Tame your sweet cravings.Add to milkshake, waffles, cones and make your own tasty dessert!",
+    benefits:
+      "Energy value-209.2 kcal, Protien 4.4g, Carbohydrates - 20g, Sugar (as sucrose) -14.5g , fat - 12.4g",
+    storageTips: "Store in the freezer.",
   },
   {
     _id: "f67c9585-43fa-4918-b9cc-71cbb0054932",
@@ -659,7 +838,7 @@ export const products = [
       "https://ik.imagekit.io/faheem/Ecommerce-Grocery/Products_Images/iceCreams/chocochips?updatedAt=1684441041448",
     rating: 4.7,
     category: "IceCream",
-    title: "Choco Chips Ice Cream Cup",
+    title: "Choco Chips Cup",
     trending: true,
     original_price: "80",
     price: "76",
@@ -670,6 +849,11 @@ export const products = [
     is_best_selling: false,
     is_organic: false,
     unit: "100 ml",
+    description:
+      "Melt in your mouth chocolate chips in every bite.Creamy and tasty.All-time favourite.",
+    benefits:
+      "Energy value-209.2 kcal, Protien 4.4g, Carbohydrates - 20g, Sugar (as sucrose) -14.5g , fat - 12.4g",
+    storageTips: "Store in the freezer.",
   },
   {
     _id: "d2acbab1-6300-4370-9bcb-5add6d9eaae8",
@@ -677,16 +861,21 @@ export const products = [
       "https://ik.imagekit.io/faheem/Ecommerce-Grocery/Products_Images/iceCreams/butterScotch?updatedAt=1684441132025",
     rating: 3.5,
     category: "IceCream",
-    title: "Butterscotch Bliss Ice Cream Tub",
+    title: "Butterscotch Bliss Tub",
     trending: true,
     original_price: "225",
     price: "215",
     delivery_time: "3",
     reviews: 1.1,
     in_stock: true,
-    is_popular: false,
+    is_popular: true,
     is_best_selling: false,
     is_organic: false,
     unit: "1 L",
+    description:
+      "The crunchy butterscotch chikki in butterscotch ice cream - a real bliss.",
+    benefits:
+      "Energy value-209.2 kcal, Protien 4.4g, Carbohydrates - 20g, Sugar (as sucrose) -14.5g , fat - 12.4g",
+    storageTips: "Store in the freezer.",
   },
 ];
