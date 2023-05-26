@@ -1,11 +1,17 @@
 import { useContext, useState } from "react";
 import "./AddressCard.css";
-import { AddressInput } from "../../Addresses/AddressInput";
+import { AddressInput } from "../../AddressesInput/AddressInput";
 import { DataContext } from "../../../contexts/DataContext";
 import { handleBtnAddressDelete } from "../../../utilites/addressUtilities";
 
-export function AddressCard({ address, orderSummary }) {
-  const { dataDispatch } = useContext(DataContext);
+export function AddressCard({
+  address,
+  checkout,
+  selectedAddress,
+  setSelectedAddress,
+  orderSummary,
+}) {
+  const { dataState, dataDispatch } = useContext(DataContext);
 
   const [editAddress, setEditAddress] = useState(false);
 
@@ -20,8 +26,20 @@ export function AddressCard({ address, orderSummary }) {
     number,
   } = address;
 
+  const { addresses } = dataState;
+
+  const handleSelectedAddress = (addressClicked) => {
+    setSelectedAddress(addressClicked);
+  };
+
   return (
-    <div>
+    <div
+      style={{
+        backgroundColor:
+          address === selectedAddress ? "var(--secondary-color)" : null,
+      }}
+      className="address-card"
+    >
       {editAddress ? (
         <AddressInput
           edit
@@ -29,21 +47,41 @@ export function AddressCard({ address, orderSummary }) {
           previousAddress={address}
         />
       ) : (
-        <>
-          <div>{name}</div>
-          <div>{number}</div>
-          <div>
-            {addressLineOne},{city},{state},{country},{postalCode}
+        <div>
+          <div onClick={checkout ? () => handleSelectedAddress(address) : null}>
+            {checkout && address === selectedAddress && (
+              <div className="address-check-icon ">
+                <i class="fa-sharp fa-solid fa-circle-check"></i>
+              </div>
+            )}
+            <div>{name}</div>
+            <div>{number}</div>
+            <div>
+              {addressLineOne},{city}
+              <div>
+                {state},{country}
+              </div>
+              <div>{postalCode}</div>
+            </div>
           </div>
+
           {!orderSummary && (
             <div>
-              <button onClick={() => setEditAddress(true)}>Edit</button>
-              <button onClick={() => handleBtnAddressDelete(_id, dataDispatch)}>
+              <button
+                className="btn btn-secondary btn-address"
+                onClick={() => setEditAddress(true)}
+              >
+                Edit
+              </button>
+              <button
+                className="btn btn-secondary  btn-address"
+                onClick={() => handleBtnAddressDelete(_id, dataDispatch)}
+              >
                 Delete
               </button>
             </div>
           )}
-        </>
+        </div>
       )}
     </div>
   );

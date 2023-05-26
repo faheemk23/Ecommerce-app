@@ -1,0 +1,19 @@
+.address-card {
+  padding: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  margin: 0.5rem;
+  position: relative;
+  background-color: white;
+  /* min-width: 500px; */
+}
+
+.btn-address {
+  margin: 0.5rem 1rem 0 0;
+}
+
+.address-check-icon {
+  position: absolute;
+  right: 12px;
+  font-size: large;
+}
