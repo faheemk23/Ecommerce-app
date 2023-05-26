@@ -3,7 +3,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { loginHandler } from "../../../utilites/authUtilities";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { DataContext } from "../../../contexts/DataContext";
-import { toast } from "react-toastify";
+
+import "./LoginCard.css";
 
 export function LoginCard() {
   const [loginData, setloginData] = useState({
@@ -31,23 +32,38 @@ export function LoginCard() {
   };
 
   return (
-    <div style={{ backgroundColor: "rgba(0,0,0,0.2)", maxWidth: "350px" }}>
-      <h2>Login</h2>
+    <div className="login-card">
+      <div className="login-header">Login</div>
       <div>
-        <label htmlFor="email">Email address: </label>
-        <input type="text" id="email" onChange={handleLoginFields} />
+        <label className="login-label" htmlFor="email">
+          Email address:{" "}
+        </label>
+        <input
+          className="login-input"
+          type="text"
+          id="email"
+          onChange={handleLoginFields}
+        />
       </div>
       <div>
-        <label htmlFor="password">Password: </label>
-        <input type="password" id="password" onChange={handleLoginFields} />
+        <label className="login-label" htmlFor="password">
+          Password:{" "}
+        </label>
+        <input
+          className="login-input"
+          type="password"
+          id="password"
+          onChange={handleLoginFields}
+        />
       </div>
-      <div>
-        <input type="checkbox" id="remember-me" />
+      {/* <div>
+        <input className="login-checkbox" type="checkbox" id="remember-me" />
         <label htmlFor="remember-me">Remember me</label>{" "}
         <Link to="#">Forgot your Password?</Link>
-      </div>
+      </div> */}
       <div>
         <input
+          className="login-input btn btn-primary"
           type="submit"
           id="login-submit"
           onClick={() =>
@@ -56,23 +72,19 @@ export function LoginCard() {
           value="Login"
         />
       </div>
-      <div>
-        <button
-          onClick={() =>
-            loginHandler(
-              testUserData,
-              navigate,
-              setLoggedIn,
-              dataDispatch,
-              from
-            )
-          }
-        >
-          Login as Test User
-        </button>
-      </div>
 
-      <Link to="/signup">Create New Account {">"} </Link>
+      <button
+        className="btn btn-secondary btn-test-user"
+        onClick={() =>
+          loginHandler(testUserData, navigate, setLoggedIn, dataDispatch, from)
+        }
+      >
+        Login as Test User
+      </button>
+
+      <Link className="auth-link orange" to="/signup">
+        Create New Account {">"}{" "}
+      </Link>
     </div>
   );
 }
