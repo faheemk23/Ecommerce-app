@@ -9,7 +9,7 @@ export function ProfileDetailCard() {
   };
 
   return (
-    <>
+    <div className="profile-detail-card">
       <h1>Profile Detail</h1>
       <div className="profile-detail-name">
         <strong>Name:</strong> {firstName + lastName}{" "}
@@ -17,6 +17,6 @@ export function ProfileDetailCard() {
       <div className="profile-detail=email">
         <strong>Email:</strong> {email}{" "}
       </div>
-    </>
+    </div>
   );
 }
