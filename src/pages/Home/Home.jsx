@@ -8,11 +8,17 @@ import { ProductsListingContext } from "../../contexts/ProductsListingContext";
 import { Hero } from "../../components/Hero/Hero";
 import { Footer } from "../../components/Footer/Footer";
 import { Test } from "../../components/cards/Test";
+import { ProductCard } from "../../components/cards/ProductCard/ProductCard";
 
 export function Home() {
-  const { categories, loading } = useContext(ProductsListingContext);
+  const { products, categories, loading } = useContext(ProductsListingContext);
 
   const { productsLoading, categoriesLoading } = loading;
+
+  const bestSelling = products.filter(({ is_best_selling }) => is_best_selling);
+  const popular = products.filter(({ is_popular }) => is_popular);
+
+  console.log({ bestSelling, popular });
 
   if (productsLoading || categoriesLoading) {
     return (
@@ -41,14 +47,23 @@ export function Home() {
               <CategoryCard key={id} categoryName={categoryName} icon={icon} />
             ))}
           </div>
-          <div className="home-popular-products">
+          <div className="position-relative">
             <h2>Popular Products</h2>
             <Link className="btn-see-all btn btn-primary" to="/productlisting">
               See All
             </Link>
           </div>
+
+          <div className="home-popular-products">
+            {popular.map((product) => (
+              <ProductCard product={product} inWishlist minified />
+            ))}
+          </div>
+          <h2>Best Selling Products</h2>
           <div className="home-bestselling-products">
-            <h2>Best Selling Products</h2>
+            {bestSelling.map((product) => (
+              <ProductCard product={product} inWishlist minified />
+            ))}
           </div>
         </div>
       </div>
