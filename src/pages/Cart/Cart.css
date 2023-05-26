@@ -1,14 +1,18 @@
 div.cart-page {
-  display: grid;
-  grid-template-areas:
-    "nav nav nav"
-    "cart-items cart-items price-detail";
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
 }
 
-.cart-items {
-  grid-area: cart-items;
+.cart-products {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex-grow: 0.5;
 }
 
-.price-detail {
-  grid-area: price-detail;
+.cart-addresses {
+  flex-grow: 0.5;
 }
