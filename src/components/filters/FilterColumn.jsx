@@ -9,16 +9,21 @@ export function FilterColumn() {
   const { filtersDispatch } = useContext(ProductsListingContext);
   return (
     <div className="filters">
-      <div>
-        <strong>Filters</strong>{" "}
-        <button onClick={() => filtersDispatch({ type: "clear-all" })}>
-          Clear
-        </button>
+      <div className="filter-column">
+        <div>
+          <strong>Filters</strong>{" "}
+          <button
+            className="btn btn-primary bg-orange"
+            onClick={() => filtersDispatch({ type: "clear-all" })}
+          >
+            Clear
+          </button>
+        </div>
+        <Price />
+        <Categories />
+        <Rating />
+        <Sort />
       </div>
-      <Price />
-      <Categories />
-      <Rating />
-      <Sort />
     </div>
   );
 }

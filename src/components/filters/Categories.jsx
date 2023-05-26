@@ -17,6 +17,7 @@ export function Categories() {
       {categories.map(({ _id, categoryName }) => (
         <div key={_id}>
           <input
+            className="accent-color-green"
             checked={isCheckedCategory(categoryName, categoriesChecked)}
             type="checkbox"
             name="category-filter"
