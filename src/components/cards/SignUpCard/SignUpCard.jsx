@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { signupHandler } from "../../../utilites/authUtilities";
 import { AuthContext } from "../../../contexts/AuthContext";
 
+import "./SignUpCard.css";
+
 export function SignUpCard() {
   const [signupData, setSignupData] = useState({
     firstName: "",
@@ -17,7 +19,6 @@ export function SignUpCard() {
   const navigate = useNavigate();
 
   const [showPassword, setShowPassword] = useState(false);
-  const [userAcceptsConditions, setUserAcceptsConditions] = useState(false);
 
   const toggleShowPassword = () => {
     setShowPassword((prev) => !prev);
@@ -33,14 +34,17 @@ export function SignUpCard() {
     showPassword ? "text" : "password";
 
   return (
-    <div style={{ backgroundColor: "rgba(0,0,0,0.2)", maxWidth: "350px" }}>
-      <h2>Sigup</h2>
+    <div className="signup-card">
+      <div className="signup-header">Signup</div>
 
       {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
 
       <div>
-        <label htmlFor="firstName">First name: </label>
+        <label className="signup-label" htmlFor="firstName">
+          First name:{" "}
+        </label>
         <input
+          className="signup-input"
           type="text"
           id="firstName"
           onChange={handleSignupFields}
@@ -48,8 +52,11 @@ export function SignUpCard() {
         />
       </div>
       <div>
-        <label htmlFor="lastName">Last name: </label>
+        <label className="signup-label" htmlFor="lastName">
+          Last name:{" "}
+        </label>
         <input
+          className="signup-input"
           type="text"
           id="lastName"
           onChange={handleSignupFields}
@@ -57,13 +64,24 @@ export function SignUpCard() {
         />
       </div>
       <div>
-        <label htmlFor="email">Email address: </label>
-        <input type="text" id="email" onChange={handleSignupFields} required />
+        <label className="signup-label" htmlFor="email">
+          Email address:{" "}
+        </label>
+        <input
+          className="signup-input"
+          type="text"
+          id="email"
+          onChange={handleSignupFields}
+          required
+        />
       </div>
-      <div>
-        <label htmlFor="password">Password: </label>
+      <div className="signup-password-container">
+        <label className="signup-label" htmlFor="password">
+          Password:{" "}
+        </label>
 
         <input
+          className="signup-input"
           type={handlePasswordVisiblityToggle()}
           id="password"
           onChange={handleSignupFields}
@@ -71,44 +89,44 @@ export function SignUpCard() {
         />
         {showPassword ? (
           <i
-            className="fa-sharp fa-regular fa-eye-slash"
+            className="fa-sharp fa-regular fa-eye-slash visiblity-eye"
             onClick={toggleShowPassword}
           ></i>
         ) : (
-          <i className="fa-regular fa-eye" onClick={toggleShowPassword}></i>
+          <i
+            className="fa-regular fa-eye visiblity-eye"
+            onClick={toggleShowPassword}
+          ></i>
         )}
       </div>
       <div>
-        <label htmlFor="confirmPassword">Confirm password: </label>
+        <label className="signup-label" htmlFor="confirmPassword">
+          Confirm password:{" "}
+        </label>
         <input
+          className="signup-input"
           type="password"
           id="confirmPassword"
           onChange={handleSignupFields}
           required
         />
       </div>
+
       <div>
         <input
-          type="checkbox"
-          id="accept-tc"
-          onClick={(e) => setUserAcceptsConditions(e.target.checked)}
-          required
-        />
-        <label htmlFor="accept-tc">I accept all Terms & Conditions</label>{" "}
-      </div>
-      <div>
-        <input
+          className="signup-input btn btn-primary top-margin"
           type="submit"
           id="signup-submit"
           value="Sign Up"
-          disabled={!userAcceptsConditions}
           onClick={() =>
             signupHandler(signupData, navigate, setErrorMessage, setLoggedIn)
           }
         />
       </div>
 
-      <Link to="/login">Already have an Account {">"} </Link>
+      <Link className="auth-link orange" to="/login">
+        Already have an Account {">"}{" "}
+      </Link>
     </div>
   );
 }

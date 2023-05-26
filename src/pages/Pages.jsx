@@ -5,7 +5,6 @@ import { Cart } from "./Cart/Cart";
 import { Wishlist } from "./Wishlist/Wishlist";
 import { SignUp } from "./Signup/SignUp";
 import { Login } from "./Login/Login";
-import { Checkout } from "./Checkout/Checkout";
 import { Error } from "./Error/Error";
 import { MockmanTest } from "./MockmanTest";
 import { Account } from "./Account/Account";
@@ -19,7 +18,6 @@ export {
   Wishlist,
   SignUp,
   Login,
-  Checkout,
   Error,
   MockmanTest,
   Account,

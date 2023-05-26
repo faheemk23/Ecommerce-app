@@ -5,10 +5,10 @@ import { Sort } from "./Sort";
 import { useContext } from "react";
 import { ProductsListingContext } from "../../contexts/ProductsListingContext";
 
-export function FilterColumn() {
+export function FiltersPopout() {
   const { filtersDispatch } = useContext(ProductsListingContext);
   return (
-    <div className="filters">
+    <div className="filters-popout">
       <div className="filter-column">
         <div>
           <strong>Filters</strong>{" "}

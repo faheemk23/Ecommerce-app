@@ -1,27 +1,62 @@
+.account-outer-container {
+  max-width: 550px;
+  /* min-height: 600px; */
+  margin: auto;
+  margin-top: 1.5rem;
+  position: relative;
+}
+
 .account-container {
-  border: solid;
-  height: 320px;
-  width: 450px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  /* height: 100%; */
+  /* height: 420px; */
+  /* max-width: 450px; */
 }
 
 .account-headers {
   display: flex;
   width: 100%;
-  height: 20%;
+  /* height: 20%; */
 }
 
 .account-header-profile {
-  border: solid red;
+  /* border: solid red; */
+  font-size: x-large;
   width: 50%;
+  padding: 1.5rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
 }
 
 .account-header-address {
-  border: solid green;
+  /* border: solid green; */
   width: 50%;
+  font-size: x-large;
+  padding: 1.5rem;
+  /* background-color: var(--primary-color); */
+  background-color: #ff9407;
+  border: none;
+
+  color: white;
 }
 
 .account-info {
-  border: solid yellow;
-  height: 80%;
+  /* border: solid yellow; */
+  max-height: 500px;
   overflow: scroll;
+  padding: 1rem;
+  background-color: white;
+}
+
+.btn-logout {
+  position: absolute;
+  top: 0.3rem;
+  right: 0;
+  font-size: medium;
+}
+
+.account-heading {
+  font-size: xx-large;
 }

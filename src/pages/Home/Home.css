@@ -9,21 +9,31 @@
 }
 
 .home-popular-products {
-  border: solid;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  justify-content: space-around;
+  /* border: solid; */
   position: relative;
-  height: 500px;
+  /* height: 500px; */
+  overflow: scroll;
 }
 
 .home-bestselling-products {
   margin-top: 2rem;
-  border: solid;
+  /* border: solid; */
+  justify-content: space-around;
+  gap: 3rem;
   position: relative;
-  height: 250px;
+  /* height: 250px; */
+  display: flex;
+  flex-wrap: wrap;
+  overflow: scroll;
 }
 
 .btn-see-all {
   position: absolute;
-  top: 1.5rem;
+  top: 0.5rem;
   right: 0;
 }
 

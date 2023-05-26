@@ -1,3 +1,20 @@
 .accent-color-green {
   accent-color: var(--primary-color);
 }
+
+.filter-column {
+  background-color: var(--secondary-color);
+  padding: 1rem;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.filters-popout {
+  position: absolute;
+  z-index: 8;
+  top: 3rem;
+  /* width: 43vw; */
+}
+
+.full-width {
+  width: 100%;
+}

@@ -20,9 +20,9 @@ export function Price() {
         <h2>Price</h2>
       </label>
       <div>₹{price} & below</div>
-      0
+
       <input
-        className="accent-color-green"
+        className="accent-color-green full-width"
         value={price}
         type="range"
         name="price-range"
@@ -31,7 +31,7 @@ export function Price() {
         max={maxPrice(products)}
         onChange={(e) => handlePriceFilterChange(e, filtersDispatch)}
       />
-      {maxPrice(products)}
+      {/* {maxPrice(products)} */}
     </div>
   );
 }

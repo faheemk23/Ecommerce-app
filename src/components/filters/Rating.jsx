@@ -13,9 +13,8 @@ export function Rating() {
         <h2>Rating</h2>
         <div>{rating}★ & above</div>
       </label>
-      2.5
       <input
-        className="accent-color-green"
+        className="accent-color-green full-width"
         value={rating}
         type="range"
         name="rating-range"
@@ -25,7 +24,6 @@ export function Rating() {
         step=".5"
         onChange={(e) => handleRatingFilterChange(e, filtersDispatch)}
       />
-      4.5
     </div>
   );
 }

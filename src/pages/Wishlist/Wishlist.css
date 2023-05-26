@@ -1,5 +1,6 @@
 .wishlist-items {
   display: flex;
-  gap: 1rem;
+  gap: 1.2rem 1.2rem;
   flex-wrap: wrap;
+  margin: 1.5rem;
 }

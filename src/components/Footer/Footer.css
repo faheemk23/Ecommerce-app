@@ -1,4 +1,39 @@
 .footer {
   background-color: var(--secondary-color);
-  height: 270px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.footer-links {
+  display: flex;
+  margin: 2rem;
+}
+
+.footer-detail {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: 2rem 0;
+  justify-content: space-evenly;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.footer-column {
+  margin: 0 2rem;
+}
+
+.margin-top {
+  margin: 1rem 0;
+}
+
+@media screen and (max-width: 952px) {
+  .footer {
+    flex-direction: column;
+    align-items: center;
+  }
 }

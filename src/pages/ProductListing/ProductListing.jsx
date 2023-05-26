@@ -1,13 +1,17 @@
 import { useContext, useEffect, useState } from "react";
+import { ColorRing } from "react-loader-spinner";
+
 import { ProductsListingContext } from "../../contexts/ProductsListingContext";
 import { ProductCard } from "../../components/cards/ProductCard/ProductCard";
 import "./ProductListing.css";
 import { FilterColumn } from "../../components/filters/FilterColumn";
 import { Test } from "../../components/cards/Test";
 import { filterProducts } from "../../utilites/productsUtilities";
-import { ColorRing } from "react-loader-spinner";
+import { FiltersPopout } from "../../components/filters/FiltersPopout";
+import emptyResult from "../../assets/empty-result.jpg";
 
 export function ProductListing() {
+  const [showFilters, setShowFilters] = useState(false);
   const { products, filtersState, loading } = useContext(
     ProductsListingContext
   );
@@ -30,13 +34,35 @@ export function ProductListing() {
       </div>
     );
   }
+
   return (
     <div className="listing">
+      <button
+        className="btn-filters-toggle btn btn-primary "
+        onClick={() => setShowFilters((prev) => !prev)}
+      >
+        <i class="fa-solid fa-bars"></i> Filters
+      </button>
+      {showFilters && <FiltersPopout />}
       <FilterColumn />
       <div className="products">
-        {filteredProducts.map((product) => (
-          <ProductCard key={product._id} product={product} />
-        ))}
+        {filteredProducts.length === 0 ? (
+          <div className="empty-result-container">
+            <img
+              className="image-center"
+              src={emptyResult}
+              height="292px"
+              width="292px"
+            />
+            <h1>Sorry, no products to show with the given filters.</h1>
+          </div>
+        ) : (
+          <>
+            {filteredProducts.map((product) => (
+              <ProductCard key={product._id} product={product} />
+            ))}
+          </>
+        )}
       </div>
     </div>
   );

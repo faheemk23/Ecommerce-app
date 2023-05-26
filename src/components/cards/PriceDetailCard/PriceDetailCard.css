@@ -1,4 +1,4 @@
-table {
+/* table {
   width: 100%;
 }
 
@@ -10,6 +10,63 @@ td {
   text-align: right;
 }
 
+ */
+
 hr {
   width: 100%;
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.price-detail-card {
+  width: 400px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  font-size: large;
+  background-color: white;
+}
+
+.price-card-product {
+  margin: 0.6rem 0;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  align-items: center;
+}
+
+.flex-space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.price-detail-title {
+  font-size: xx-large;
+  font-weight: bolder;
+  color: var(--primary-color);
+}
+
+.price-detail-discount {
+  margin-top: 0.5rem;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.smaller {
+  font-size: smaller;
+}
+
+.btn-checkout {
+  display: inline-block;
+  font-size: 1.2rem;
+  /* margin-left: auto; */
+  /* align-self: flex-end; */
+  /* justify-self: center; */
+  margin-top: 1rem;
+  margin-bottom: 0;
+  /* max-width: 6.5rem; */
+  /* color: red; */
+  text-align: center;
 }

@@ -1,0 +1,53 @@
+.signup-card {
+  /* border: solid; */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  max-width: 500px;
+  padding: 1.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 3rem;
+  background-color: white;
+}
+
+.signup-header {
+  text-align: center;
+  font-size: xx-large;
+  color: var(--primary-color);
+}
+
+.signup-input {
+  display: block;
+  width: 100%;
+  margin: 0.5rem 0;
+  height: 30px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  border-radius: 0.5rem;
+  border: none;
+}
+
+.signup-label {
+  font-size: larger;
+}
+
+.top-margin {
+  margin-top: 1rem;
+}
+
+.signup-password-container {
+  position: relative;
+}
+
+.visiblity-eye {
+  position: absolute;
+  top: 42px;
+  right: 10px;
+}
+
+.auth-link {
+  text-decoration: none;
+  text-align: center;
+  margin-top: 0.5rem;
+  /* color: black; */
+  font-size: large;
+}

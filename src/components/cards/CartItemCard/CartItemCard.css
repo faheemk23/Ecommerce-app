@@ -2,3 +2,47 @@
   color: rgba(0, 0, 0, 0.55);
   text-decoration: line-through;
 }
+
+.cart-item-card {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 1rem;
+  /* min-width: 500px; */
+  /* max-width: 700px; */
+  /* max-height: 300px; */
+  padding: 0.6rem 1.5rem;
+  /* margin-left: 50px; */
+  position: relative;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  background-color: white;
+}
+
+.cart-item-card-info {
+  display: flex;
+  /* gap: 0 1rem; */
+}
+
+.cart-item-quantity {
+  border: 1px solid;
+  padding: 0rem 0.5rem;
+}
+
+.cart-item-product-image {
+  height: 190px;
+  width: 250px;
+
+  object-fit: cover;
+}
+
+.cart-item-wishlist-icon {
+  position: absolute;
+  font-size: 1.2rem;
+  top: 1rem;
+  left: 1.2rem;
+  color: var(--primary-color);
+}
+
+.cart-item-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

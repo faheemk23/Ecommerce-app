@@ -1,7 +1,24 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./PriceDetailCard.css";
+import { AddressCard } from "../AddressCard/AddressCard";
+import { useContext } from "react";
+import { DataContext } from "../../../contexts/DataContext";
+import { handleBtnRemoveFromCart } from "../../../utilites/cartUtilities";
+import { giveToast } from "../../../utilites/miscUtilities";
 
-export function PriceDetailCard({ cart, checkout, setShowOrderSummary }) {
+export function PriceDetailCard({
+  cart,
+  setShowOrderSummary,
+  showAddresses,
+  setShowAddresses,
+  showOrderSummary,
+  selectedAddress,
+}) {
+  const { dataState, dataDispatch } = useContext(DataContext);
+
+  const navigate = useNavigate();
+
+  // const { cart } = dataState;
   const priceDetails = cart.reduce(
     (acc, { price, original_price, qty }) => ({
       price: acc.price + Number(original_price) * qty,
@@ -13,32 +30,76 @@ export function PriceDetailCard({ cart, checkout, setShowOrderSummary }) {
 
   const { price, discount } = priceDetails;
 
+  const handleBtnPlaceOrder = () => {
+    cart.map(({ _id }) => handleBtnRemoveFromCart(_id, dataDispatch));
+
+    dataDispatch({ type: "clear-cart" });
+    giveToast("Order Placed Successfully!", "success");
+    navigate("/");
+  };
+
   return (
-    <div style={{ backgroundColor: "rgba(0,0,0,0.2)", maxWidth: "250px" }}>
-      <div>Price Detail</div>
+    <div className="price-detail-card">
+      <div className="price-detail-title">
+        {showOrderSummary ? "Order Summary" : "Price Detail"}
+      </div>
       <hr />
-      <div>Items ||Total Price</div>
-      <hr />
+      {showOrderSummary && <div>Items:</div>}
       {cart.map(({ _id, title, qty, unit, price }) => (
-        <div key={_id}>
-          {title}({unit})*{qty} {Number(price) * qty}
+        <div key={_id} className="flex-space-between price-card-product">
+          <div>
+            <span className="bold">{title}</span>{" "}
+            <div className="smaller">
+              Qty: ({unit}) X {qty}
+            </div>
+          </div>{" "}
+          {!showOrderSummary && <span>{Number(price) * qty}</span>}
         </div>
       ))}
 
       <hr />
-      <div>Cart total: ₹{price - discount}</div>
-      <div>You will save ₹{discount} on this order</div>
-      {checkout ? (
+      <div className="flex-space-between bold">
+        <span>Cart total:</span> <span>₹{price - discount}</span>
+      </div>
+      {showOrderSummary && (
+        <div>
+          <hr />
+          <span className="bold">Deliver to:</span>
+          <AddressCard address={selectedAddress} orderSummary />
+        </div>
+      )}
+      {!showOrderSummary && (
+        <>
+          <hr />
+          <div className="price-detail-discount">
+            You will save <span className="bold orange">₹{discount}</span> on
+            this order
+          </div>
+        </>
+      )}
+      {!showOrderSummary &&
+        (showAddresses ? (
+          <button
+            className="btn-checkout btn btn-primary "
+            onClick={() => setShowOrderSummary(true)}
+          >
+            CHECKOUT
+          </button>
+        ) : (
+          <button
+            className=" btn-checkout btn btn-primary"
+            onClick={() => setShowAddresses(true)}
+          >
+            PLACE ORDER
+          </button>
+        ))}
+      {showOrderSummary && (
         <button
-          className="btn btn-primary"
-          onClick={() => setShowOrderSummary(true)}
+          className="btn-checkout btn btn-primary"
+          onClick={handleBtnPlaceOrder}
         >
-          Checkout
+          Place Order
         </button>
-      ) : (
-        <Link className="btn btn-primary" to="/checkout">
-          Checkout
-        </Link>
       )}
     </div>
   );
