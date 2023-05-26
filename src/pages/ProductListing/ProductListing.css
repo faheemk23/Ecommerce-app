@@ -30,14 +30,6 @@
   grid-area: filters;
 }
 
-.listing {
-  display: grid;
-  grid-template-columns: 100%;
-  grid-template-areas:
-    " nav"
-    " products";
-}
-
 @media screen and (max-width: 952px) {
   .filters {
     display: none;
@@ -45,5 +37,12 @@
   .btn-filters-toggle,
   .filters-popout {
     display: inline;
+  }
+  .listing {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-areas:
+      " nav"
+      " products";
   }
 }
