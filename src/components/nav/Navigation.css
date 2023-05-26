@@ -8,6 +8,7 @@
   position: sticky;
   z-index: 10;
   top: 0;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .nav-right-part {
@@ -50,9 +51,9 @@
 .search-result {
   position: absolute;
   display: flex;
-  max-height: 300px;
+  flex-direction: column;
+  max-height: 400px;
   width: 40vw;
-  background-color: white;
   border-radius: 0 0 0.5rem 0.5rem;
   border-left: 1px solid #6e9144;
   border-bottom: 1px solid #6e9144;
@@ -61,7 +62,7 @@
   overflow: scroll;
 }
 
-@media screen and (max-width: 940px) {
+@media screen and (max-width: 1243px) {
   .nav {
     display: flex;
     flex-direction: column;

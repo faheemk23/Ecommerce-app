@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { ProductsListingContext } from "../../contexts/ProductsListingContext";
 import { ProductCard } from "../cards/ProductCard/ProductCard";
+import { SearchProductCard } from "../cards/SearchProductCard/SearchProductCard";
 
 export function SearchContainer() {
   const [searchInput, setSearchInput] = useState("");
@@ -47,6 +48,7 @@ export function SearchContainer() {
       <div>
         <input
           className="search-bar"
+          value={searchInput}
           type="text"
           onChange={(e) => setSearchInput(e.target.value)}
           placeholder={`Search ${totalProductsNum}+ products `}
@@ -56,7 +58,11 @@ export function SearchContainer() {
       {searchInput !== "" && (
         <div className="search-result">
           {filteredProducts.map((product) => (
-            <ProductCard key={product._id} product={product} />
+            <SearchProductCard
+              key={product._id}
+              product={product}
+              setSearchInput={setSearchInput}
+            />
           ))}
         </div>
       )}
