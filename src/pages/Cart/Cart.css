@@ -10,9 +10,8 @@ div.cart-page {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  flex-grow: 0.5;
 }
 
 .cart-addresses {
-  flex-grow: 0.5;
+  flex-grow: 0.2;
 }
