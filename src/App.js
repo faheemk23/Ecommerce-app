@@ -19,12 +19,14 @@ import {
 } from "./pages/Pages";
 import { RequiresAuth } from "./components/RequiresAuth";
 import { Navigation } from "./components/nav/Navigation";
+import { ScrollToTop } from "./components/ScrollToTop";
 
 // import { MockmanTest } from "./pages/MockmanTest";
 
 function App() {
   return (
     <div>
+      <ScrollToTop />
       <Navigation showBtnLogin />
       <Routes>
         <Route path="/" element={<Home />} />
