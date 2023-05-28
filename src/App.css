@@ -29,6 +29,7 @@ input:focus {
 
 .scale:hover {
   scale: 1.12;
+  transition: scale 0.4s;
 }
 
 .center-of-page {
