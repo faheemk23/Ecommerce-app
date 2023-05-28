@@ -4,24 +4,11 @@ import { AddressCard } from "../AddressCard/AddressCard";
 import { useContext } from "react";
 import { DataContext } from "../../../contexts/DataContext";
 import { handleBtnRemoveFromCart } from "../../../utilites/cartUtilities";
-import { giveToast } from "../../../utilites/miscUtilities";
-
-const loadScript = (url) => {
-  return new Promise((resolve, reject) => {
-    const script = document.createElement("script");
-    script.src = url;
-
-    script.onload = () => {
-      resolve(true);
-    };
-
-    script.onerror = () => {
-      resolve(false);
-    };
-
-    document.body.appendChild(script);
-  });
-};
+import {
+  displayRazorpay,
+  giveToast,
+  loadScript,
+} from "../../../utilites/miscUtilities";
 
 export function PriceDetailCard({
   cart,
@@ -31,7 +18,7 @@ export function PriceDetailCard({
   showOrderSummary,
   selectedAddress,
 }) {
-  const { dataState, dataDispatch } = useContext(DataContext);
+  const { dataDispatch } = useContext(DataContext);
 
   const navigate = useNavigate();
 
