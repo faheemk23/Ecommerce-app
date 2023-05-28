@@ -6,6 +6,23 @@ import { DataContext } from "../../../contexts/DataContext";
 import { handleBtnRemoveFromCart } from "../../../utilites/cartUtilities";
 import { giveToast } from "../../../utilites/miscUtilities";
 
+const loadScript = (url) => {
+  return new Promise((resolve, reject) => {
+    const script = document.createElement("script");
+    script.src = url;
+
+    script.onload = () => {
+      resolve(true);
+    };
+
+    script.onerror = () => {
+      resolve(false);
+    };
+
+    document.body.appendChild(script);
+  });
+};
+
 export function PriceDetailCard({
   cart,
   setShowOrderSummary,
@@ -18,7 +35,6 @@ export function PriceDetailCard({
 
   const navigate = useNavigate();
 
-  // const { cart } = dataState;
   const priceDetails = cart.reduce(
     (acc, { price, original_price, qty }) => ({
       price: acc.price + Number(original_price) * qty,
@@ -30,12 +46,37 @@ export function PriceDetailCard({
 
   const { price, discount } = priceDetails;
 
-  const handleBtnPlaceOrder = () => {
-    cart.map(({ _id }) => handleBtnRemoveFromCart(_id, dataDispatch));
+  const displayRazorpay = async () => {
+    const response = await loadScript(
+      "https://checkout.razorpay.com/v1/checkout.js"
+    );
+    if (!response) {
+      alert("Razorpay SDK failed to load, check you internet connection");
+      return;
+    }
+    const options = {
+      key: "rzp_test_d4EQQLMQ0qHeBg",
+      amount: (price - discount) * 100,
+      currency: "INR",
+      name: "GROcery",
+      description: "Thank you for shopping with us",
+      handler: function (response) {
+        cart.map(({ _id }) => handleBtnRemoveFromCart(_id, dataDispatch));
+        dataDispatch({ type: "clear-cart" });
+        giveToast("Order Placed Successfully!", "success");
+        navigate("/");
+      },
+      theme: {
+        color: "#6e9144",
+      },
+    };
 
-    dataDispatch({ type: "clear-cart" });
-    giveToast("Order Placed Successfully!", "success");
-    navigate("/");
+    const paymentObject = new window.Razorpay(options);
+    paymentObject.open();
+  };
+
+  const handleBtnPlaceOrder = () => {
+    displayRazorpay();
   };
 
   return (
