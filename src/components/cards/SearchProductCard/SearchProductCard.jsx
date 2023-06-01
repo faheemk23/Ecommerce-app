@@ -1,37 +1,11 @@
-import { useContext } from "react";
-
-import {
-  handleBtnRemoveFromCart,
-  handleQuantityChangeInCart,
-} from "../../../utilites/cartUtilities";
-
-import { DataContext } from "../../../contexts/DataContext";
-import "./SearchProductCard.css";
-
-import {
-  handleBtnAddToWishlist,
-  handleBtnRemoveFromWishlist,
-  productInWishlist,
-} from "../../../utilites/wishlistUtilities";
-import { AuthContext } from "../../../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 
-export function SearchProductCard({ product, setSearchInput }) {
-  const { dataState, dataDispatch } = useContext(DataContext);
-  const { loggedIn } = useContext(AuthContext);
+import "./SearchProductCard.css";
 
+export function SearchProductCard({ product, setSearchInput }) {
   const navigate = useNavigate();
 
-  const { wishlist } = dataState;
-
-  const { _id, image, title, original_price, price, unit, rating, qty } =
-    product;
-
-  const discount = parseInt(
-    ((Number(original_price, 0) - Number(price, 0)) /
-      Number(original_price, 0)) *
-      100
-  );
+  const { _id, image, title, price, unit } = product;
 
   return (
     <div

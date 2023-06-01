@@ -1,20 +1,15 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./PriceDetailCard.css";
 import { AddressCard } from "../AddressCard/AddressCard";
 import { useContext } from "react";
 import { DataContext } from "../../../contexts/DataContext";
 import { handleBtnRemoveFromCart } from "../../../utilites/cartUtilities";
-import {
-  displayRazorpay,
-  giveToast,
-  loadScript,
-} from "../../../utilites/miscUtilities";
+import { giveToast, loadScript } from "../../../utilites/miscUtilities";
 
 export function PriceDetailCard({
   cart,
+  inCart,
   setShowOrderSummary,
-  showAddresses,
-  setShowAddresses,
   showOrderSummary,
   selectedAddress,
 }) {
@@ -71,7 +66,7 @@ export function PriceDetailCard({
       <div className="price-detail-title">
         {showOrderSummary ? "Order Summary" : "Price Detail"}
       </div>
-      <hr />
+      <hr className="price-detail-hr" />
       {showOrderSummary && <div>Items:</div>}
       {cart.map(({ _id, title, qty, unit, price }) => (
         <div key={_id} className="flex-space-between price-card-product">
@@ -85,50 +80,50 @@ export function PriceDetailCard({
         </div>
       ))}
 
-      <hr />
+      <hr className="price-detail-hr" />
       <div className="flex-space-between bold">
         <span>Cart total:</span> <span>₹{price - discount}</span>
       </div>
       {showOrderSummary && (
         <div>
-          <hr />
+          <hr className="price-detail-hr" />
           <span className="bold">Deliver to:</span>
           <AddressCard address={selectedAddress} orderSummary />
         </div>
       )}
       {!showOrderSummary && (
         <>
-          <hr />
+          <hr className="price-detail-hr" />
           <div className="price-detail-discount">
             You will save <span className="bold orange">₹{discount}</span> on
             this order
           </div>
         </>
       )}
-      {!showOrderSummary &&
-        (showAddresses ? (
+      {inCart && (
+        <button
+          className=" btn-checkout btn btn-primary"
+          onClick={() => navigate("/checkout")}
+        >
+          CHECKOUT
+        </button>
+      )}
+      {!inCart &&
+        (showOrderSummary ? (
+          <button
+            className="btn-checkout btn btn-primary"
+            onClick={handleBtnPlaceOrder}
+          >
+            Place Order
+          </button>
+        ) : (
           <button
             className="btn-checkout btn btn-primary "
             onClick={() => setShowOrderSummary(true)}
           >
-            CHECKOUT
-          </button>
-        ) : (
-          <button
-            className=" btn-checkout btn btn-primary"
-            onClick={() => setShowAddresses(true)}
-          >
-            PLACE ORDER
+            ORDER SUMMARY
           </button>
         ))}
-      {showOrderSummary && (
-        <button
-          className="btn-checkout btn btn-primary"
-          onClick={handleBtnPlaceOrder}
-        >
-          Place Order
-        </button>
-      )}
     </div>
   );
 }

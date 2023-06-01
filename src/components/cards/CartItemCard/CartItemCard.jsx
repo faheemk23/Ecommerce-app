@@ -23,14 +23,7 @@ export function CartItemCard({ product }) {
 
   const { wishlist } = dataState;
 
-  const { _id, image, title, original_price, price, unit, rating, qty } =
-    product;
-
-  const discount = parseInt(
-    ((Number(original_price, 0) - Number(price, 0)) /
-      Number(original_price, 0)) *
-      100
-  );
+  const { _id, image, title, original_price, price, unit, qty } = product;
 
   return (
     <div className="cart-item-card ">
@@ -61,7 +54,7 @@ export function CartItemCard({ product }) {
         <div>
           Quantity:{" "}
           <button
-            className="btn btn-primary"
+            className="btn btn-primary btn-quantity"
             onClick={() =>
               handleQuantityChangeInCart(qty, "decrement", _id, dataDispatch)
             }
@@ -70,7 +63,7 @@ export function CartItemCard({ product }) {
           </button>{" "}
           <span className="cart-item-quantity">{qty}</span>
           <button
-            className="btn btn-primary"
+            className="btn btn-primary btn-quantity"
             onClick={() =>
               handleQuantityChangeInCart(qty, "increment", _id, dataDispatch)
             }

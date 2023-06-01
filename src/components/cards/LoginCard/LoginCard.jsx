@@ -56,11 +56,10 @@ export function LoginCard() {
           onChange={handleLoginFields}
         />
       </div>
-      {/* <div>
+      <div>
         <input className="login-checkbox" type="checkbox" id="remember-me" />
         <label htmlFor="remember-me">Remember me</label>{" "}
-        <Link to="#">Forgot your Password?</Link>
-      </div> */}
+      </div>
       <div>
         <input
           className="login-input btn btn-primary"
