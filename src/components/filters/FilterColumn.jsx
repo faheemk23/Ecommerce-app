@@ -10,7 +10,7 @@ export function FilterColumn() {
   return (
     <div className="filters">
       <div className="filter-column">
-        <div>
+        <div className="flex-space-between">
           <strong>Filters</strong>{" "}
           <button
             className="btn btn-primary bg-orange"

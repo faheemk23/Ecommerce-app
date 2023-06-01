@@ -16,7 +16,23 @@ export function Price() {
 
   return (
     <div>
-      <label htmlFor="price-filter">
+      <fieldset className="filter-fieldset">
+        <legend>
+          {" "}
+          <h2>Price</h2>
+        </legend>
+        <input
+          className="accent-color-green full-width"
+          value={price}
+          type="range"
+          name="price-range"
+          id="price-filter"
+          min="0"
+          max={maxPrice(products)}
+          onChange={(e) => handlePriceFilterChange(e, filtersDispatch)}
+        />
+      </fieldset>
+      {/* <label htmlFor="price-filter">
         <h2>Price</h2>
       </label>
       <div>₹{price} & below</div>
@@ -30,7 +46,7 @@ export function Price() {
         min="0"
         max={maxPrice(products)}
         onChange={(e) => handlePriceFilterChange(e, filtersDispatch)}
-      />
+      /> */}
       {/* {maxPrice(products)} */}
     </div>
   );
