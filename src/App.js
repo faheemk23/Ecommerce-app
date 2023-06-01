@@ -16,6 +16,7 @@ import {
   Error,
   MockmanTest,
   Account,
+  Checkout,
 } from "./pages/Pages";
 import { RequiresAuth } from "./components/RequiresAuth";
 import { Navigation } from "./components/nav/Navigation";
@@ -45,6 +46,14 @@ function App() {
           element={
             <RequiresAuth>
               <Wishlist />
+            </RequiresAuth>
+          }
+        />
+        <Route
+          path="/checkout"
+          element={
+            <RequiresAuth>
+              <Checkout />
             </RequiresAuth>
           }
         />

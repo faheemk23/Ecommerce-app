@@ -13,16 +13,16 @@ import { AuthProvider } from "./contexts/AuthContext";
 makeServer();
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Router>
-      <AuthProvider>
-        <ProductsListingProvider>
-          <DataProvider>
-            <App />
-          </DataProvider>
-        </ProductsListingProvider>
-      </AuthProvider>
-    </Router>
-  </React.StrictMode>,
+  // <React.StrictMode>
+  <Router>
+    <AuthProvider>
+      <ProductsListingProvider>
+        <DataProvider>
+          <App />
+        </DataProvider>
+      </ProductsListingProvider>
+    </AuthProvider>
+  </Router>,
+  // </React.StrictMode>
   document.getElementById("root")
 );
