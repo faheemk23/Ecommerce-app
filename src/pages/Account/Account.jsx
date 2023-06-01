@@ -8,6 +8,7 @@ import "./Account.css";
 import { ProfileDetailCard } from "../../components/cards/ProfileDetailCard/ProfileDetailCard";
 import { AddressCard } from "../../components/cards/AddressCard/AddressCard";
 import { AddressInput } from "../../components/AddressesInput/AddressInput";
+import { giveToast } from "../../utilites/miscUtilities";
 
 export function Account() {
   const [showAddressInput, setShowAddressInput] = useState(false);
@@ -25,6 +26,7 @@ export function Account() {
     setLoggedIn(false);
     dataDispatch({ type: "clear-all" });
     filtersDispatch({ type: "clear-all" });
+    giveToast("You have been logged out.", "warning");
     navigate("/");
   };
   return (

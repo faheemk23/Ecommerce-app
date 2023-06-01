@@ -1,4 +1,4 @@
-div.cart-page {
+div.checkout-page {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -6,8 +6,6 @@ div.cart-page {
   margin-top: 1.5rem;
 }
 
-.cart-products {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+.checkout-addresses {
+  flex-grow: 0.2;
 }

@@ -12,7 +12,36 @@ export function Sort() {
 
   return (
     <div>
-      <h2>Sort by</h2>
+      <fieldset className="filter-fieldset">
+        <legend>
+          <h2>Sort by</h2>
+        </legend>
+        <div>
+          <input
+            checked={isCheckedSort(sort, "lth")}
+            className="accent-color-green"
+            type="radio"
+            name="sort"
+            value="lth"
+            id="lowToHigh"
+            onChange={(e) => handleSortFilterChange(e, filtersDispatch)}
+          />
+          <label htmlFor="lowToHigh">Price- Low to High</label>
+        </div>
+        <div>
+          <input
+            checked={isCheckedSort(sort, "htl")}
+            className="accent-color-green"
+            type="radio"
+            name="sort"
+            value="htl"
+            id="highToLow"
+            onChange={(e) => handleSortFilterChange(e, filtersDispatch)}
+          />
+          <label htmlFor="highToLow">Price- High to Low</label>
+        </div>
+      </fieldset>
+      {/* <h2>Sort by</h2>
       <div>
         <input
           checked={isCheckedSort(sort, "lth")}
@@ -20,7 +49,7 @@ export function Sort() {
           type="radio"
           name="sort"
           value="lth"
-          key="lowToHigh"
+          id="lowToHigh"
           onChange={(e) => handleSortFilterChange(e, filtersDispatch)}
         />
         <label htmlFor="lowToHigh">Price- Low to High</label>
@@ -32,11 +61,11 @@ export function Sort() {
           type="radio"
           name="sort"
           value="htl"
-          key="highToLow"
+          id="highToLow"
           onChange={(e) => handleSortFilterChange(e, filtersDispatch)}
         />
         <label htmlFor="highToLow">Price- High to Low</label>
-      </div>
+      </div> */}
     </div>
   );
 }

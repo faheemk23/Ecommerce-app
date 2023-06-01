@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import {
   handleBtnAddToCart,
   handleBtnGoToCart,
-  handleQuantityChangeInCart,
   productInCart,
 } from "../../../utilites/cartUtilities";
 import organic from "../../../assets/organic.jpg";
@@ -33,7 +32,6 @@ export function ProductDetailCard({ product = {}, inWishlist }) {
     price,
     unit,
     rating,
-    quantity,
     description,
     benefits,
     storageTips,
@@ -50,11 +48,11 @@ export function ProductDetailCard({ product = {}, inWishlist }) {
 
   return (
     <div className="product-detail-card position-relative">
-      <div className="product-detail-discount">
+      {/* <div className="product-detail-discount">
         {discount}% <br />
         OFF
-      </div>
-      {is_organic && (
+      </div> */}
+      {/* {is_organic && (
         <img
           className="product-detail-organic-stamp"
           src={organic}
@@ -62,11 +60,25 @@ export function ProductDetailCard({ product = {}, inWishlist }) {
           height="100px"
           width="100px"
         />
-      )}
-      <div></div>
-      <div className=" align-center">
+      )} */}
+      <div className=" align-center position-relative">
         <img src={image} alt="product" className="product-detail-image" />
+        <div className="product-detail-discount">
+          {discount}% <br />
+          OFF
+        </div>
+        {is_organic && (
+          <img
+            className="product-detail-organic-stamp"
+            src={organic}
+            alt="organic"
+            height="100px"
+            width="100px"
+          />
+        )}
       </div>
+
+      <hr className="product-detail-hr" />
       <div className="product-detail-info position-relative">
         <div className="product-detail-title">{title}</div>
         <div className="product-detail-quan">{unit}</div>
@@ -75,7 +87,7 @@ export function ProductDetailCard({ product = {}, inWishlist }) {
           <span className="original-price"> ₹{original_price}</span>
         </div>
         <div className="product-detail-card-rating">{rating}★</div>
-        <hr className="product-detail-hr" />
+        <hr className="product-detail-info-hr" />
 
         <div className="x-large bold product-detail-header">
           Product details

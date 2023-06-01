@@ -31,7 +31,7 @@ export function ProductDetail() {
   }, [productId]);
 
   return (
-    <>
+    <div className="product-detail-page">
       {loading && (
         <div className="center-of-page">
           <ColorRing
@@ -46,6 +46,6 @@ export function ProductDetail() {
         </div>
       )}
       {!loading && <ProductDetailCard product={product} />}
-    </>
+    </div>
   );
 }

@@ -14,6 +14,8 @@ export function AddressInput({
   edit,
   setEditAddress,
   previousAddress,
+  selectedAddress,
+  setSelectedAddress,
 }) {
   const [inputAddress, setInputAddress] = useState({
     _id: "",
@@ -64,6 +66,9 @@ export function AddressInput({
         type: "update-address",
         payload: { addressId, updatedAddress },
       });
+      if (selectedAddress._id === addressId) {
+        setSelectedAddress(updatedAddress);
+      }
       setEditAddress(false);
     }
   };

@@ -7,25 +7,19 @@ export function Footer() {
     <div className="footer">
       <div className="footer-detail">
         <img
-          className="margin-top"
+          className="margin-bottom"
           src={footerMain}
           alt="footer-main"
           height="40px"
           width="100px"
         />
-        <div className="margin-top">
+        <div className="margin-bottom">
           The GROcery ecommerce app is a convenient and user-friendly platform
           that revolutionizes the way we shop for groceries.You can explore an
           extensive range of fresh produce, pantry staples, and household
           essentials from the comfort of your home.
         </div>
-        <img
-          className="margin-top"
-          src={footerSocial}
-          alt="socials"
-          height="32px"
-          width="150px"
-        />
+        <img src={footerSocial} alt="socials" height="32px" width="150px" />
       </div>
       <div className="footer-links">
         <div className="flex-column footer-column">

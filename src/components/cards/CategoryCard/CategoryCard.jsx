@@ -1,9 +1,8 @@
-import { v4 as uuid } from "uuid";
+import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
 
 import "./CategoryCard.css";
-import { useNavigate } from "react-router-dom";
 import { removeAllWhitespace } from "../../../utilites/filtersUtilities";
-import { useContext } from "react";
 import { ProductsListingContext } from "../../../contexts/ProductsListingContext";
 
 export function CategoryCard({ categoryName, icon }) {

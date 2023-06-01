@@ -1,8 +1,5 @@
-import { v4 as uuid } from "uuid";
-import { createContext, useEffect, useReducer, useState } from "react";
+import { createContext, useReducer } from "react";
 import { dataReducer } from "../reducers/dataReducer";
-import { getCartItems } from "../utilites/cartUtilities";
-import { getWishlistItems } from "../utilites/wishlistUtilities";
 
 export const initialAddresses = [
   {
@@ -41,15 +38,6 @@ export const DataContext = createContext({
 
 export function DataProvider({ children }) {
   const [dataState, dataDispatch] = useReducer(dataReducer, initialDataState);
-
-  // console.log(userInfo);
-
-  const encodedToken = localStorage.getItem("userToken");
-
-  // useEffect(() => {
-  //   getCartItems(encodedToken, dataDispatch);
-  //   getWishlistItems(encodedToken, dataDispatch);
-  // }, []);
 
   return (
     <>

@@ -1,6 +1,5 @@
 .account-outer-container {
   max-width: 550px;
-  /* min-height: 600px; */
   margin: auto;
   margin-top: 1.5rem;
   position: relative;
@@ -9,19 +8,14 @@
 .account-container {
   border: 1px solid rgba(0, 0, 0, 0.5);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-  /* height: 100%; */
-  /* height: 420px; */
-  /* max-width: 450px; */
 }
 
 .account-headers {
   display: flex;
   width: 100%;
-  /* height: 20%; */
 }
 
 .account-header-profile {
-  /* border: solid red; */
   font-size: x-large;
   width: 50%;
   padding: 1.5rem;
@@ -31,11 +25,9 @@
 }
 
 .account-header-address {
-  /* border: solid green; */
   width: 50%;
   font-size: x-large;
   padding: 1.5rem;
-  /* background-color: var(--primary-color); */
   background-color: #ff9407;
   border: none;
 
@@ -43,9 +35,8 @@
 }
 
 .account-info {
-  /* border: solid yellow; */
   max-height: 500px;
-  overflow: scroll;
+  overflow-y: auto;
   padding: 1rem;
   background-color: white;
 }

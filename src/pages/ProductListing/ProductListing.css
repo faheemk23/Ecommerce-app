@@ -4,7 +4,8 @@
   grid-template-columns: 20% 40% 40%;
   grid-template-areas:
     "nav nav nav"
-    "filters products products";
+    "filters products products"
+    "footer footer footer";
   margin-top: 1.5rem;
 }
 
@@ -30,6 +31,10 @@
   grid-area: filters;
 }
 
+.footer {
+  grid-area: footer;
+}
+
 @media screen and (max-width: 952px) {
   .filters {
     display: none;
@@ -43,6 +48,7 @@
     grid-template-columns: 100%;
     grid-template-areas:
       " nav"
-      " products";
+      " products"
+      " footer";
   }
 }

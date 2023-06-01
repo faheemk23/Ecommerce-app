@@ -59,7 +59,12 @@
   border-bottom: 1px solid #6e9144;
   border-right: 1px solid #6e9144;
   z-index: 20;
-  overflow: scroll;
+  background-color: white;
+  overflow-y: auto;
+}
+
+.empty-search-result {
+  padding: 0 0.5rem;
 }
 
 @media screen and (max-width: 1243px) {
@@ -72,7 +77,6 @@
   }
 
   .search-bar {
-    /* width: 80%; */
     width: 70vw;
     padding: 0.5rem;
   }

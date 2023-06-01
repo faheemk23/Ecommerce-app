@@ -11,7 +11,7 @@ export function AddressCard({
   setSelectedAddress,
   orderSummary,
 }) {
-  const { dataState, dataDispatch } = useContext(DataContext);
+  const { dataDispatch } = useContext(DataContext);
 
   const [editAddress, setEditAddress] = useState(false);
 
@@ -25,8 +25,6 @@ export function AddressCard({
     postalCode,
     number,
   } = address;
-
-  const { addresses } = dataState;
 
   const handleSelectedAddress = (addressClicked) => {
     setSelectedAddress(addressClicked);
@@ -45,13 +43,15 @@ export function AddressCard({
           edit
           setEditAddress={setEditAddress}
           previousAddress={address}
+          selectedAddress={selectedAddress}
+          setSelectedAddress={setSelectedAddress}
         />
       ) : (
         <div>
           <div onClick={checkout ? () => handleSelectedAddress(address) : null}>
             {checkout && address === selectedAddress && (
               <div className="address-check-icon ">
-                <i class="fa-sharp fa-solid fa-circle-check"></i>
+                <i className="fa-sharp fa-solid fa-circle-check"></i>
               </div>
             )}
             <div>{name}</div>

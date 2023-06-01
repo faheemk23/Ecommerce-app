@@ -10,7 +10,7 @@ export function FiltersPopout() {
   return (
     <div className="filters-popout">
       <div className="filter-column">
-        <div>
+        <div className="flex-space-between">
           <strong>Filters</strong>{" "}
           <button
             className="btn btn-primary bg-orange"

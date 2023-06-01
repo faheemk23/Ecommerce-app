@@ -7,7 +7,7 @@
 }
 
 body {
-  background-color: rgba(0, 0, 0, 0.03);
+  /* background-color: rgba(0, 0, 0, 0.03); */
 }
 
 input {
@@ -29,6 +29,7 @@ input:focus {
 
 .scale:hover {
   scale: 1.12;
+  transition: scale 0.4s;
 }
 
 .center-of-page {

@@ -9,6 +9,7 @@ import { Error } from "./Error/Error";
 import { MockmanTest } from "./MockmanTest";
 import { Account } from "./Account/Account";
 import { OrderSummary } from "../components/OrderSummary/OrderSummary";
+import { Checkout } from "./Checkout/Checkout";
 
 export {
   Home,
@@ -21,5 +22,6 @@ export {
   Error,
   MockmanTest,
   Account,
+  Checkout,
   OrderSummary,
 };

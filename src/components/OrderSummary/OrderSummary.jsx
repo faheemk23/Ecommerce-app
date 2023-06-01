@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import { Navigation } from "../nav/Navigation";
 import "./OrderSummary.css";
 import { DataContext } from "../../contexts/DataContext";
 import { toast } from "react-toastify";

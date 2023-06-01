@@ -1,18 +1,4 @@
-/* table {
-  width: 100%;
-}
-
-th {
-  text-align: left;
-}
-
-td {
-  text-align: right;
-}
-
- */
-
-hr {
+.price-detail-hr {
   width: 100%;
   color: rgba(0, 0, 0, 0.3);
 }
@@ -61,12 +47,7 @@ hr {
 .btn-checkout {
   display: inline-block;
   font-size: 1.2rem;
-  /* margin-left: auto; */
-  /* align-self: flex-end; */
-  /* justify-self: center; */
   margin-top: 1rem;
   margin-bottom: 0;
-  /* max-width: 6.5rem; */
-  /* color: red; */
   text-align: center;
 }

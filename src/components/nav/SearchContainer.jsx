@@ -1,6 +1,5 @@
 import { useContext, useState } from "react";
 import { ProductsListingContext } from "../../contexts/ProductsListingContext";
-import { ProductCard } from "../cards/ProductCard/ProductCard";
 import { SearchProductCard } from "../cards/SearchProductCard/SearchProductCard";
 
 export function SearchContainer() {
@@ -49,21 +48,31 @@ export function SearchContainer() {
         <input
           className="search-bar"
           value={searchInput}
-          type="text"
+          type="search"
+          // autoComplete=""
           onChange={(e) => setSearchInput(e.target.value)}
-          placeholder={`Search ${totalProductsNum}+ products `}
+          placeholder={`Search ${totalProductsNum}+ products`}
         />
       </div>
 
       {searchInput !== "" && (
         <div className="search-result">
-          {filteredProducts.map((product) => (
-            <SearchProductCard
-              key={product._id}
-              product={product}
-              setSearchInput={setSearchInput}
-            />
-          ))}
+          {filteredProducts.length === 0 ? (
+            <h2 className="empty-search-result">
+              Sorry, no products to display.
+            </h2>
+          ) : (
+            <>
+              {" "}
+              {filteredProducts.map((product) => (
+                <SearchProductCard
+                  key={product._id}
+                  product={product}
+                  setSearchInput={setSearchInput}
+                />
+              ))}{" "}
+            </>
+          )}
         </div>
       )}
     </div>
