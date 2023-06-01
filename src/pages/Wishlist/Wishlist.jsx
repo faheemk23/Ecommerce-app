@@ -16,6 +16,7 @@ export function Wishlist() {
           src={emptyResult}
           height="292px"
           width="292px"
+          alt="cute-dog"
         />
         <h1>wishlist is empty. Please add some items.</h1>
       </div>

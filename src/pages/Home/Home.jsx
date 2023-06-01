@@ -7,7 +7,6 @@ import { CategoryCard } from "../../components/cards/CategoryCard/CategoryCard";
 import { ProductsListingContext } from "../../contexts/ProductsListingContext";
 import { Hero } from "../../components/Hero/Hero";
 import { Footer } from "../../components/Footer/Footer";
-import { Test } from "../../components/cards/Test";
 import { ProductCard } from "../../components/cards/ProductCard/ProductCard";
 
 export function Home() {
@@ -47,6 +46,7 @@ export function Home() {
               <CategoryCard key={id} categoryName={categoryName} icon={icon} />
             ))}
           </div>
+          {/* <hr className="light-black" /> */}
           <div className="position-relative">
             <h2>Popular Products</h2>
             <Link className="btn-see-all btn btn-primary" to="/productlisting">
@@ -59,6 +59,7 @@ export function Home() {
               <ProductCard product={product} inWishlist minified />
             ))}
           </div>
+          {/* <hr className="light-black" /> */}
           <h2>Best Selling Products</h2>
           <div className="home-bestselling-products">
             {bestSelling.map((product) => (

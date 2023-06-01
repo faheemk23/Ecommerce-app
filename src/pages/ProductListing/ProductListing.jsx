@@ -1,11 +1,11 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { ColorRing } from "react-loader-spinner";
 
 import { ProductsListingContext } from "../../contexts/ProductsListingContext";
 import { ProductCard } from "../../components/cards/ProductCard/ProductCard";
 import "./ProductListing.css";
+import { Footer } from "../../components/Footer/Footer";
 import { FilterColumn } from "../../components/filters/FilterColumn";
-import { Test } from "../../components/cards/Test";
 import { filterProducts } from "../../utilites/productsUtilities";
 import { FiltersPopout } from "../../components/filters/FiltersPopout";
 import emptyResult from "../../assets/empty-result.jpg";
@@ -53,6 +53,7 @@ export function ProductListing() {
               src={emptyResult}
               height="292px"
               width="292px"
+              alt="cute-dog"
             />
             <h1>Sorry, no products to show with the given filters.</h1>
           </div>
@@ -64,6 +65,7 @@ export function ProductListing() {
           </>
         )}
       </div>
+      <Footer />
     </div>
   );
 }
