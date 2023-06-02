@@ -66,7 +66,7 @@ export function AddressInput({
         type: "update-address",
         payload: { addressId, updatedAddress },
       });
-      if (selectedAddress._id === addressId) {
+      if (selectedAddress?._id === addressId) {
         setSelectedAddress(updatedAddress);
       }
       setEditAddress(false);
