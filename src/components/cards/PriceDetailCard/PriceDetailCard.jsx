@@ -43,10 +43,10 @@ export function PriceDetailCard({
       name: "GROcery",
       description: "Thank you for shopping with us",
       handler: function (response) {
+        navigate("/");
         cart.map(({ _id }) => handleBtnRemoveFromCart(_id, dataDispatch));
         dataDispatch({ type: "clear-cart" });
         giveToast("Order Placed Successfully!", "success");
-        navigate("/");
       },
       theme: {
         color: "#6e9144",

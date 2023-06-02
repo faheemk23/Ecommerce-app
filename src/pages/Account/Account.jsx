@@ -69,7 +69,7 @@ export function Account() {
         </div>
       </div>
       <button
-        className="btn btn-secondary btn-logout"
+        className="btn btn-secondary btn-logout btn-secondary-hover"
         onClick={handleBtnLogout}
       >
         Logout
