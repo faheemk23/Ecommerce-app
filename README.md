@@ -2,6 +2,18 @@
 
 The GROcery ecommerce app is a convenient and user-friendly platform that revolutionizes the way we shop for groceries.
 
+[Go to the app](https://ecommerce-app-lilac-tau.vercel.app/)
+
+## Preview :
+
+### Home Page :
+
+- ![Assignment-4](https://github.com/faheemk23/Ecommerce-app/assets/121616994/f94f97c2-d952-456c-8741-29bc35aed6f5)
+
+### Product Listing Page :
+
+- ![Assignment-4-products](https://github.com/faheemk23/Ecommerce-app/assets/121616994/78741924-914a-455b-91c4-1d6ec3ab68c1)
+
 ## Features :
 
 - Landing page with a list of featured categories
@@ -33,3 +45,7 @@ The GROcery ecommerce app is a convenient and user-friendly platform that revolu
 - Razorpay payment gateway
 - mockBee backend
 - React Toastify
+
+## Limitations :
+
+- Using mock backend, so data will be lost if you hard refresh.
