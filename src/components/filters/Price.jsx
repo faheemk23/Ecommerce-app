@@ -21,6 +21,7 @@ export function Price() {
           {" "}
           <h2>Price</h2>
         </legend>
+        <div>₹{price} & below</div>
         <input
           className="accent-color-green full-width"
           value={price}

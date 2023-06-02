@@ -2,6 +2,8 @@ import { useContext, useState } from "react";
 import { ProductsListingContext } from "../../contexts/ProductsListingContext";
 import { SearchProductCard } from "../cards/SearchProductCard/SearchProductCard";
 
+import "./Navigation.css";
+
 export function SearchContainer() {
   const [searchInput, setSearchInput] = useState("");
   const { products } = useContext(ProductsListingContext);
@@ -44,7 +46,8 @@ export function SearchContainer() {
 
   return (
     <div className="search-container">
-      <div>
+      <div className="search-bar-container">
+        <i className="fa-solid fa-magnifying-glass search-icon"></i>
         <input
           className="search-bar"
           value={searchInput}

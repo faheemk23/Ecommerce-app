@@ -17,7 +17,13 @@ export function Hero() {
           Show Products
         </Link>
       </div>
-      <img className="hero-img" src={heroImage} alt="food" />
+      <img
+        className="hero-img"
+        src={heroImage}
+        height="42vh"
+        width="62vw"
+        alt="food"
+      />
     </div>
   );
 }

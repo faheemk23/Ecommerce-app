@@ -1,5 +1,5 @@
 .original-price {
-  color: rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.4);
   margin-left: 0.1rem;
   text-decoration: line-through;
 }
@@ -66,7 +66,7 @@
   margin: 0.5rem 0;
 }
 
-.red {
+i.red {
   color: red;
 }
 

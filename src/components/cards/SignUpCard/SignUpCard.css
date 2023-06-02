@@ -14,6 +14,7 @@
   text-align: center;
   font-size: xx-large;
   color: var(--primary-color);
+  margin-bottom: 2rem;
 }
 
 .signup-input {
@@ -49,4 +50,10 @@
   text-align: center;
   margin-top: 0.5rem;
   font-size: large;
+}
+
+@media screen and (max-width: 540px) {
+  .signup-card {
+    max-width: 380px;
+  }
 }

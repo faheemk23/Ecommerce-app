@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { DataContext } from "../../contexts/DataContext";
 import "./Wishlist.css";
@@ -8,6 +9,9 @@ import emptyResult from "../../assets/empty-result.jpg";
 export function Wishlist() {
   const { dataState } = useContext(DataContext);
   const { wishlist } = dataState;
+
+  const navigate = useNavigate();
+
   if (wishlist.length === 0) {
     return (
       <div className="empty-result-container">
@@ -19,6 +23,14 @@ export function Wishlist() {
           alt="cute-dog"
         />
         <h1>wishlist is empty. Please add some items.</h1>
+        <div>
+          <button
+            onClick={() => navigate("/productlisting")}
+            className="btn btn-secondary btn-secondary-hover"
+          >
+            Show me some products!
+          </button>
+        </div>
       </div>
     );
   }

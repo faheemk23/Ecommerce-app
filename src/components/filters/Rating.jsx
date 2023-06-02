@@ -13,6 +13,8 @@ export function Rating() {
         <legend>
           <h2>Rating</h2>
         </legend>
+        <div>{rating}★ & above</div>
+
         <input
           className="accent-color-green full-width"
           value={rating}
