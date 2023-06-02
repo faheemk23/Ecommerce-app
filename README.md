@@ -46,6 +46,13 @@ The GROcery ecommerce app is a convenient and user-friendly platform that revolu
 - mockBee backend
 - React Toastify
 
+## How to install and run on Local :
+
+    $ git clone https://github.com/faheemk23/Ecommerce-app.git
+    $ cd Ecommerce-app
+    $ npm install
+    $ npm start
+
 ## Limitations :
 
 - Using mock backend, so data will be lost if you hard refresh.
