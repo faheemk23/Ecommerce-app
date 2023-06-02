@@ -56,14 +56,24 @@ export function Home() {
 
           <div className="home-popular-products">
             {popular.map((product) => (
-              <ProductCard product={product} inWishlist minified />
+              <ProductCard
+                key={product._id}
+                product={product}
+                inWishlist
+                minified
+              />
             ))}
           </div>
           {/* <hr className="light-black" /> */}
           <h2>Best Selling Products</h2>
           <div className="home-bestselling-products">
             {bestSelling.map((product) => (
-              <ProductCard product={product} inWishlist minified />
+              <ProductCard
+                key={products._id}
+                product={product}
+                inWishlist
+                minified
+              />
             ))}
           </div>
         </div>

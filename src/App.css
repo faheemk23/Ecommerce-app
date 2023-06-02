@@ -24,12 +24,17 @@ input {
 }
 
 input:focus {
-  box-shadow: 0 0 10px var(--primary-color);
+  box-shadow: 0 0 2px var(--primary-color);
 }
 
 .scale:hover {
   scale: 1.12;
   transition: scale 0.4s;
+}
+
+.btn-secondary-hover:hover {
+  background-color: var(--primary-color);
+  color: white;
 }
 
 .center-of-page {

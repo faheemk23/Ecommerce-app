@@ -127,10 +127,19 @@ export function ProductCard({ product = {}, inWishlist, minified }) {
           </button>
         ))}
       {productInWishlist(wishlist, product) ? (
-        <i
-          className="fa-solid fa-heart wishlist-icon"
-          onClick={() => handleBtnRemoveFromWishlist(_id, dataDispatch)}
-        ></i>
+        <>
+          {inWishlist && !minified ? (
+            <i
+              onClick={() => handleBtnRemoveFromWishlist(_id, dataDispatch)}
+              class="fa-solid fa-trash wishlist-icon red "
+            ></i>
+          ) : (
+            <i
+              className="fa-solid fa-heart wishlist-icon"
+              onClick={() => handleBtnRemoveFromWishlist(_id, dataDispatch)}
+            ></i>
+          )}{" "}
+        </>
       ) : (
         <i
           className="fa-regular fa-heart wishlist-icon"

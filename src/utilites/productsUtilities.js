@@ -36,9 +36,7 @@ export const fetchProducts = async (productsDispatch, setLoading) => {
 };
 
 const getPriceFiltered = (products, priceRangeValue) =>
-  priceRangeValue === 0
-    ? products
-    : products.filter(({ price }) => price <= priceRangeValue);
+  products.filter(({ price }) => price <= priceRangeValue);
 
 const getCategoryFiltered = (products, categoriesSelected) => {
   if (categoriesSelected.length === 0) {
