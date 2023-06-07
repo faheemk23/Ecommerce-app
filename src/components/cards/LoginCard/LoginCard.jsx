@@ -73,7 +73,7 @@ export function LoginCard() {
       </div>
 
       <button
-        className="btn btn-secondary btn-test-user"
+        className="btn btn-secondary btn-test-user btn-secondary-hover"
         onClick={() =>
           loginHandler(testUserData, navigate, setLoggedIn, dataDispatch, from)
         }
