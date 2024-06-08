@@ -78,3 +78,11 @@ input:focus {
 .position-relative {
   position: relative;
 }
+
+.pointer {
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
+}

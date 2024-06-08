@@ -57,7 +57,7 @@ export function ProductCard({ product = {}, inWishlist, minified }) {
   };
 
   return (
-    <div className="product-card ">
+    <div className="product-card pointer">
       <div
         className="product-card-info"
         onClick={() => navigate(`/productDetail/${_id}`)}

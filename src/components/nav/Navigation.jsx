@@ -11,7 +11,7 @@ export function Navigation({ showBtnLogin }) {
   return (
     <div className="nav">
       <img
-        className="nav-logo"
+        className="nav-logo pointer"
         src={navLogo}
         onClick={() => navigate("/")}
         alt="nav-logo"
